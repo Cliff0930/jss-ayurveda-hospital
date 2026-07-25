@@ -1,0 +1,326 @@
+@import 'tailwindcss';
+
+/* ==========================================================================
+   JSS Ayurveda — design tokens
+   Palette drawn from the material of Ayurveda itself: forest greens of the
+   herbal garden, turmeric gold, sandalwood cream, and the deep ink of
+   classical palm-leaf manuscripts.
+   ========================================================================== */
+
+@theme {
+  /* Brand — deep healing green */
+  --color-jade-50: #f0f7f3;
+  --color-jade-100: #daece1;
+  --color-jade-200: #b6d9c6;
+  --color-jade-300: #86bfa3;
+  --color-jade-400: #559f7e;
+  --color-jade-500: #368263;
+  --color-jade-600: #24684f;
+  --color-jade-700: #1c5340;
+  --color-jade-800: #164234;
+  --color-jade-900: #123529;
+  --color-jade-950: #0a1f18;
+
+  /* Accent — turmeric */
+  --color-turmeric-50: #fdf8ed;
+  --color-turmeric-100: #f9edcf;
+  --color-turmeric-200: #f2d99c;
+  --color-turmeric-300: #e9be63;
+  --color-turmeric-400: #e2a63c;
+  --color-turmeric-500: #d18c25;
+  --color-turmeric-600: #b46e1d;
+  --color-turmeric-700: #90521b;
+  --color-turmeric-800: #77421d;
+  --color-turmeric-900: #64381c;
+
+  /* Warm neutrals — sandalwood */
+  --color-sand-50: #fbf9f5;
+  --color-sand-100: #f5f0e7;
+  --color-sand-200: #eae1d1;
+  --color-sand-300: #dbcbb2;
+  --color-sand-400: #c5ad8c;
+  --color-sand-500: #b0946f;
+  --color-sand-600: #9a7c5c;
+  --color-sand-700: #80644d;
+  --color-sand-800: #6a5344;
+  --color-sand-900: #57453a;
+
+  /* Ink */
+  --color-ink-500: #5c6660;
+  --color-ink-700: #2f3a35;
+  --color-ink-900: #16201b;
+
+  /* Clay — used sparingly for alerts / tertiary accents */
+  --color-clay-400: #d98863;
+  --color-clay-600: #b45f3c;
+
+  --font-display: var(--font-fraunces), 'Iowan Old Style', Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-card: 1.25rem;
+
+  --shadow-soft: 0 1px 2px rgb(18 53 41 / 0.04), 0 8px 24px -12px rgb(18 53 41 / 0.14);
+  --shadow-lift: 0 2px 4px rgb(18 53 41 / 0.05), 0 24px 48px -20px rgb(18 53 41 / 0.24);
+  --shadow-glow: 0 20px 60px -24px rgb(210 140 37 / 0.5);
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  :root {
+    /* Matches the unscrolled header bar in components/layout/Header.tsx, which
+       overrides this variable on itself as it shrinks on scroll. */
+    --header-height: 6rem;
+    color-scheme: light;
+  }
+
+  * {
+    border-color: --alpha(var(--color-sand-300) / 60%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 1.5rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-sand-50);
+    color: var(--color-ink-700);
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv05';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-jade-900);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-turmeric-200);
+    color: var(--color-jade-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-turmeric-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Chrome/Safari scrollbars inside data tables */
+  .scroll-slim::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  .scroll-slim::-webkit-scrollbar-track {
+    background: var(--color-sand-100);
+    border-radius: 99px;
+  }
+  .scroll-slim::-webkit-scrollbar-thumb {
+    background: var(--color-sand-300);
+    border-radius: 99px;
+  }
+  .scroll-slim::-webkit-scrollbar-thumb:hover {
+    background: var(--color-sand-400);
+  }
+}
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+@layer components {
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page { padding-inline: 2rem; }
+  }
+
+  @media (min-width: 1280px) {
+    .container-page { padding-inline: 2.5rem; }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-turmeric-700);
+  }
+
+  .eyebrow::before {
+    content: '';
+    height: 1px;
+    width: 1.75rem;
+    background: linear-gradient(90deg, transparent, var(--color-turmeric-400));
+  }
+
+  .eyebrow-center::before { display: none; }
+
+  /* Subtle paper grain over dark sections */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  .prose-jss {
+    color: var(--color-ink-700);
+    line-height: 1.75;
+  }
+  .prose-jss h2 { font-size: 1.5rem; margin-block: 2rem 0.75rem; }
+  .prose-jss h3 { font-size: 1.2rem; margin-block: 1.75rem 0.5rem; }
+  .prose-jss p { margin-block: 0.9rem; }
+  .prose-jss ul { margin-block: 1rem; padding-inline-start: 1.25rem; list-style: none; }
+  .prose-jss li { position: relative; padding-inline-start: 1rem; margin-block: 0.4rem; }
+  .prose-jss li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.6em;
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 99px;
+    background: var(--color-turmeric-400);
+  }
+  .prose-jss a { color: var(--color-jade-700); text-decoration: underline; text-underline-offset: 3px; }
+  .prose-jss strong { color: var(--color-jade-900); font-weight: 600; }
+}
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
+
+@layer utilities {
+  @keyframes jss-rise {
+    from { opacity: 0; transform: translate3d(0, 22px, 0); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes jss-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes jss-marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @keyframes jss-breathe {
+    0%, 100% { transform: scale(1); opacity: 0.55; }
+    50% { transform: scale(1.08); opacity: 0.85; }
+  }
+
+  /* Slow drift on the active hero slide so a still photograph still feels alive. */
+  @keyframes jss-kenburns {
+    from { transform: scale(1.04); }
+    to { transform: scale(1.13); }
+  }
+
+  .animate-kenburns {
+    animation: jss-kenburns 9s ease-out forwards;
+  }
+
+  @keyframes jss-shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+
+  .animate-marquee {
+    animation: jss-marquee 42s linear infinite;
+  }
+
+  .animate-breathe {
+    animation: jss-breathe 9s ease-in-out infinite;
+  }
+
+  /* Scroll-reveal: elements start hidden, `data-revealed` flips them in. */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+    transition:
+      opacity 0.75s var(--ease-out-soft),
+      transform 0.75s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .reveal[data-revealed='true'] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--color-sand-100) 25%,
+      var(--color-sand-200) 37%,
+      var(--color-sand-100) 63%
+    );
+    background-size: 200% 100%;
+    animation: jss-shimmer 1.6s linear infinite;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(96deg, var(--color-turmeric-300), var(--color-turmeric-100) 55%, var(--color-turmeric-300));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mask-fade-r {
+    mask-image: linear-gradient(90deg, #000 70%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .animate-marquee,
+  .animate-breathe {
+    animation: none !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media print {
+  header, footer, .no-print { display: none !important; }
+  body { background: #fff; }
+}
