@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 
 import { Achievements } from '@/components/home/Achievements';
 import { DoctorsPreview } from '@/components/home/DoctorsPreview';
-import { Effectiveness } from '@/components/home/Effectiveness';
 import { Hero } from '@/components/home/Hero';
 import { Philosophy } from '@/components/home/Philosophy';
 import { Process } from '@/components/home/Process';
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Achievements />
       <Services />
       <SpecialityShowcase />
-      <Effectiveness />
 
       {/* Streamed so a slow WordPress response never blocks the page shell. */}
       <Suspense fallback={<div className="h-64 bg-sand-50" />}>

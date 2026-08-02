@@ -135,13 +135,6 @@ export const services = [
   },
 ] as const;
 
-export const effectiveness = [
-  { label: 'Treatment Effectiveness', value: 96 },
-  { label: 'Body Balance Restoration', value: 92 },
-  { label: 'Accurate Diagnosis', value: 98 },
-  { label: 'Complete Detoxification', value: 94 },
-] as const;
-
 export const whyUs = [
   {
     title: '100% Organic Herbal Medicines',
