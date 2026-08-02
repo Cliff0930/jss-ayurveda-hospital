@@ -152,6 +152,28 @@ type RawDoctorPayload = {
   img?: string;
 };
 
+/**
+ * Doctor records whose photograph is wrong in WordPress.
+ *
+ * Dr. Sarbeswar Kar's record currently points at `dr-nirmala-a-r.webp` — a
+ * different consultant entirely — and no correct photograph of him exists yet,
+ * so the card should fall back to his initials rather than show someone else.
+ *
+ * Each entry names the *specific* file that is wrong. That matters: the moment
+ * the record is corrected in WordPress the served filename stops matching and
+ * this override quietly stops applying, so it can never go on to suppress a
+ * photograph that has since been fixed. Delete the entry once the CMS is right.
+ */
+const MISATTRIBUTED_PHOTOS: Record<string, string> = {
+  'dr-sarbeswar-kar': 'dr-nirmala-a-r.webp',
+};
+
+/** Blanks a doctor photo only while it is still the known-wrong file. */
+function correctedImage(doctorId: string, image: string): string {
+  const wrong = MISATTRIBUTED_PHOTOS[doctorId];
+  return wrong && image.includes(wrong) ? '' : image;
+}
+
 export function slugify(value: string): string {
   return value
     .toLowerCase()
@@ -186,9 +208,10 @@ export function parseDoctors(html: string): DoctorRecord[] {
     if (!name) continue;
 
     const department = decodeEntities(payload.dept ?? '').trim();
+    const id = slugify(name);
 
     doctors.push({
-      id: slugify(name),
+      id,
       name,
       qualification: (payload.qual ?? '').trim(),
       designation: decodeEntities(payload.desig ?? '').trim(),
@@ -196,7 +219,7 @@ export function parseDoctors(html: string): DoctorRecord[] {
       department,
       departmentSlug: deptSlugMatch?.[1]?.trim() || slugify(department),
       specialities: (payload.specs ?? []).map((s) => decodeEntities(String(s)).trim()).filter(Boolean),
-      image: (payload.img ?? '').trim(),
+      image: correctedImage(id, (payload.img ?? '').trim()),
     });
   }
 

@@ -74,7 +74,6 @@ const structuredData = {
   image: media.campusFront,
   description: site.description,
   telephone: contact.phones[0].display,
-  faxNumber: contact.fax,
   email: contact.email,
   foundingDate: String(site.established),
   medicalSpecialty: 'Ayurvedic Medicine',

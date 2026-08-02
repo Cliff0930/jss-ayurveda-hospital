@@ -44,7 +44,7 @@ export function DoctorsExplorer({
   return (
     <>
       {/* Toolbar */}
-      <div className="sticky top-[calc(var(--header-height)+0.5rem)] z-20 -mx-2 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
+      <div className="sticky top-[calc(var(--header-sticky)+0.5rem)] z-20 -mx-2 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
           <label className="relative flex-1">
             <span className="sr-only">Search doctors by name, qualification or department</span>

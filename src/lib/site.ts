@@ -30,11 +30,7 @@ export const contact = {
     { label: 'Reception', display: '0821-2548231', href: 'tel:+918212548231' },
     { label: 'Enquiries', display: '0821-2548298', href: 'tel:+918212548298' },
   ],
-  mobiles: [
-    { label: 'Hospital', display: '+91 91487 59349', href: 'tel:+919148759349' },
-    { label: 'Sushma', display: '+91 94494 50896', href: 'tel:+919449450896' },
-  ],
-  fax: '0821-2548299',
+  mobiles: [{ label: 'Hospital', display: '+91 91487 59349', href: 'tel:+919148759349' }],
   email: 'contact@jssamch.org',
   whatsapp: 'https://wa.me/919148759349',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=JSS+Ayurveda+Medical+College+and+Hospital+Alanahalli+Mysuru',
@@ -59,51 +55,42 @@ export type NavItem = {
   children?: { label: string; href: string; description?: string }[];
 };
 
+/**
+ * Main navigation.
+ *
+ * Transparency (staff / attendance / waste) and FAQs are deliberately absent —
+ * they are reference material rather than things a prospective patient browses
+ * for, so they live in the footer only. The slots they used to occupy now carry
+ * Treatments and Speciality Clinics, which were previously buried one level
+ * down inside the old "Care" dropdown.
+ */
 export const mainNav: NavItem[] = [
   { label: 'Home', href: '/' },
   {
-    label: 'About',
+    label: 'About Us',
     href: '/about',
     children: [
       { label: 'About the Hospital', href: '/about', description: 'Our story, campus and philosophy' },
       { label: 'JSS Mahavidyapeetha', href: '/about/jss-mahavidyapeetha', description: 'The parent institution, since 1954' },
       { label: 'Our Doctors', href: '/doctors', description: '44 consultants across 12 departments' },
       { label: 'Our Staff', href: '/staff', description: 'The full hospital team' },
+      { label: 'Facilities & Rooms', href: '/facilities', description: 'Wards, therapy rooms and campus' },
       { label: 'JSS Ayur Pharma', href: '/ayur-pharma', description: 'In-house Ayur-drug manufacturing' },
-      { label: 'Physiotherapy', href: '/physiotherapy', description: 'Modern rehabilitation support' },
       { label: 'Gallery', href: '/gallery', description: 'Campus, gardens, events and outreach' },
     ],
   },
+  { label: 'OPD & Departments', href: '/opd' },
+  { label: 'Physiotherapy', href: '/physiotherapy' },
   {
-    label: 'Care',
-    href: '/opd',
-    children: [
-      { label: 'OPD & Departments', href: '/opd', description: 'Seven clinical departments' },
-      { label: 'Speciality Clinics', href: '/specialities', description: 'Focused care for complex conditions' },
-      { label: 'Treatments', href: '/treatments', description: '30+ classical Ayurvedic therapies' },
-      { label: 'Facilities & Rooms', href: '/facilities', description: 'Wards, therapy rooms and campus' },
-    ],
-  },
-  {
-    label: 'Programs',
+    label: 'Packages',
     href: '/wellness-packages',
     children: [
       { label: 'Wellness Packages', href: '/wellness-packages', description: 'Panchakarma, Rasayana and more' },
-      { label: 'Department Packages', href: '/packages', description: 'Department-wise treatment posters' },
       { label: 'Pricing Plans', href: '/pricing', description: 'Transparent, all-inclusive tariffs' },
-      { label: 'Our Products', href: '/products', description: 'Take the healing home' },
     ],
   },
-  {
-    label: 'Transparency',
-    href: '/staff',
-    children: [
-      { label: 'Staff Directory', href: '/staff', description: 'Every member of the hospital team' },
-      { label: 'Attendance Analysis', href: '/attendance-analysis', description: 'Monthly staff attendance records' },
-      { label: 'Bio-Medical Waste Data', href: '/waste-data', description: 'Monthly waste disposal reporting' },
-    ],
-  },
-  { label: 'FAQs', href: '/faqs' },
+  { label: 'Treatments', href: '/treatments' },
+  { label: 'Speciality Clinics', href: '/specialities' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -139,9 +126,14 @@ export const footerNav = [
       { label: 'JSS Ayur Pharma', href: '/ayur-pharma' },
     ],
   },
+  /*
+    Transparency and FAQs are reachable from here only — they were taken out of
+    the main menu, so this group is now their sole entry point in the chrome.
+  */
   {
     title: 'Transparency',
     links: [
+      { label: 'Staff Directory', href: '/staff' },
       { label: 'Attendance Analysis', href: '/attendance-analysis' },
       { label: 'Bio-Medical Waste Data', href: '/waste-data' },
       { label: 'FAQs', href: '/faqs' },

@@ -34,7 +34,7 @@ export function TreatmentsGrid() {
 
   return (
     <>
-      <div className="sticky top-[calc(var(--header-height)+0.5rem)] z-20 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
+      <div className="sticky top-[calc(var(--header-sticky)+0.5rem)] z-20 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
         <label className="relative block">
           <span className="sr-only">Search treatments</span>
           <Icon.search

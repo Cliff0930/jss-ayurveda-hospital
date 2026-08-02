@@ -72,10 +72,34 @@
 
 @layer base {
   :root {
-    /* Matches the unscrolled header bar in components/layout/Header.tsx, which
-       overrides this variable on itself as it shrinks on scroll. */
+    /*
+      Two header measurements, because the header is two different sizes
+      depending on where you are on the page — and different consumers care
+      about different ones.
+
+      --header-height is the *unscrolled* header: utility bar + logo row +
+      (from xl) the menu row. Page content lands underneath it at scroll 0, so
+      heroes and the 404 use this for their top padding.
+
+      --header-sticky is the *scrolled*, compact header: the utility bar has
+      collapsed and the rows have shrunk. Sticky toolbars and scroll anchoring
+      only ever matter once the page has been scrolled, so they use this —
+      using the taller value would leave them floating 3.5rem too low.
+
+      These live here rather than on the header element itself: custom
+      properties inherit down the tree, and the header is a sibling of <main>,
+      so anything set on it is invisible to the page content.
+    */
     --header-height: 6rem;
+    --header-sticky: 5rem;
     color-scheme: light;
+  }
+
+  @media (min-width: 1280px) {
+    :root {
+      --header-height: 11.5rem;
+      --header-sticky: 8rem;
+    }
   }
 
   * {
@@ -84,7 +108,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--header-height) + 1.5rem);
+    scroll-padding-top: calc(var(--header-sticky) + 1.5rem);
     -webkit-text-size-adjust: 100%;
   }
 

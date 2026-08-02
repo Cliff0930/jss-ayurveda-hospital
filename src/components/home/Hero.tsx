@@ -104,8 +104,15 @@ export function Hero() {
         className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-sand-50 to-transparent"
       />
 
+      {/*
+        The copy column is deliberately capped at half the width and nothing is
+        placed beside it: the right-hand side of the hero is left empty so the
+        photograph behind it carries that area. The slider caption sits below,
+        in the strip the statistics rail used to occupy — those figures already
+        appear in full in the Achievements section further down the page.
+      */}
       <div className="container-page relative">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
+        <div>
           {/* Copy */}
           <div className="max-w-2xl">
             <Reveal>
@@ -195,8 +202,8 @@ export function Hero() {
           </div>
 
           {/* Slider caption + controls */}
-          <Reveal delay={300} className="lg:justify-self-end lg:pl-6">
-            <div className="w-full max-w-md rounded-[1.5rem] border border-sand-50/15 bg-jade-950/60 p-6 backdrop-blur-xl md:p-7">
+          <Reveal delay={300}>
+            <div className="mt-14 w-full max-w-3xl rounded-[1.5rem] border border-sand-50/15 bg-jade-950/60 p-6 backdrop-blur-xl md:mt-16 md:p-7">
               <div className="flex items-start justify-between gap-4">
                 <div aria-live="polite" className="min-w-0">
                   <p className="font-display text-[1.25rem] leading-snug text-sand-50">{active.title}</p>
@@ -274,21 +281,6 @@ export function Hero() {
             </div>
           </Reveal>
         </div>
-
-        {/* Highlight rail */}
-        <Reveal delay={420}>
-          <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-sand-50/12 bg-sand-50/12 md:mt-16 md:grid-cols-4">
-            {hero.highlights.map((item) => (
-              <div key={item.label} className="bg-jade-950/70 px-5 py-6 text-center backdrop-blur-sm">
-                <dt className="font-display text-3xl text-sand-50 md:text-4xl">
-                  {item.value}
-                  <span className="text-turmeric-400">{item.unit}</span>
-                </dt>
-                <dd className="mt-1.5 text-[0.8125rem] text-sand-300/80">{item.label}</dd>
-              </div>
-            ))}
-          </dl>
-        </Reveal>
       </div>
 
       <style>{`

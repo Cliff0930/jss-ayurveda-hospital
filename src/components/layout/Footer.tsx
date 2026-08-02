@@ -131,7 +131,6 @@ export function Footer() {
                     <span className="ml-2 text-[0.75rem] text-sand-400/70">{phone.label}</span>
                   </a>
                 ))}
-                <p className="pt-1 text-[0.8125rem] text-sand-400/70">Fax: {contact.fax}</p>
               </div>
             </div>
           </div>
@@ -163,7 +162,11 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 py-7 text-[0.8125rem] text-sand-400/70 md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {site.legalName}. A unit of JSS Mahavidyapeetha, Mysuru. All rights reserved.
+            © {year} {site.legalName}
+            <span className="mx-2 text-sand-400/40" aria-hidden>
+              ·
+            </span>
+            Website by Brand Fables
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/privacy-policy" className="transition hover:text-sand-100">

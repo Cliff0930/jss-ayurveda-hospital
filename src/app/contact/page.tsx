@@ -63,7 +63,6 @@ export default function ContactPage() {
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-2 text-[0.8125rem] text-sand-700">Fax: {contact.fax}</p>
                 </ContactCard>
               </Reveal>
 

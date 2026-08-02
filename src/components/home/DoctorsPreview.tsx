@@ -13,11 +13,20 @@ import { getDoctors } from '@/lib/wp/queries';
  * unaffected, which is the whole point of keeping this an isolated server
  * component.
  */
+/** The homepage shows the hospital's leadership only, not a slice of everyone. */
+const FEATURED_DEPARTMENT = 'hospital-administration';
+
 export async function DoctorsPreview() {
   const { doctors, departments } = await getDoctors();
   if (doctors.length === 0) return null;
 
-  const featured = doctors.slice(0, 4);
+  /*
+    Falls back to the first three of any department if the administration
+    department is ever renamed in WordPress — better a slightly different set
+    than an empty section.
+  */
+  const administration = doctors.filter((doctor) => doctor.departmentSlug === FEATURED_DEPARTMENT);
+  const featured = (administration.length > 0 ? administration : doctors).slice(0, 3);
 
   return (
     <Section tone="cream">
@@ -36,7 +45,7 @@ export async function DoctorsPreview() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((doctor, index) => (
             <Reveal key={doctor.id + doctor.name} delay={index * 80}>
               <Link href="/doctors" className="block h-full" aria-label={`See all doctors — ${doctor.name}`}>

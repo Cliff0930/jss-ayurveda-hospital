@@ -69,7 +69,7 @@ export function Header() {
       {/* Utility bar — hidden once the user starts scrolling to reclaim height */}
       <div
         className={cn(
-          'fixed inset-x-0 top-0 z-50 hidden overflow-hidden border-b border-sand-50/10 bg-jade-950 text-sand-300 transition-[height,opacity] duration-400 lg:block',
+          'fixed inset-x-0 top-0 z-50 hidden overflow-hidden border-b border-sand-50/10 bg-jade-950 text-sand-300 transition-[height,opacity] duration-400 xl:block',
           scrolled ? 'h-0 opacity-0' : 'h-10 opacity-100',
         )}
       >
@@ -117,9 +117,8 @@ export function Header() {
           'fixed inset-x-0 z-50 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]',
           scrolled
             ? 'top-0 border-b border-sand-200/70 bg-sand-50/88 backdrop-blur-xl shadow-[0_10px_30px_-24px_rgb(18_53_41/0.6)]'
-            : 'top-0 border-b border-transparent bg-transparent lg:top-10',
+            : 'top-0 border-b border-transparent bg-transparent xl:top-10',
         )}
-        style={{ ['--header-height' as string]: scrolled ? '5rem' : '6rem' }}
       >
         <div
           className={cn(
@@ -151,8 +150,99 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop navigation */}
-          <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
+          <div className="flex shrink-0 items-center gap-2">
+            {/*
+              Desktop only. Below `xl` the burger owns the right-hand side so the
+              logo gets the room it needs, and the same call to action sits at the
+              bottom of the mobile panel.
+
+              The visibility lives on this wrapper, not on the button: ButtonLink's
+              base class already sets `inline-flex`, and Tailwind emits
+              `.inline-flex` after `.hidden`, so passing `hidden` down would lose
+              the cascade and the button would stay visible on every screen.
+            */}
+            <div className="hidden items-center gap-2.5 xl:flex">
+              {/*
+                The accreditation mark reads as a credential for the button beside
+                it. It always carries its own white tile so it holds up over both
+                the dark hero and the cream scrolled bar.
+              */}
+              <Image
+                src={media.nabh}
+                alt="NABH accredited hospital"
+                width={400}
+                height={396}
+                className="h-10 w-10 shrink-0 rounded-lg bg-white object-contain p-1 shadow-soft ring-1 ring-sand-900/5"
+              />
+              <ButtonLink
+                href="/contact"
+                variant={scrolled ? 'primary' : 'secondary'}
+                size="sm"
+                arrow
+              >
+                Book a Consultation
+              </ButtonLink>
+            </div>
+
+            {/*
+              The toggle sits above the mobile panel, so its colours are driven by
+              what is *behind* it: the cream panel when open, the scrolled header
+              bar, or the dark hero. It always carries its own background so it
+              never washes out against a light section.
+            */}
+            <button
+              type="button"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMobileOpen((value) => !value)}
+              className={cn(
+                'grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors xl:hidden',
+                scrolled || mobileOpen
+                  ? 'border-sand-300 bg-white text-jade-900 shadow-soft'
+                  : 'border-sand-50/40 bg-jade-950/45 text-sand-50 backdrop-blur-sm',
+              )}
+            >
+              <span className="relative block h-4 w-5">
+                <span
+                  className={cn(
+                    'absolute left-0 block h-0.5 w-5 rounded bg-current transition-all duration-300',
+                    mobileOpen ? 'top-1.5 rotate-45' : 'top-0',
+                  )}
+                />
+                <span
+                  className={cn(
+                    'absolute left-0 top-1.5 block h-0.5 w-5 rounded bg-current transition-all duration-200',
+                    mobileOpen && 'opacity-0',
+                  )}
+                />
+                <span
+                  className={cn(
+                    'absolute left-0 block h-0.5 w-5 rounded bg-current transition-all duration-300',
+                    mobileOpen ? 'top-1.5 -rotate-45' : 'top-3',
+                  )}
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/*
+          The menu gets a row of its own from `xl` up.
+
+          Eight top-level entries with labels as long as "OPD & Departments"
+          and "Speciality Clinics", at a comfortable reading size, simply do
+          not fit beside the logo and the call to action on one line — they
+          either wrap or collide. Giving the menu the full content width solves
+          it without shrinking the type or abbreviating the labels.
+        */}
+        <div
+          className={cn(
+            'hidden border-t transition-colors duration-400 xl:block',
+            scrolled ? 'border-sand-200/70' : 'border-sand-50/15',
+          )}
+        >
+          <nav aria-label="Main" className="container-page flex h-12 items-center gap-0.5">
             {mainNav.map((item) => {
               const active = isBranchActive(item);
               const hasChildren = Boolean(item.children?.length);
@@ -173,7 +263,7 @@ export function Header() {
                     aria-haspopup={hasChildren || undefined}
                     onFocus={() => hasChildren && setOpenMenu(item.label)}
                     className={cn(
-                      'relative inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[0.875rem] font-medium transition-colors duration-200',
+                      'relative inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-1.5 text-[0.9375rem] font-medium transition-colors duration-200',
                       scrolled ? 'text-jade-900' : 'text-sand-100',
                       active
                         ? scrolled
@@ -197,9 +287,14 @@ export function Header() {
                   </Link>
 
                   {hasChildren ? (
+                    /*
+                      Anchored to the item's left edge rather than centred on
+                      it: the menu is left-aligned in its row, so a centred
+                      panel on the first entries would hang off the viewport.
+                    */
                     <div
                       className={cn(
-                        'absolute left-1/2 top-full w-[26rem] -translate-x-1/2 pt-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]',
+                        'absolute left-0 top-full w-[26rem] pt-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]',
                         openMenu === item.label
                           ? 'pointer-events-auto translate-y-0 opacity-100'
                           : 'pointer-events-none -translate-y-2 opacity-0',
@@ -235,70 +330,6 @@ export function Header() {
               );
             })}
           </nav>
-
-          <div className="flex shrink-0 items-center gap-2">
-            {/*
-              Desktop only. Below `lg` the burger owns the right-hand side so the
-              logo gets the room it needs, and the same call to action sits at the
-              bottom of the mobile panel.
-
-              The visibility lives on this wrapper, not on the button: ButtonLink's
-              base class already sets `inline-flex`, and Tailwind emits
-              `.inline-flex` after `.hidden`, so passing `hidden` down would lose
-              the cascade and the button would stay visible on every screen.
-            */}
-            <div className="hidden lg:block">
-              <ButtonLink
-                href="/contact"
-                variant={scrolled ? 'primary' : 'secondary'}
-                size="sm"
-                arrow
-              >
-                Book a Consultation
-              </ButtonLink>
-            </div>
-
-            {/*
-              The toggle sits above the mobile panel, so its colours are driven by
-              what is *behind* it: the cream panel when open, the scrolled header
-              bar, or the dark hero. It always carries its own background so it
-              never washes out against a light section.
-            */}
-            <button
-              type="button"
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-navigation"
-              onClick={() => setMobileOpen((value) => !value)}
-              className={cn(
-                'grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors lg:hidden',
-                scrolled || mobileOpen
-                  ? 'border-sand-300 bg-white text-jade-900 shadow-soft'
-                  : 'border-sand-50/40 bg-jade-950/45 text-sand-50 backdrop-blur-sm',
-              )}
-            >
-              <span className="relative block h-4 w-5">
-                <span
-                  className={cn(
-                    'absolute left-0 block h-0.5 w-5 rounded bg-current transition-all duration-300',
-                    mobileOpen ? 'top-1.5 rotate-45' : 'top-0',
-                  )}
-                />
-                <span
-                  className={cn(
-                    'absolute left-0 top-1.5 block h-0.5 w-5 rounded bg-current transition-all duration-200',
-                    mobileOpen && 'opacity-0',
-                  )}
-                />
-                <span
-                  className={cn(
-                    'absolute left-0 block h-0.5 w-5 rounded bg-current transition-all duration-300',
-                    mobileOpen ? 'top-1.5 -rotate-45' : 'top-3',
-                  )}
-                />
-              </span>
-            </button>
-          </div>
         </div>
       </header>
 
@@ -321,7 +352,7 @@ function MobileNav({
   return (
     <div
       className={cn(
-        'fixed inset-0 z-40 lg:hidden',
+        'fixed inset-0 z-40 xl:hidden',
         open ? 'pointer-events-auto' : 'pointer-events-none',
       )}
       aria-hidden={!open}

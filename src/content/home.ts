@@ -17,12 +17,6 @@ export const hero = {
     'JSS Ayurveda Hospital, Mysuru — where 5,000 years of Ayurvedic wisdom meets compassionate, personalised healing. Trusted since 1992 by patients from India and across the world.',
   primary: { label: 'Book a Consultation', href: '/contact' },
   secondary: { label: 'Explore Treatments', href: '/treatments' },
-  highlights: [
-    { value: '15', unit: 'acre', label: 'Healing campus' },
-    { value: '300', unit: '+', label: 'Herb species' },
-    { value: '26', unit: '', label: 'Therapy rooms' },
-    { value: '44', unit: '', label: 'Consultants' },
-  ],
 } as const;
 
 /**

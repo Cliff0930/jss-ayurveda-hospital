@@ -41,7 +41,7 @@ export default function FaqsPage() {
       <Section tone="cream">
         <div className="container-page">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
-            <div className="lg:sticky lg:top-[calc(var(--header-height)+2rem)] lg:self-start">
+            <div className="lg:sticky lg:top-[calc(var(--header-sticky)+2rem)] lg:self-start">
               <SectionHeading eyebrow="Help" title="What can we help you with?" />
 
               <Reveal delay={140}>
