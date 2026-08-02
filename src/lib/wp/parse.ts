@@ -153,25 +153,17 @@ type RawDoctorPayload = {
 };
 
 /**
- * Doctor records whose photograph is wrong in WordPress.
+ * Normalises a doctor photo, discarding the CMS plugin's stand-in.
  *
- * Dr. Sarbeswar Kar's record currently points at `dr-nirmala-a-r.webp` — a
- * different consultant entirely — and no correct photograph of him exists yet,
- * so the card should fall back to his initials rather than show someone else.
- *
- * Each entry names the *specific* file that is wrong. That matters: the moment
- * the record is corrected in WordPress the served filename stops matching and
- * this override quietly stops applying, so it can never go on to suppress a
- * photograph that has since been fixed. Delete the entry once the CMS is right.
+ * When a doctor record has no featured image the [jssdoc] shortcode does not
+ * leave the field empty — it substitutes its own generic silhouette as an
+ * inline `data:image/svg+xml` URI. Passing that straight through would paint a
+ * grey avatar that belongs to no design system; treating it as absent instead
+ * lets <DoctorCard> fall back to the consultant's initials, which is what the
+ * rest of the site does for a missing portrait.
  */
-const MISATTRIBUTED_PHOTOS: Record<string, string> = {
-  'dr-sarbeswar-kar': 'dr-nirmala-a-r.webp',
-};
-
-/** Blanks a doctor photo only while it is still the known-wrong file. */
-function correctedImage(doctorId: string, image: string): string {
-  const wrong = MISATTRIBUTED_PHOTOS[doctorId];
-  return wrong && image.includes(wrong) ? '' : image;
+function usableImage(image: string): string {
+  return image.startsWith('data:') ? '' : image;
 }
 
 export function slugify(value: string): string {
@@ -219,7 +211,7 @@ export function parseDoctors(html: string): DoctorRecord[] {
       department,
       departmentSlug: deptSlugMatch?.[1]?.trim() || slugify(department),
       specialities: (payload.specs ?? []).map((s) => decodeEntities(String(s)).trim()).filter(Boolean),
-      image: correctedImage(id, (payload.img ?? '').trim()),
+      image: usableImage((payload.img ?? '').trim()),
     });
   }
 
