@@ -16,6 +16,17 @@ const nextConfig: NextConfig = {
     ],
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    /*
+      Next re-encodes every remote image it serves. The default quality of 75 is
+      right for a well-exposed original, but the doctor portraits arrive from
+      WordPress already heavily compressed (~0.25 bits/pixel), so a second pass
+      at 75 compounds the artefacts rather than merely preserving them.
+
+      90 is allowed here so those images can opt out of the second generation of
+      loss. Next 16 rejects any quality not listed in this array, so both values
+      have to be declared.
+    */
+    qualities: [75, 90],
   },
   poweredByHeader: false,
   async headers() {

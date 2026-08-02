@@ -34,6 +34,8 @@ export function DoctorCard({
             alt={doctor.name}
             fill
             sizes="(min-width: 1280px) 18rem, (min-width: 768px) 30vw, 45vw"
+            /* Source portraits are already over-compressed — don't re-crush them. */
+            quality={90}
             className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />
         ) : (

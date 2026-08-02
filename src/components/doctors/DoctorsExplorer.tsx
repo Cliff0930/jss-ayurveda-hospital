@@ -160,6 +160,8 @@ function DoctorTile({ doctor, onSelect }: { doctor: DoctorRecord; onSelect: () =
             alt={doctor.name}
             fill
             sizes="(min-width: 1280px) 18rem, (min-width: 640px) 30vw, 90vw"
+            /* Source portraits are already over-compressed — don't re-crush them. */
+            quality={90}
             className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />
         ) : (
@@ -250,6 +252,7 @@ function DoctorDialog({ doctor, onClose }: { doctor: DoctorRecord | null; onClos
                 alt={doctor.name}
                 fill
                 sizes="15rem"
+                quality={90}
                 className="object-cover object-top"
               />
             ) : (
