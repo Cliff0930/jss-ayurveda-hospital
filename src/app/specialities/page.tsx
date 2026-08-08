@@ -69,6 +69,30 @@ export default function SpecialitiesPage() {
                       <p className="mt-2.5 flex-1 text-[0.875rem] leading-relaxed text-ink-500">
                         {clinic.summary}
                       </p>
+
+                      {/*
+                        Every clinic with a confirmed figure carries it here —
+                        including the four that have no deep-dive section, which
+                        would otherwise have nowhere to show it.
+                      */}
+                      {clinic.treated ? (
+                        <p className="mt-4 border-t border-sand-200 pt-3.5">
+                          <span className="font-display text-[1.25rem] leading-none text-jade-800">
+                            {clinic.treated.count}
+                          </span>{' '}
+                          <span className="text-[0.8125rem] text-ink-500">
+                            {clinic.treated.label}
+                          </span>
+                          {clinic.treated.breakdown ? (
+                            <span className="mt-1.5 block text-[0.75rem] leading-relaxed text-sand-600">
+                              {clinic.treated.breakdown
+                                .map((item) => `${item.label} ${item.value}`)
+                                .join(' · ')}
+                            </span>
+                          ) : null}
+                        </p>
+                      ) : null}
+
                       {hasDetail ? (
                         <a
                           href={`#${clinic.slug}`}
@@ -125,6 +149,19 @@ export default function SpecialitiesPage() {
                       </p>
                     ))}
                   />
+
+                  {clinic.treated ? (
+                    <Reveal delay={160}>
+                      <p className="mt-8 inline-flex items-baseline gap-2.5 rounded-full border border-jade-200 bg-jade-50 px-6 py-3">
+                        <span className="font-display text-[1.75rem] leading-none text-jade-900">
+                          {clinic.treated.count}
+                        </span>
+                        <span className="text-[0.9375rem] text-ink-500">
+                          {clinic.treated.label}
+                        </span>
+                      </p>
+                    </Reveal>
+                  ) : null}
 
                   <Reveal delay={200}>
                     <ButtonLink href="/contact" className="mt-8" arrow>

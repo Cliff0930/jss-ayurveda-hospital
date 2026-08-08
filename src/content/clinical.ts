@@ -140,6 +140,22 @@ export type Speciality = {
   /** Present only on clinics that get a long-form deep-dive section. */
   heading?: string;
   detail?: string[];
+  /**
+   * Patient numbers supplied by the hospital. Optional — a clinic without a
+   * confirmed figure simply shows no stat rather than a zero or a guess.
+   *
+   * `count` is written out rather than stored as a number because the figures
+   * are quoted in mixed units (thousands and lakhs) and are shown exactly as
+   * the hospital states them, always as an "at least" figure. `label` is kept
+   * per-clinic so a single clinic's wording can be changed without touching
+   * the rest.
+   */
+  treated?: {
+    count: string;
+    label: string;
+    /** Shown under the headline figure where one clinic covers several conditions. */
+    breakdown?: { label: string; value: string }[];
+  };
 };
 
 /** Speciality clinics — the short card copy plus the long-form detail. */
@@ -151,6 +167,7 @@ export const specialities: Speciality[] = [
       "Panchakarma and Rasayana-based approach to support neurological function, reduce tremors, improve mobility and enhance quality of life for Parkinson's patients.",
     icon: 'brain' as IconName,
     image: media.neckTreatment,
+    treated: { count: '1,000+', label: 'patients recovered' },
     heading: 'Nourishing the Nervous System — Naturally',
     detail: [
       "Parkinson's disease progressively affects the motor system — causing tremors, muscle rigidity, slowness of movement, postural instability and, in later stages, difficulty with speech and swallowing. While conventional medicine offers symptomatic management, Ayurveda offers a powerful complementary approach that addresses the underlying neurological deterioration.",
@@ -164,6 +181,7 @@ export const specialities: Speciality[] = [
       'Holistic Ayurvedic support alongside conventional cancer treatment — improving immunity, minimising side effects of chemo/radiation and enhancing patient quality of life.',
     icon: 'shield' as IconName,
     image: media.herbs,
+    treated: { count: '700+', label: 'patients recovered' },
     heading: 'Ayurvedic Support Alongside Your Cancer Treatment',
     detail: [
       "Cancer is one of the most challenging experiences a person and their family can face. JSS Ayurveda Hospital's Cancer Clinic does not claim to cure cancer — but it plays a deeply meaningful role in improving the patient's strength, immunity and wellbeing during and after conventional treatment.",
@@ -177,6 +195,15 @@ export const specialities: Speciality[] = [
       'Targeted Shirodhara, Nasya and Talam therapies to identify and correct the root cause of chronic headaches and migraines — providing lasting relief rather than temporary suppression.',
     icon: 'head' as IconName,
     image: media.shirodharaVessel,
+    treated: {
+      count: '7,400+',
+      label: 'patients recovered',
+      breakdown: [
+        { label: 'Migraine', value: '3,000+' },
+        { label: 'Sinus', value: '2,000+' },
+        { label: 'Tension-type', value: '2,400+' },
+      ],
+    },
   },
   {
     slug: 'liver',
@@ -185,6 +212,7 @@ export const specialities: Speciality[] = [
       'Classical Ayurvedic hepatology — Virechana and specialised herbal formulations to cleanse, restore and protect liver function for hepatitis, fatty liver, jaundice and cirrhosis support.',
     icon: 'liver' as IconName,
     image: media.turmericWide,
+    treated: { count: '10,000+', label: 'patients recovered' },
   },
   {
     slug: 'male-infertility',
@@ -206,6 +234,7 @@ export const specialities: Speciality[] = [
       'A gentle, personalised path to natural conception — addressing hormonal imbalance, uterine health and reproductive wellness. We have helped many women conceive naturally after failed conventional treatments.',
     icon: 'baby' as IconName,
     image: media.faceMassage,
+    treated: { count: '1 Lakh+', label: 'patients recovered' },
     heading: 'A Natural, Compassionate Path to Conception',
     detail: [
       'Infertility is a deeply personal and emotionally challenging journey. According to WHO data, primary infertility in India has risen significantly. The causes are many — ovulation disorders, PCOS, uterine abnormalities, endometriosis, tubal blockage and lifestyle factors. At JSS Ayurveda Hospital, we approach infertility with sensitivity, patience and a genuine commitment to finding a natural path forward.',
@@ -220,6 +249,7 @@ export const specialities: Speciality[] = [
     // Prakruti is the balance of the three doshas.
     icon: 'scale' as IconName,
     image: media.spices,
+    treated: { count: '1 Lakh+', label: 'patients recovered' },
   },
   {
     slug: 'piles-fistula',
@@ -228,6 +258,7 @@ export const specialities: Speciality[] = [
       'Minimally invasive Ayurvedic para-surgical procedures for piles, fissure and fistula — including the classical Kshara Sutra technique, proven safe and effective with a fast recovery time.',
     icon: 'scalpel' as IconName,
     image: media.oilsAlt,
+    treated: { count: '4,000+', label: 'patients recovered' },
   },
   {
     slug: 'arthritis',
@@ -236,6 +267,7 @@ export const specialities: Speciality[] = [
       'Panchakarma therapies, herbal medicines and dietary guidance to relieve joint pain, reduce inflammation and restore function for Osteoarthritis, Rheumatoid Arthritis and other inflammatory joint conditions.',
     icon: 'bone' as IconName,
     image: media.herbalCompress,
+    treated: { count: '2.5 Lakhs+', label: 'patients recovered' },
     heading: 'Relief, Restoration and Renewed Movement',
     detail: [
       'Arthritis is not an inevitable part of ageing — and joint pain should not be something you simply learn to live with. At JSS Ayurveda Hospital, our doctors use a combination of Panchakarma therapies, targeted herbal formulations and personalised dietary guidance to address the inflammation at its root.',
