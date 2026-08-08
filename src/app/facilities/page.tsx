@@ -10,6 +10,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { additionalFacilities, campusFacilities, campusIntro, rooms } from '@/content/facilities';
+import { imageSlotsById } from '@/lib/image-prompts';
 import { media } from '@/lib/media';
 
 export const metadata: Metadata = {
@@ -17,6 +18,15 @@ export const metadata: Metadata = {
   description:
     'Accommodation and facilities at JSS Ayurveda Hospital, Mysuru — general, semi-special, special, deluxe and ultra deluxe wards, 26 therapy rooms, yoga hall, 15-acre herbal garden, pharmacy, lab and two operation theatres.',
 };
+
+/**
+ * Only three of the five room categories have been photographed. Splitting on
+ * the slot's `src` rather than on a hard-coded list means the page corrects
+ * itself the moment a missing photograph is supplied.
+ */
+const hasPhotograph = (slot: string) => Boolean(imageSlotsById[slot]?.src);
+const photographed = rooms.filter((room) => hasPhotograph(room.imageSlot));
+const listed = rooms.filter((room) => !hasPhotograph(room.imageSlot));
 
 export default function FacilitiesPage() {
   return (
@@ -43,20 +53,61 @@ export default function FacilitiesPage() {
             align="center"
           />
 
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {rooms.map((room, index) => (
-              <Reveal key={room.slug} delay={(index % 3) * 80} className={index === 0 ? 'lg:col-span-2' : undefined}>
-                <article className="group flex h-full flex-col overflow-hidden rounded-card border border-sand-200 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:shadow-lift">
-                  <AiImage
-                    slot={room.imageSlot}
-                    className={index === 0 ? 'aspect-2/1 w-full' : 'aspect-4/3 w-full'}
-                    sizes={index === 0 ? '(min-width: 1024px) 44rem, 90vw' : '(min-width: 1024px) 22rem, 45vw'}
-                    showPrompt={false}
-                  />
+          {/* Photographed rooms lead, at full card size. */}
+          {photographed.length > 0 ? (
+            <div className="mt-14 grid gap-6 lg:grid-cols-2">
+              {photographed.map((room, index) => (
+                <Reveal key={room.slug} delay={index * 90}>
+                  <article className="group flex h-full flex-col overflow-hidden rounded-card border border-sand-200 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:shadow-lift">
+                    <AiImage
+                      slot={room.imageSlot}
+                      className="aspect-16/10 w-full"
+                      sizes="(min-width: 1024px) 34rem, 90vw"
+                      showPrompt={false}
+                    />
 
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="text-[1.125rem] leading-snug">{room.name}</h3>
-                    <p className="mt-2.5 flex-1 text-[0.9375rem] leading-relaxed text-ink-500">{room.body}</p>
+                    <div className="flex flex-1 flex-col p-7 md:p-8">
+                      <h3 className="text-[1.25rem] leading-snug">{room.name}</h3>
+                      <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-500">
+                        {room.body}
+                      </p>
+
+                      <ul className="mt-6 flex flex-wrap gap-2">
+                        {room.features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="rounded-full bg-sand-100 px-3 py-1 text-[0.75rem] text-ink-700"
+                          >
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          ) : null}
+
+          {/*
+            Rooms we have no photograph of carry no image frame at all — an empty
+            placeholder reads as a broken page, and a stand-in photograph of the
+            wrong room would be worse. They keep every word of their description
+            and simply sit in a tighter, text-led row.
+
+            The split is read from the image slots, not hard-coded: supply a
+            photograph for one of these rooms and it moves up into the row above
+            on its own.
+          */}
+          {listed.length > 0 ? (
+            <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {listed.map((room, index) => (
+                <Reveal key={room.slug} delay={(index % 3) * 80}>
+                  <article className="flex h-full flex-col rounded-card border border-sand-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1 hover:border-jade-200 hover:shadow-soft">
+                    <h3 className="text-[1.0625rem] leading-snug">{room.name}</h3>
+                    <p className="mt-2.5 flex-1 text-[0.875rem] leading-relaxed text-ink-500">
+                      {room.body}
+                    </p>
 
                     <ul className="mt-5 flex flex-wrap gap-2">
                       {room.features.map((feature) => (
@@ -68,11 +119,11 @@ export default function FacilitiesPage() {
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          ) : null}
 
           <Reveal delay={280}>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4 rounded-card border border-jade-100 bg-jade-50 p-7 text-center">
@@ -159,6 +210,13 @@ export default function FacilitiesPage() {
               </ul>
             </div>
 
+            {/*
+              The Sattvic kitchen has never been photographed, so it is not
+              given a frame here — the two real photographs pair up instead,
+              matched at the same ratio rather than leaving a short tile beside
+              a tall one. The kitchen is still listed in the facilities column
+              on the left, so nothing is lost but the empty box.
+            */}
             <div className="grid gap-5 sm:grid-cols-2">
               <Reveal delay={120}>
                 <div className="overflow-hidden rounded-card border border-sand-200">
@@ -166,19 +224,14 @@ export default function FacilitiesPage() {
                 </div>
               </Reveal>
               <Reveal delay={200}>
-                <div className="grid gap-5">
-                  <div className="overflow-hidden rounded-card border border-sand-200">
-                    <AiImage slot="sattvic-kitchen" className="aspect-4/3 w-full" sizes="22rem" showPrompt={false} />
-                  </div>
-                  <div className="relative aspect-4/3 overflow-hidden rounded-card border border-sand-200">
-                    <Image
-                      src={media.garden4}
-                      alt="Medicinal plants in the hospital's herbal garden"
-                      fill
-                      sizes="22rem"
-                      className="object-cover"
-                    />
-                  </div>
+                <div className="relative aspect-3/4 overflow-hidden rounded-card border border-sand-200">
+                  <Image
+                    src={media.garden4}
+                    alt="Medicinal plants in the hospital's herbal garden"
+                    fill
+                    sizes="22rem"
+                    className="object-cover"
+                  />
                 </div>
               </Reveal>
             </div>
