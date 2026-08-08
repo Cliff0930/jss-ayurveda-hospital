@@ -133,6 +133,11 @@ export const Icon = {
       <path d="M4 19h16" />
     </svg>
   ),
+  play: (p: IconProps) => (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...p}>
+      <path d="M8 5.6c0-.8.9-1.3 1.6-.9l9 6.4c.6.4.6 1.4 0 1.8l-9 6.4c-.7.4-1.6-.1-1.6-.9V5.6Z" />
+    </svg>
+  ),
   quote: (p: IconProps) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...p}>
       <path d="M9.6 5.2C6.3 6.7 4.4 9.5 4.4 13v5.8h6.4v-6.4H7.9c0-2.3 1-3.9 3-4.9l-1.3-2.3Zm9.3 0c-3.3 1.5-5.2 4.3-5.2 7.8v5.8h6.4v-6.4h-2.9c0-2.3 1-3.9 3-4.9l-1.3-2.3Z" />

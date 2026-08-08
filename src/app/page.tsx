@@ -9,6 +9,7 @@ import { Programs } from '@/components/home/Programs';
 import { Services } from '@/components/home/Services';
 import { SpecialityShowcase } from '@/components/home/SpecialityShowcase';
 import { Testimonials } from '@/components/home/Testimonials';
+import { VideoStories } from '@/components/home/VideoStories';
 import { WhyUs } from '@/components/home/WhyUs';
 import { CtaBand } from '@/components/shared/CtaBand';
 
@@ -28,6 +29,7 @@ export default function HomePage() {
 
       <WhyUs />
       <Testimonials />
+      <VideoStories />
       <Programs />
       <Process />
       <CtaBand />

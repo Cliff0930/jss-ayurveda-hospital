@@ -173,6 +173,63 @@ export const testimonials = [
   },
 ] as const;
 
+/**
+ * Video testimonials — the "Watch Our Stories" section requested in the August
+ * 2026 correction round.
+ *
+ * Each story plays from ONE of two sources, checked in this order:
+ *
+ *   youtubeId  — preferred. Paste the 11-character id from the watch URL
+ *                (youtube.com/watch?v=THIS_PART). Unlisted videos work.
+ *   src        — a file served by us, currently `public/videos/`.
+ *
+ * Setting `youtubeId` on a story silently retires its `src`, so moving the
+ * videos to the hospital's YouTube channel later is one line per story and the
+ * files under `public/videos/` can then be deleted.
+ *
+ * A story with neither source set is skipped, and the whole section disappears
+ * if none of them can play — so a half-finished list never ships a broken card.
+ *
+ * The clips are vertical (9:16) and the layout depends on that; a landscape
+ * clip added here would letterbox inside its card.
+ */
+export const videoStories = [
+  {
+    name: 'Abhishek Jain',
+    context: 'In his own words',
+    duration: '1:43',
+    poster: photo.storyAbhishek,
+    youtubeId: '',
+    src: '/videos/story-abhishek-jain.mp4',
+  },
+  {
+    name: 'A young patient',
+    context: 'Told by her father',
+    duration: '0:35',
+    poster: photo.storyBaby,
+    youtubeId: '',
+    src: '/videos/story-baby.mp4',
+  },
+  {
+    name: 'Srinivas',
+    context: 'Patient of Dr. Netra B Hubballi',
+    duration: '1:50',
+    poster: photo.storySrinivas,
+    youtubeId: '',
+    src: '/videos/story-srinivas.mp4',
+  },
+  {
+    name: 'T P Singh',
+    context: 'In his own words',
+    duration: '0:59',
+    poster: photo.storyTpSingh,
+    youtubeId: '',
+    src: '/videos/story-tp-singh.mp4',
+  },
+] as const;
+
+export type VideoStory = (typeof videoStories)[number];
+
 export const programs = [
   {
     title: 'Panchakarma',
