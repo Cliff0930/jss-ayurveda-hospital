@@ -145,7 +145,13 @@ export function Header() {
               */
               className={cn(
                 'w-auto max-w-[62vw] object-contain object-left transition-[height] duration-400 sm:max-w-none',
-                scrolled ? 'h-12 md:h-14' : 'h-14 md:h-16',
+                /*
+                  80 px at rest is the ceiling the image spec sets for the white
+                  mark (G-02), and about all the 96 px bar can give it. The
+                  scrolled bar is 80 px, so the mark steps down with it to keep
+                  the same breathing room above and below.
+                */
+                scrolled ? 'h-14 md:h-16' : 'h-18 md:h-20',
               )}
             />
           </Link>
