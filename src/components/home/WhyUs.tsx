@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/Icons';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { whyUs } from '@/content/home';
-import { media } from '@/lib/media';
+import { photo } from '@/lib/media';
 import { site } from '@/lib/site';
 
 export function WhyUs() {
@@ -40,8 +40,8 @@ export function WhyUs() {
           <Reveal delay={160}>
             <div className="relative h-full min-h-[26rem] overflow-hidden rounded-[2rem] shadow-lift">
               <Image
-                src={media.backMassage}
-                alt="A therapist performing a classical Ayurvedic back oil massage"
+                src={photo.whyChooseUs}
+                alt="A therapist performing Shirodhara, a warm medicated oil stream over the forehead"
                 fill
                 sizes="(min-width: 1024px) 30rem, 90vw"
                 className="object-cover"

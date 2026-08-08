@@ -1,13 +1,14 @@
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 import { CtaBand } from '@/components/shared/CtaBand';
-import { AiImage } from '@/components/ui/AiImage';
 import { ButtonLink } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icons';
 import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { departments, opdInfo } from '@/content/clinical';
+import { photo } from '@/lib/media';
 import { contact } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function OpdPage() {
         eyebrow="OPD & Departments"
         title="Expert Ayurvedic care across every speciality"
         crumbs={[{ label: 'OPD & Departments' }]}
-        imageSlot="consultation-room"
+        image={photo.opdBanner}
         intro="Every OPD department is led by qualified specialists who combine the depth of classical Ayurveda with the precision of modern diagnostic methods."
       >
         <div className="flex flex-wrap gap-3">
@@ -151,12 +152,13 @@ export default function OpdPage() {
             </div>
 
             <Reveal delay={160}>
-              <div className="overflow-hidden rounded-[2rem] border border-sand-200">
-                <AiImage
-                  slot="consultation-room"
-                  className="aspect-3/4 w-full"
+              <div className="relative aspect-3/4 overflow-hidden rounded-[2rem] border border-sand-200">
+                <Image
+                  src={photo.opdPortrait}
+                  alt="A consultant examining a patient during an out-patient consultation"
+                  fill
                   sizes="(min-width: 1024px) 30rem, 90vw"
-                  showPrompt={false}
+                  className="object-cover"
                 />
               </div>
             </Reveal>

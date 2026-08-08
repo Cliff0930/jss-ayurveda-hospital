@@ -39,7 +39,7 @@ export type ImageSlot = {
   source?: string;
 };
 
-import { archive, media } from './media';
+import { archive, media, photo } from './media';
 
 const SHARED_STYLE =
   'Photorealistic editorial photography, natural daylight, warm and calm colour grade of deep forest green, sandalwood beige, turmeric gold and cream. Authentic South Indian Ayurvedic hospital in Mysuru, Karnataka. Indian people, respectful and dignified. Clean, uncluttered composition with generous negative space. No text, no logos, no watermarks, no distorted hands or faces.';
@@ -68,6 +68,8 @@ export const imageSlots: ImageSlot[] = [
     width: 2400,
     height: 1200,
     prompt: `Aerial drone photograph of a 15-acre green hospital campus at the foothills of Chamundi Hills, Mysuru, early morning. Low white and terracotta buildings surrounded by dense medicinal herb gardens, coconut palms, walking paths, water tanks, and mist over the hills in the background. Lush and peaceful. ${SHARED_STYLE}`,
+    src: photo.campusAerial,
+    source: 'Client-supplied — spec ref A-03, aerial of the campus in the foothills',
   },
   {
     id: 'herbal-garden-macro',
@@ -86,8 +88,8 @@ export const imageSlots: ImageSlot[] = [
     width: 1600,
     height: 1000,
     prompt: `Interior of a clean, well-lit traditional Ayurvedic medicine manufacturing unit: large polished copper and steel vessels simmering herbal decoction, technicians in white coats and hairnets working carefully, rows of labelled glass jars of churna powders, stainless steel work surfaces. Steam and warm light, GMP-clean but traditional in character. ${SHARED_STYLE}`,
-    src: archive.pharmacyCounter,
-    source: 'jssamch.org — the hospital’s in-house pharmacy counter',
+    src: photo.pharmacyUnit,
+    source: 'Client-supplied — spec ref A-11, the in-house Ayur-drug unit',
   },
   {
     id: 'panchakarma-therapy',
@@ -96,8 +98,8 @@ export const imageSlots: ImageSlot[] = [
     width: 1600,
     height: 1100,
     prompt: `An Ayurvedic Abhyanga therapy in progress: two trained Indian therapists in white uniforms performing a synchronised warm oil massage on a patient lying on a carved wooden Droni table, the patient's modesty fully covered with white cloth. Brass oil pot, folded towels, herbal steam chamber in soft focus behind. Respectful, clinical yet warm. ${SHARED_STYLE}`,
-    src: archive.therapyAbhyanga,
-    source: 'jssamch.org — Abhyanga performed on a Droni in the therapy wing',
+    src: photo.panchakarmaBand,
+    source: 'Client-supplied — spec ref T-04, Shirodhara in a therapy room',
   },
   {
     id: 'consultation-room',
@@ -106,8 +108,8 @@ export const imageSlots: ImageSlot[] = [
     width: 1400,
     height: 1000,
     prompt: `An Ayurvedic doctor performing Nadi Pariksha (pulse diagnosis) — three fingers gently on a seated patient's wrist across a wooden desk in a bright consultation room. Notebook, brass bell, small potted plant, framed anatomy chart on the wall. Focus on the hands, patient softly blurred. ${SHARED_STYLE}`,
-    src: archive.doctorPatient,
-    source: 'jssamch.org — a consultant greeting an in-patient on the ward',
+    src: photo.consultation,
+    source: 'Client-supplied — spec ref H-11, consultants on the in-patient round',
   },
   {
     id: 'yoga-hall',
@@ -178,6 +180,8 @@ export const imageSlots: ImageSlot[] = [
     width: 1600,
     height: 1000,
     prompt: `A modern physiotherapy and rehabilitation room in an Indian hospital: parallel bars, exercise mats, therapy balls, a treatment couch, ultrasound therapy unit, and a physiotherapist in a white coat guiding a middle-aged patient through a gentle knee exercise. Bright, clean, encouraging atmosphere. ${SHARED_STYLE}`,
+    src: photo.physiotherapyBand,
+    source: 'Client-supplied — spec ref A-15, the rehabilitation gym',
   },
   {
     id: 'products-range',
@@ -196,8 +200,8 @@ export const imageSlots: ImageSlot[] = [
     width: 1600,
     height: 1100,
     prompt: `A senior Indian Ayurvedic consultant explaining a treatment plan to an elderly patient and their adult daughter across a consultation desk, all seated, warm and reassuring body language, sunlight from a side window, wooden shelves of classical Sanskrit texts behind. ${SHARED_STYLE}`,
-    src: archive.wardRound,
-    source: 'jssamch.org — a consultant and nurse reviewing an in-patient',
+    src: photo.specialitiesBanner,
+    source: 'Client-supplied — spec ref S-01, consultants reviewing a patient',
   },
   {
     id: 'international-patient',
@@ -226,8 +230,8 @@ export const imageSlots: ImageSlot[] = [
     width: 2000,
     height: 800,
     prompt: `Abstract editorial photograph representing institutional transparency in healthcare: an orderly wall of pale wooden card-index drawers with brass label holders, softly lit from the left, shallow depth of field, one drawer slightly open. Calm, precise, archival. ${SHARED_STYLE}`,
-    src: archive.nursingStation,
-    source: 'jssamch.org — the hospital nursing station with staff on duty',
+    src: photo.transparencyBanner,
+    source: 'Client-supplied — spec ref X-01, the full hospital staff',
   },
   {
     id: 'waste-management',
@@ -244,8 +248,8 @@ export const imageSlots: ImageSlot[] = [
     width: 1600,
     height: 1000,
     prompt: `A dignified wide photograph of a historic South Indian educational institution building in Mysuru at golden hour — colonial-era stone architecture with arches and columns, mature trees, students walking in the distance, warm light on the facade. Timeless and respectful. ${SHARED_STYLE}`,
-    src: media.founders,
-    source: 'WordPress media — the founders of JSS Mahavidyapeetha',
+    src: photo.legacyBanner,
+    source: 'Client-supplied — spec ref A-06, the Suttur seers',
   },
 ];
 

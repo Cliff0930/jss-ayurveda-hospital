@@ -9,7 +9,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { ayurPharma } from '@/content/misc';
-import { media } from '@/lib/media';
+import { photo } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'JSS Ayur Pharma',
@@ -24,7 +24,7 @@ export default function AyurPharmaPage() {
         eyebrow="JSS Ayur Pharma"
         title="From our garden. To your prescription."
         crumbs={[{ label: 'About', href: '/about' }, { label: 'JSS Ayur Pharma' }]}
-        imageSlot="pharmacy-unit"
+        image={photo.ayurPharmaBanner}
         intro={ayurPharma.intro}
       >
         <ButtonLink href="/products" variant="secondary" arrow>
@@ -111,9 +111,9 @@ export default function AyurPharmaPage() {
         <div className="container-page">
           <div className="grid gap-5 sm:grid-cols-3">
             {[
-              { src: media.turmericWide, alt: 'Turmeric root and powder used in classical formulations' },
-              { src: media.garden8, alt: 'Medicinal herbs growing in the campus garden' },
-              { src: media.spices, alt: 'Fresh ingredients prepared for herbal formulation' },
+              { src: photo.ingredients1, alt: 'Turmeric, ginger and dried herbs used in classical formulations' },
+              { src: photo.ingredients2, alt: 'A prepared herbal formulation alongside its raw ingredients' },
+              { src: photo.ingredients3, alt: 'Jars of churna powders and herbs from the campus garden' },
             ].map((image, index) => (
               <Reveal key={image.src} delay={index * 90}>
                 <div className="relative aspect-4/3 overflow-hidden rounded-card border border-sand-200">

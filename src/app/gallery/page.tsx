@@ -4,7 +4,7 @@ import { GalleryGrid } from '@/components/gallery/GalleryGrid';
 import { CtaBand } from '@/components/shared/CtaBand';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Section';
-import { media } from '@/lib/media';
+import { photo } from '@/lib/media';
 import { getGallery } from '@/lib/wp/queries';
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default async function GalleryPage() {
         eyebrow="Gallery"
         title="Life at JSS Ayurveda Hospital"
         crumbs={[{ label: 'Gallery' }]}
-        image={media.campusWide}
+        image={photo.galleryBanner}
         intro={`Our campus, gardens, events and community outreach — ${total} photographs from the hospital.`}
       />
 

@@ -71,6 +71,87 @@ export const media = {
 export type MediaKey = keyof typeof media;
 
 /* -------------------------------------------------------------------------- */
+/* Client-supplied photography (August 2026)                                  */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Photographs delivered by the client's designer against the reference numbers
+ * in JSS-Website-Image-Specification.pdf, shot or sourced at the exact size the
+ * brief asked for.
+ *
+ * These are served from `public/photos/` rather than WordPress: they arrived as
+ * files, not as media-library uploads, and shipping them with the build keeps
+ * the size guarantee intact. If they are later uploaded to WordPress, move the
+ * entries into `media` above and delete the files — nothing else changes.
+ *
+ * The key is the placement; the comment is the spec reference.
+ */
+const photoFile = (name: string) => `/photos/${name}`;
+
+export const photo = {
+  /** H-01 — homepage hero slider, seven slides in order. */
+  heroHospitalFront: photoFile('h-01-1-hospital-front.webp'),
+  heroCampus: photoFile('h-01-2-campus.webp'),
+  heroCollegeBlock: photoFile('h-01-3-college-block.webp'),
+  heroWardRound: photoFile('h-01-4-ward-round.webp'),
+  heroAbhyanga: photoFile('h-01-5-abhyanga.webp'),
+  heroEyeClinic: photoFile('h-01-6-eye-clinic.webp'),
+  heroShirodhara: photoFile('h-01-7-shirodhara.webp'),
+
+  /** H-08 — "Why Choose Us" panel, right column. */
+  whyChooseUs: photoFile('h-08-why-choose-us.webp'),
+  /** H-11 — consultation, used by the homepage process steps and the FAQs banner. */
+  consultation: photoFile('h-11-consultation.webp'),
+
+  /** A-01 / A-02 / A-03 — About Us. */
+  aboutBanner: photoFile('a-01-about-banner.webp'),
+  campusPortrait: photoFile('a-02-campus-portrait.webp'),
+  campusAerial: photoFile('a-03-campus-aerial.webp'),
+
+  /** A-06 / A-07 — JSS Mahavidyapeetha. */
+  legacyBanner: photoFile('a-06-legacy-banner.webp'),
+  founders: photoFile('a-07-founders.webp'),
+
+  /** A-10 / A-11 / A-12 — JSS Ayur Pharma. */
+  ayurPharmaBanner: photoFile('a-10-ayur-pharma-banner.webp'),
+  pharmacyUnit: photoFile('a-11-pharmacy-unit.webp'),
+  ingredients1: photoFile('a-12-ingredients-1.webp'),
+  ingredients2: photoFile('a-12-ingredients-2.webp'),
+  ingredients3: photoFile('a-12-ingredients-3.webp'),
+
+  /** A-14 / A-15 — Physiotherapy. */
+  physiotherapyBanner: photoFile('a-14-physiotherapy-banner.webp'),
+  physiotherapyBand: photoFile('a-15-physiotherapy-band.webp'),
+
+  /** O-01 / O-02 — OPD & Departments. */
+  opdBanner: photoFile('o-01-opd-banner.webp'),
+  opdPortrait: photoFile('o-02-consultation-portrait.webp'),
+
+  /** S-01 — Speciality Clinics (also the Our Doctors banner). */
+  specialitiesBanner: photoFile('s-01-specialities-banner.webp'),
+
+  /** T-01 / T-04 — Treatments. */
+  treatmentsBanner: photoFile('t-01-treatments-banner.webp'),
+  panchakarmaBand: photoFile('t-04-panchakarma-band.webp'),
+
+  /** Y-01 — Gallery banner. */
+  galleryBanner: photoFile('y-01-gallery-banner.jpg'),
+
+  /** X-01 — Transparency banner, shared by Staff, Attendance and Waste data. */
+  transparencyBanner: photoFile('x-01-transparency-banner.webp'),
+
+  /**
+   * Poster frames for the video testimonials, pulled from the clips themselves
+   * so the card matches the first thing the viewer sees on play. Vertical 9:16
+   * to match the footage. Re-grab these if a clip is re-edited.
+   */
+  storyAbhishek: photoFile('story-abhishek-jain.webp'),
+  storyBaby: photoFile('story-baby.webp'),
+  storySrinivas: photoFile('story-srinivas.webp'),
+  storyTpSingh: photoFile('story-tp-singh.webp'),
+} as const;
+
+/* -------------------------------------------------------------------------- */
 /* Archive photography from jssamch.org                                       */
 /* -------------------------------------------------------------------------- */
 

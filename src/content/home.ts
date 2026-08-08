@@ -1,4 +1,4 @@
-import { archive, media } from '@/lib/media';
+import { media, photo } from '@/lib/media';
 import type { IconName } from '@/components/ui/Icons';
 
 /**
@@ -20,45 +20,47 @@ export const hero = {
 } as const;
 
 /**
- * Hero slider. Photographs are real images from the hospital's WordPress media
- * library, so swapping one is a single edit here (or a re-upload in WordPress
- * against the same filename).
+ * Hero slider — spec ref H-01, seven slides.
+ *
+ * The photographs are the client-supplied set in `public/photos/`, kept in the
+ * order they were delivered. Each caption describes the photograph above it, so
+ * re-ordering or swapping a slide means re-checking the caption with it.
  */
 export const heroSlides = [
   {
-    image: media.campusFront,
+    image: photo.heroHospitalFront,
     title: 'Our Mysuru campus',
     caption: '15 green acres at the foothills of the Chamundi Hills',
   },
   {
-    image: archive.lobby,
-    title: 'Step inside',
-    caption: 'The main hall — where every patient’s journey begins',
+    image: photo.heroCampus,
+    title: 'Room to breathe',
+    caption: 'Gardens, open ground and clean air across the campus',
   },
   {
-    image: media.campusWide,
+    image: photo.heroCollegeBlock,
     title: 'Built for healing',
     caption: 'NABH-accredited infrastructure across the hospital',
   },
   {
-    image: archive.therapyAbhyanga,
+    image: photo.heroWardRound,
+    title: 'Never treated by one pair of hands alone',
+    caption: 'Consultants and postgraduates on the daily in-patient round',
+  },
+  {
+    image: photo.heroAbhyanga,
     title: 'Abhyanga, performed the classical way',
     caption: 'Trained therapists working on a traditional wooden Droni',
   },
   {
-    image: media.panchakarma,
+    image: photo.heroEyeClinic,
+    title: 'Specialist clinics under one roof',
+    caption: 'Netra Roga and 11 more departments, all on campus',
+  },
+  {
+    image: photo.heroShirodhara,
     title: '26 dedicated therapy rooms',
     caption: 'Classical Panchakarma under direct medical supervision',
-  },
-  {
-    image: media.campusGarden,
-    title: 'Our own herbal garden',
-    caption: '300+ medicinal species grown and harvested on site',
-  },
-  {
-    image: media.campusReception,
-    title: 'Care from the moment you arrive',
-    caption: 'OPD open 9:00 AM – 4:30 PM on all working days',
   },
 ] as const;
 

@@ -10,7 +10,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { mahavidyapeetha } from '@/content/misc';
-import { media } from '@/lib/media';
+import { media, photo } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'About JSS Mahavidyapeetha',
@@ -35,7 +35,7 @@ export default function MahavidyapeethaPage() {
             <Reveal>
               <div className="relative aspect-4/3 overflow-hidden rounded-[2rem] shadow-lift">
                 <Image
-                  src={media.founders}
+                  src={photo.founders}
                   alt="The founders of JSS Mahavidyapeetha"
                   fill
                   sizes="(min-width: 1024px) 32rem, 90vw"

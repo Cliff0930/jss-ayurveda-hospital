@@ -9,7 +9,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { treatments } from '@/content/clinical';
-import { media } from '@/lib/media';
+import { media, photo } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'Treatments',
@@ -24,7 +24,7 @@ export default function TreatmentsPage() {
         eyebrow="Treatments"
         title="Time-tested therapies. Personally prescribed."
         crumbs={[{ label: 'Treatments' }]}
-        imageSlot="panchakarma-therapy"
+        image={photo.treatmentsBanner}
         intro={`${treatments.length} classical Ayurvedic procedures, each personally prescribed by our doctors based on your Prakruti and health condition — and performed by trained therapists under direct medical supervision.`}
       />
 

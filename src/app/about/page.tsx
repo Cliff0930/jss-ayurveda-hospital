@@ -12,7 +12,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Orb, Section, SectionHeading } from '@/components/ui/Section';
 import { trustPoints } from '@/content/home';
 import { aboutStory } from '@/content/misc';
-import { media } from '@/lib/media';
+import { media, photo } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -27,7 +27,7 @@ export default function AboutPage() {
         eyebrow="About Us"
         title="Rooted in ancient wisdom. Guided by genuine care."
         crumbs={[{ label: 'About Us' }]}
-        image={media.campusFront}
+        image={photo.aboutBanner}
         intro="Healing since 1992 — on a peaceful 15-acre campus at the foothills of the Chamundi Hills, Mysuru."
       />
 
@@ -73,8 +73,8 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="relative aspect-4/5 overflow-hidden rounded-[2rem] shadow-lift">
                   <Image
-                    src={media.campusGarden}
-                    alt="The herbal garden on the JSS Ayurveda Hospital campus"
+                    src={photo.campusPortrait}
+                    alt="Medicinal plants growing in the herbal garden on the JSS Ayurveda Hospital campus"
                     fill
                     sizes="(min-width: 1024px) 32rem, 90vw"
                     className="object-cover"

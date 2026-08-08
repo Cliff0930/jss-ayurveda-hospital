@@ -8,6 +8,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { physiotherapy } from '@/content/misc';
+import { photo } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'Physiotherapy',
@@ -22,7 +23,7 @@ export default function PhysiotherapyPage() {
         eyebrow="Physiotherapy"
         title="Modern rehabilitation, classical healing"
         crumbs={[{ label: 'About', href: '/about' }, { label: 'Physiotherapy' }]}
-        imageSlot="physiotherapy-suite"
+        image={photo.physiotherapyBanner}
         intro={physiotherapy.intro}
       >
         <ButtonLink href="/contact" variant="secondary" arrow>
