@@ -90,15 +90,15 @@
       properties inherit down the tree, and the header is a sibling of <main>,
       so anything set on it is invisible to the page content.
     */
-    --header-height: 6rem;
-    --header-sticky: 5rem;
+    --header-height: 7rem;
+    --header-sticky: 6rem;
     color-scheme: light;
   }
 
   @media (min-width: 1280px) {
     :root {
-      --header-height: 11.5rem;
-      --header-sticky: 8rem;
+      --header-height: 12.5rem;
+      --header-sticky: 9rem;
     }
   }
 

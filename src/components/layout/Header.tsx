@@ -123,7 +123,7 @@ export function Header() {
         <div
           className={cn(
             'container-page flex items-center justify-between gap-4 transition-[height] duration-400 md:gap-6',
-            scrolled ? 'h-20' : 'h-24',
+            scrolled ? 'h-24' : 'h-28',
           )}
         >
           <Link href="/" className="flex min-w-0 shrink items-center gap-3" aria-label={`${site.name} — home`}>
@@ -146,12 +146,13 @@ export function Header() {
               className={cn(
                 'w-auto max-w-[62vw] object-contain object-left transition-[height] duration-400 sm:max-w-none',
                 /*
-                  80 px at rest is the ceiling the image spec sets for the white
-                  mark (G-02), and about all the 96 px bar can give it. The
-                  scrolled bar is 80 px, so the mark steps down with it to keep
-                  the same breathing room above and below.
+                  The client asked for the mark larger than the 80 px the image
+                  spec sets for it (G-02), so the bar grew with it: 112 px at
+                  rest holds a 96 px mark with the same breathing room the 96 px
+                  bar gave the old 80 px one. The scrolled bar steps down to
+                  96 px and the mark to 80 px, keeping that ratio.
                 */
-                scrolled ? 'h-14 md:h-16' : 'h-18 md:h-20',
+                scrolled ? 'h-16 md:h-20' : 'h-20 md:h-24',
               )}
             />
           </Link>
@@ -168,6 +169,14 @@ export function Header() {
               the cascade and the button would stay visible on every screen.
             */}
             <div className="hidden items-center gap-2.5 xl:flex">
+              <ButtonLink
+                href="/contact"
+                variant={scrolled ? 'primary' : 'secondary'}
+                size="sm"
+                arrow
+              >
+                Book a Consultation
+              </ButtonLink>
               {/*
                 The accreditation mark reads as a credential for the button beside
                 it. It always carries its own white tile so it holds up over both
@@ -180,14 +189,6 @@ export function Header() {
                 height={396}
                 className="h-10 w-10 shrink-0 rounded-lg bg-white object-contain p-1 shadow-soft ring-1 ring-sand-900/5"
               />
-              <ButtonLink
-                href="/contact"
-                variant={scrolled ? 'primary' : 'secondary'}
-                size="sm"
-                arrow
-              >
-                Book a Consultation
-              </ButtonLink>
             </div>
 
             {/*
