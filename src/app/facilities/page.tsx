@@ -9,14 +9,14 @@ import { Icon } from '@/components/ui/Icons';
 import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
-import { additionalFacilities, campusFacilities, campusIntro, rooms } from '@/content/facilities';
+import { additionalFacilities, campusFacilities, campusIntro, laboratory, rooms } from '@/content/facilities';
 import { imageSlotsById } from '@/lib/image-prompts';
-import { media } from '@/lib/media';
+import { media, photo } from '@/lib/media';
 
 export const metadata: Metadata = {
   title: 'Facilities & Rooms',
   description:
-    'Accommodation and facilities at JSS Ayurveda Hospital, Mysuru — general, semi-special, special, deluxe and ultra deluxe wards, 26 therapy rooms, yoga hall, 15-acre herbal garden, pharmacy, lab and two operation theatres.',
+    'Accommodation and facilities at JSS Ayurveda Hospital, Mysuru — general, semi-special, special, deluxe and ultra deluxe wards, 26 therapy rooms, yoga hall, 15-acre herbal garden, pharmacy, in-house clinical laboratory, ECG and two operation theatres.',
 };
 
 /**
@@ -35,7 +35,7 @@ export default function FacilitiesPage() {
         eyebrow="Facilities & Rooms"
         title="Everything you need for a complete, healing stay"
         crumbs={[{ label: 'Facilities & Rooms' }]}
-        image={media.campusWard}
+        image={photo.heroWardRound}
         intro="Every room at JSS Ayurveda Hospital is designed for quiet, comfort and healing — with natural light, fresh air and a view of the green campus around you."
       >
         <ButtonLink href="/contact" variant="secondary" arrow>
@@ -220,20 +220,73 @@ export default function FacilitiesPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               <Reveal delay={120}>
                 <div className="overflow-hidden rounded-card border border-sand-200">
-                  <AiImage slot="yoga-hall" className="aspect-3/4 w-full" sizes="22rem" showPrompt={false} />
+                  <AiImage slot="yoga-hall" className="aspect-4/3 w-full" sizes="(min-width: 640px) 22rem, 90vw" showPrompt={false} />
                 </div>
               </Reveal>
               <Reveal delay={200}>
-                <div className="relative aspect-3/4 overflow-hidden rounded-card border border-sand-200">
+                <div className="relative aspect-4/3 overflow-hidden rounded-card border border-sand-200">
                   <Image
-                    src={media.garden4}
+                    src={photo.campusPortrait}
                     alt="Medicinal plants in the hospital's herbal garden"
                     fill
-                    sizes="22rem"
+                    sizes="(min-width: 640px) 22rem, 90vw"
                     className="object-cover"
                   />
                 </div>
               </Reveal>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Laboratory */}
+      <Section tone="white" id="laboratory">
+        <div className="container-page">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <div>
+              <SectionHeading
+                eyebrow="Laboratory services"
+                title="Investigations on campus, results without the wait"
+                intro={laboratory.intro}
+              />
+              <Reveal delay={160}>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {['ECG', 'X-Ray & radiology'].map((extra) => (
+                    <span
+                      key={extra}
+                      className="inline-flex items-center gap-2 rounded-full border border-jade-200 bg-jade-50 px-4 py-2 text-[0.8125rem] font-semibold text-jade-800"
+                    >
+                      <Icon.pulse className="h-4 w-4 text-turmeric-600" aria-hidden />
+                      {extra} also on campus
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+
+            <div className="grid gap-5">
+              {laboratory.groups.map((group, index) => (
+                <Reveal key={group.title} delay={index * 120}>
+                  <article className="rounded-card border border-sand-200 bg-sand-50 p-6 md:p-7">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="text-[1.125rem]">{group.title}</h3>
+                      <span className="font-mono text-[0.75rem] tracking-widest text-sand-600">
+                        {group.tests.length} TESTS
+                      </span>
+                    </div>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {group.tests.map((test) => (
+                        <li
+                          key={test}
+                          className="rounded-lg border border-sand-200 bg-white px-3 py-1.5 text-[0.8125rem] text-ink-700"
+                        >
+                          {test}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>

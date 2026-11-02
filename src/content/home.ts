@@ -11,12 +11,12 @@ import type { IconName } from '@/components/ui/Icons';
  */
 
 export const hero = {
-  eyebrow: `NABH Accredited · Since 1992`,
+  eyebrow: `Trusted since 1992 · NABH Accredited`,
   title: 'An Ancient Key For Total Wellbeing',
   intro:
-    'JSS Ayurveda Hospital, Mysuru — where 5,000 years of Ayurvedic wisdom meets compassionate, personalised healing. Trusted since 1992 by patients from India and across the world.',
+    'Trusted since 1992 by more than 25 lakh patients from India and across the world — JSS Ayurveda Hospital, Mysuru, where 5,000 years of Ayurvedic wisdom meets compassionate, personalised healing with 100% authentic Ayurvedic medicines.',
   primary: { label: 'Book a Consultation', href: '/contact' },
-  secondary: { label: 'Explore Treatments', href: '/treatments' },
+  secondary: { label: 'Insurance', href: '/#insurance' },
 } as const;
 
 /**
@@ -66,8 +66,8 @@ export const heroSlides = [
 
 export const trustPoints = [
   {
-    title: '100% Organic Herbal',
-    body: 'Medicines prepared from our own on-campus herbal garden.',
+    title: '100% Authentic Ayurvedic Medicines',
+    body: 'Classical formulations prepared from herbs grown in our own on-campus garden.',
     icon: 'leaf' as IconName,
   },
   {
@@ -88,9 +88,9 @@ export const trustPoints = [
 ] as const;
 
 export const achievements = [
-  { value: 100, suffix: '%', label: 'Product Purity', detail: 'From our own herbal garden' },
-  { value: 5, suffix: ' Lakhs+', label: 'Happy Patients', detail: 'Treated since 1992' },
-  { value: 33, suffix: '+', label: 'Years of Experience', detail: 'Established August 1992' },
+  { value: 100, suffix: '%', label: 'Authentic Ayurvedic Medicines', detail: 'Prepared in our own unit' },
+  { value: 25, suffix: ' Lakhs+', label: 'Happy Patients', detail: 'Treated since 1992' },
+  { value: 33, suffix: '+', label: 'Years of Experience', detail: 'Started in August 1992' },
   { value: 44, suffix: '', label: 'Qualified Doctors', detail: 'BAMS, MD & MS consultants' },
 ] as const;
 
@@ -139,7 +139,7 @@ export const services = [
 
 export const whyUs = [
   {
-    title: '100% Organic Herbal Medicines',
+    title: '100% Authentic Ayurvedic Medicines',
     body: 'All Churnas, Kashayams, Ghritams and Tailas are prepared in our in-house Ayur-Drug Manufacturing Unit, using herbs from our 15-acre herbal garden. Organic, authentic and quality-controlled.',
   },
   {
@@ -290,3 +290,57 @@ export const philosophy = {
   ],
   quote: 'We heal you — and we teach you how to stay healthy.',
 } as const;
+
+/**
+ * NABH and insurance — placed directly under the hero at the hospital's request
+ * so both are the first thing a patient reads.
+ *
+ * Insurance copy states only what the hospital has confirmed: reimbursement
+ * support and the paperwork we provide. Name insurers or TPAs, or cashless
+ * admission, here only once the hospital supplies them.
+ */
+export const nabhHighlight = {
+  title: 'NABH Accredited',
+  body: 'Accredited by the National Accreditation Board for Hospitals & Healthcare Providers — the national standard for quality of care and patient safety in India.',
+  points: [
+    'Clinical care that follows documented, audited protocols',
+    'Infection control and patient-safety standards across every ward',
+    'Patient rights, consent and transparent billing',
+  ],
+} as const;
+
+export const insuranceInfo = {
+  title: 'Health Insurance Support',
+  body: 'Ayurvedic in-patient treatment is covered under many health insurance policies. Our team prepares every document you need for your claim.',
+  points: [
+    'Discharge summary and treatment records',
+    'Itemised bills and receipts',
+    'Help with your insurer’s claim forms',
+  ],
+  note: 'Please check your policy’s cover for Ayurvedic hospitalisation with your insurer before admission — our team will guide you.',
+} as const;
+
+/** The three ways to consult a doctor, shown on the homepage and Contact page. */
+export const consultOptions = [
+  {
+    key: 'direct',
+    title: 'Direct consultation',
+    body: 'Walk in to the OPD — no appointment needed for a general consultation.',
+    detail: 'Mon – Sat 9:00 AM – 4:30 PM · Sun & holidays 9:00 AM – 1:00 PM',
+    icon: 'stethoscope' as IconName,
+  },
+  {
+    key: 'online',
+    title: 'Online consultation',
+    body: 'Consult our doctors from home. Message or call us to schedule a time.',
+    detail: 'Book on WhatsApp or by phone',
+    icon: 'phone' as IconName,
+  },
+  {
+    key: 'email',
+    title: 'Email enquiries',
+    body: 'Send your reports and questions — our team replies within one working day.',
+    detail: 'contact@jssamch.org',
+    icon: 'mail' as IconName,
+  },
+] as const;

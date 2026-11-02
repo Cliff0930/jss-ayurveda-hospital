@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { ButtonLink } from '@/components/ui/Button';
@@ -78,6 +79,7 @@ export function Hero() {
               fill
               sizes="100vw"
               priority={slideIndex === 0}
+              quality={90}
               className={cn(
                 'object-cover',
                 slideIndex === index && !reducedMotion && 'animate-kenburns',
@@ -169,7 +171,10 @@ export function Hero() {
             */}
             <Reveal delay={330}>
               <div className="mt-8 flex flex-wrap items-center gap-3">
-                <div className="inline-flex items-center gap-3 rounded-2xl border border-sand-50/20 bg-jade-950/55 py-2.5 pl-2.5 pr-4 backdrop-blur-md">
+                <Link
+                  href="#nabh"
+                  className="inline-flex items-center gap-3 rounded-2xl border border-sand-50/20 bg-jade-950/55 py-2.5 pl-2.5 pr-4 backdrop-blur-md transition hover:border-turmeric-400/60"
+                >
                   <Image
                     src={media.nabh}
                     alt=""
@@ -181,7 +186,7 @@ export function Hero() {
                     <span className="block font-semibold text-sand-50">NABH Accredited</span>
                     <span className="block text-sand-400">Quality &amp; patient-safety certified</span>
                   </span>
-                </div>
+                </Link>
 
                 <a
                   href={contact.phones[0].href}

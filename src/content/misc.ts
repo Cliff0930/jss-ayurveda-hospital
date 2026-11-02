@@ -93,13 +93,14 @@ export const aboutStory = {
   eyebrow: 'Who We Are',
   title: 'The Natural Way to Achieving Balance and Optimal Health',
   paragraphs: [
-    'JSS Ayurveda Hospital was established in August 1992 on MG Road, Mysuru. Today we stand on a peaceful 15-acre campus at the foothills of the Chamundi Hills — home to over 300 species of medicinal herbs, 26 specialised therapy rooms and a team of qualified doctors dedicated to authentic Ayurvedic healing.',
-    'We are proudly part of the JSS Mahavidyapeetha — a century-old institution founded by Jagadguru Sri Shivarathreeshwara Mahaswamiji, built on the principle of selfless service to all.',
+    'JSS Ayurveda Hospital started in August 1992 on MG Road, Mysuru. Since then, more than 25 lakh patients from India and across the world have been treated here.',
+    'Today we stand on a peaceful 15-acre campus at the foothills of the Chamundi Hills — home to over 300 species of medicinal herbs, 26 specialised therapy rooms, a NABH-accredited hospital and a team of doctors dedicated to authentic Ayurvedic healing with 100% authentic Ayurvedic medicines.',
+    'We are proudly part of the JSS Mahavidyapeetha — a century-old institution started by Jagadguru Sri Shivarathreeshwara Mahaswamiji, built on the principle of selfless service to all.',
   ],
   milestones: [
-    { year: '1992', title: 'Founded on MG Road', body: 'JSS Ayurveda Hospital opens in the heart of Mysuru in August 1992.' },
+    { year: '1992', title: 'Started on MG Road', body: 'JSS Ayurveda Hospital opens in the heart of Mysuru in August 1992.' },
     { year: '2000s', title: 'A campus of our own', body: 'The hospital moves to a 15-acre campus at the foothills of the Chamundi Hills.' },
-    { year: 'Today', title: 'NABH accredited', body: '26 therapy rooms, 300+ herb species, 44 consultants and patients from across the world.' },
+    { year: 'Today', title: 'NABH accredited', body: '25 lakh+ patients treated, 26 therapy rooms, 300+ herb species and consultants across every department.' },
   ],
 } as const;
 
@@ -179,4 +180,53 @@ export const ayurPharma = {
     { title: 'Traceable end to end', body: 'From plant to preparation to patient — full traceability at every stage.', icon: 'shield' as IconName },
   ],
   formulations: ['Churna (powders)', 'Kashayam (decoctions)', 'Ghritam (medicated ghee)', 'Taila (medicated oils)', 'Avaleha (herbal jams)', 'Lehya & Gulika'],
+} as const;
+
+/**
+ * Yoga & Naturopathy — added to the main menu in the September 2026 review.
+ *
+ * Built only from what the hospital already publishes: the twice-daily group
+ * sessions, the yoga hall and garden, and the therapies in the treatment
+ * catalogue. Add further naturopathy therapies here once the hospital lists them.
+ */
+export const yogaNaturopathy = {
+  intro:
+    'Yoga and naturopathy are part of every healing program at JSS — daily guided practice, breathwork and natural therapies that work alongside your Ayurvedic treatment and continue to help long after you return home.',
+  schedule: [
+    { time: '11:30 AM', label: 'Group yoga session', note: 'Yoga hall & yoga garden' },
+    { time: '3:30 PM', label: 'Group yoga session', note: 'Yoga hall & yoga garden' },
+    { time: 'On request', label: 'Individual yoga sessions', note: 'Planned around your therapies' },
+  ],
+  offerings: [
+    {
+      title: 'Daily guided yoga',
+      body: 'Group sessions twice a day, led by trained yoga teachers and open to every in-patient as part of their program.',
+      icon: 'sun' as IconName,
+    },
+    {
+      title: 'Pranayama & meditation',
+      body: 'Breathing practices and meditation that calm the nervous system and support stress, sleep and lifestyle conditions.',
+      icon: 'lotus' as IconName,
+    },
+    {
+      title: 'Individual yoga therapy',
+      body: 'One-to-one sessions tailored to your condition, mobility and treatment plan — available on request.',
+      icon: 'walk' as IconName,
+    },
+    {
+      title: 'Yoga in pregnancy',
+      body: 'Gentle, month-wise practice guided with our Prasooti & Streeroga department as part of pregnancy care.',
+      icon: 'baby' as IconName,
+    },
+    {
+      title: 'Mud therapy',
+      body: 'Natural therapeutic mud applied to the body or eyes — used for skin conditions, inflammation and eye care.',
+      icon: 'leaf' as IconName,
+    },
+    {
+      title: 'Acupuncture & acupressure',
+      body: 'Complementary therapies offered alongside Ayurvedic treatment for pain, stress and nervous conditions.',
+      icon: 'pulse' as IconName,
+    },
+  ],
 } as const;

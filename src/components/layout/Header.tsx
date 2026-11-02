@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
 import { media } from '@/lib/media';
-import { contact, mainNav, site, social } from '@/lib/site';
+import { contact, mainNav, priorityLinks, site, social } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
 import { ButtonLink } from '../ui/Button';
@@ -159,36 +159,13 @@ export function Header() {
 
           <div className="flex shrink-0 items-center gap-2">
             {/*
-              Desktop only. Below `xl` the burger owns the right-hand side so the
-              logo gets the room it needs, and the same call to action sits at the
-              bottom of the mobile panel.
-
-              The visibility lives on this wrapper, not on the button: ButtonLink's
-              base class already sets `inline-flex`, and Tailwind emits
-              `.inline-flex` after `.hidden`, so passing `hidden` down would lose
-              the cascade and the button would stay visible on every screen.
+              Desktop only: the three priority buttons the hospital asked for,
+              in their order — NABH Accredited, Insurance, Contact & Call. Below
+              `xl` the burger owns the right-hand side and the same three sit at
+              the top of the mobile panel.
             */}
-            <div className="hidden items-center gap-2.5 xl:flex">
-              <ButtonLink
-                href="/contact"
-                variant={scrolled ? 'primary' : 'secondary'}
-                size="sm"
-                arrow
-              >
-                Book a Consultation
-              </ButtonLink>
-              {/*
-                The accreditation mark reads as a credential for the button beside
-                it. It always carries its own white tile so it holds up over both
-                the dark hero and the cream scrolled bar.
-              */}
-              <Image
-                src={media.nabh}
-                alt="NABH accredited hospital"
-                width={400}
-                height={396}
-                className="h-10 w-10 shrink-0 rounded-lg bg-white object-contain p-1 shadow-soft ring-1 ring-sand-900/5"
-              />
+            <div className="hidden xl:block">
+              <PriorityButtons scrolled={scrolled} />
             </div>
 
             {/*
@@ -394,6 +371,10 @@ function MobileNav({
             Close
           </button>
 
+          <div className="mb-6">
+            <PriorityButtons scrolled stacked onNavigate={onClose} />
+          </div>
+
           <ul className="space-y-1">
             {mainNav.map((item) => {
               const hasChildren = Boolean(item.children?.length);
@@ -482,6 +463,80 @@ function MobileNav({
           </ButtonLink>
         </div>
       </nav>
+    </div>
+  );
+}
+
+function PriorityButtons({
+  scrolled,
+  stacked = false,
+  onNavigate,
+}: {
+  /** True whenever the buttons sit on a light surface. */
+  scrolled: boolean;
+  stacked?: boolean;
+  onNavigate?: () => void;
+}) {
+  const quiet = scrolled
+    ? 'border-sand-300 bg-white text-jade-900 hover:border-jade-300 hover:bg-jade-50'
+    : 'border-sand-50/30 bg-jade-950/45 text-sand-50 backdrop-blur-sm hover:border-sand-50/60 hover:bg-jade-950/65';
+
+  return (
+    <div className={cn('flex gap-2', stacked ? 'flex-col' : 'items-center')}>
+      <Link
+        href={priorityLinks.nabh}
+        onClick={onNavigate}
+        className={cn(
+          'inline-flex h-11 items-center gap-2.5 rounded-full border py-1 pl-1 pr-4 text-[0.8125rem] font-semibold transition-colors',
+          quiet,
+          stacked && 'w-full',
+        )}
+      >
+        <Image
+          src={media.nabh}
+          alt=""
+          width={400}
+          height={396}
+          className="h-9 w-9 shrink-0 rounded-full bg-white object-contain p-0.5"
+        />
+        NABH Accredited
+      </Link>
+
+      <Link
+        href={priorityLinks.insurance}
+        onClick={onNavigate}
+        className={cn(
+          'inline-flex h-11 items-center gap-2 rounded-full border px-4 text-[0.8125rem] font-semibold transition-colors',
+          quiet,
+          stacked && 'w-full',
+        )}
+      >
+        <Icon.shield className="h-4.5 w-4.5 text-turmeric-500" aria-hidden />
+        Insurance
+      </Link>
+
+      <div
+        className={cn(
+          'inline-flex h-11 items-stretch overflow-hidden rounded-full shadow-[0_10px_30px_-12px_rgb(210_140_37/0.8)]',
+          stacked && 'w-full',
+        )}
+      >
+        <Link
+          href={priorityLinks.contact}
+          onClick={onNavigate}
+          className="inline-flex flex-1 items-center justify-center gap-2 bg-turmeric-400 pl-4 pr-3 text-[0.8125rem] font-semibold text-jade-950 transition-colors hover:bg-turmeric-300"
+        >
+          Contact &amp; Call
+        </Link>
+        <a
+          href={contact.phones[0].href}
+          aria-label={`Call ${contact.phones[0].display}`}
+          className="inline-flex items-center gap-2 border-l border-jade-950/15 bg-turmeric-300 px-3.5 text-[0.8125rem] font-semibold text-jade-950 transition-colors hover:bg-turmeric-200"
+        >
+          <Icon.phone className="h-4 w-4" aria-hidden />
+          <span className={cn(!stacked && 'hidden 2xl:inline')}>{contact.phones[0].display}</span>
+        </a>
+      </div>
     </div>
   );
 }

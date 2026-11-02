@@ -1,3 +1,4 @@
+import { hiddenDoctorIds } from '@/content/clinical';
 import { unstable_cache } from 'next/cache';
 
 import {
@@ -95,7 +96,11 @@ export type DoctorsData = {
 export const getDoctors = cachedPageQuery(WP_SLUGS.doctors, 'doctors', (page): DoctorsData => {
   if (!page) return { doctors: [], departments: [], updatedAt: null };
 
-  const doctors = parseDoctors(page.content.rendered);
+  const hidden = new Set(hiddenDoctorIds);
+  // Qualifications are kept off the site at the hospital's request.
+  const doctors = parseDoctors(page.content.rendered)
+    .filter((doctor) => !hidden.has(doctor.id))
+    .map((doctor) => ({ ...doctor, qualification: '' }));
   const declared = parseDoctorDepartments(page.content.rendered);
 
   // Prefer the editor-defined pill order; append any department that only shows

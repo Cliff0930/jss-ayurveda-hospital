@@ -65,7 +65,7 @@ export const campusFacilities = [
 
 export const additionalFacilities = [
   'In-House Pharmacy',
-  'Pathology Laboratory (HB%, TC, DC, ESR)',
+  'Clinical Laboratory — haematology & biochemistry',
   'ECG',
   'X-Ray and Radiology',
   'Two Operation Theatres',
@@ -78,4 +78,30 @@ export const campusIntro = {
   eyebrow: 'The Campus',
   title: 'A sanctuary, not just a hospital',
   body: 'Our 15-acre campus at the foothills of the Chamundi Hills is more than just a hospital — it is a sanctuary. Lush greenery, a thriving herbal garden, clean fresh air, the sound of nature and the quiet of the foothills all become part of your healing process. Patients frequently tell us that the environment itself begins to heal them before the therapies even start.',
+} as const;
+
+/**
+ * In-house laboratory tests, as listed in the hospital's published scope of
+ * services. Update the lists here when the laboratory adds or drops a test.
+ */
+export const laboratory = {
+  intro:
+    'Our in-house clinical laboratory runs routine blood investigations on campus, so your doctor has results quickly and you do not need to travel for tests during your treatment.',
+  groups: [
+    {
+      title: 'Haematology',
+      tests: [
+        'HB%', 'TC', 'DC', 'ESR', 'PCV', 'MCV', 'MCH', 'MCHC', 'RBC count', 'Platelets',
+        'Bleeding time (BT)', 'Clotting time (CT)', 'Blood grouping', 'Rh typing',
+      ],
+    },
+    {
+      title: 'Biochemistry',
+      tests: [
+        'Blood glucose', 'HbA1c', 'OGCT', 'GTT', 'Urea', 'Creatinine', 'Uric acid',
+        'Total & direct bilirubin', 'Total protein', 'Albumin', 'Globulin', 'A/G ratio',
+        'ALT', 'AST', 'ALP', 'GGT', 'Total cholesterol', 'HDL', 'LDL', 'VLDL', 'Triglycerides',
+      ],
+    },
+  ],
 } as const;

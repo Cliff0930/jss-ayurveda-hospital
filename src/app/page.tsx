@@ -10,13 +10,17 @@ import { Services } from '@/components/home/Services';
 import { SpecialityShowcase } from '@/components/home/SpecialityShowcase';
 import { Testimonials } from '@/components/home/Testimonials';
 import { VideoStories } from '@/components/home/VideoStories';
+import { LocationMap } from '@/components/home/LocationMap';
+import { TrustBand } from '@/components/home/TrustBand';
 import { WhyUs } from '@/components/home/WhyUs';
+import { ConsultOptions } from '@/components/shared/ConsultOptions';
 import { CtaBand } from '@/components/shared/CtaBand';
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <TrustBand />
       <Philosophy />
       <Achievements />
       <Services />
@@ -31,7 +35,9 @@ export default function HomePage() {
       <Testimonials />
       <VideoStories />
       <Programs />
+      <ConsultOptions />
       <Process />
+      <LocationMap />
       <CtaBand />
     </>
   );

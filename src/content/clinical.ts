@@ -492,3 +492,51 @@ export const treatments: {
     helps: 'Skin glow, hair health and natural complexion enhancement',
   },
 ];
+
+/**
+ * Consultant OPD days, keyed by the doctor's id (their name slugified, e.g.
+ * `dr-beena-m-d`). WordPress does not hold this yet, so it lives here until the
+ * hospital supplies the schedule. A doctor with no entry shows the
+ * prior-appointment line only.
+ */
+export const consultantOpdDays: Record<string, string> = {};
+
+export const priorAppointmentNote = 'Also available on prior appointment';
+
+/**
+ * Doctors kept off the site at the hospital's request, matched by id. Removing
+ * them in WordPress as well is cleaner; this keeps them hidden either way.
+ */
+export const hiddenDoctorIds = ['dr-nischitha-m-s'];
+
+/**
+ * Swarnaprashana and Agnikarma — shown as their own row under the speciality
+ * clinics. Copy follows the hospital's own published descriptions on jssamch.org.
+ */
+export const signatureProcedures = [
+  {
+    slug: 'swarnaprashana',
+    name: 'Swarnaprashana',
+    tagline: 'Immunity care for children',
+    icon: 'child' as IconName,
+    body: 'Swarna (gold) with classical herbs — Vacha, Shankhapushpi, Brahmi and Ashwagandha in honey and cow’s ghee — given to children by mouth. Traditionally used to support immunity, digestion, memory and resistance to seasonal illness.',
+    facts: [
+      { label: 'Who', value: 'Newborns to 16 years — most beneficial up to age 5' },
+      { label: 'When', value: 'On Pushya Nakshatra, every 27 days' },
+      { label: 'Course', value: 'Six months' },
+    ],
+    department: 'Kaumarabhritya (Paediatrics)',
+  },
+  {
+    slug: 'agnikarma',
+    name: 'Agnikarma',
+    tagline: 'Classical para-surgical heat therapy',
+    icon: 'flame' as IconName,
+    body: 'A precise, controlled application of therapeutic heat at specific points, described by Sushruta and performed by our Shalyatantra surgeons. A quick OPD procedure for localised pain and selected skin growths.',
+    facts: [
+      { label: 'Performed by', value: 'Shalyatantra (Surgery) consultants' },
+      { label: 'Setting', value: 'OPD procedure' },
+    ],
+    department: 'Shalyatantra (Surgery)',
+  },
+] as const;

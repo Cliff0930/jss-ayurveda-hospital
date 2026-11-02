@@ -37,24 +37,51 @@ export default function OpdPage() {
         </div>
       </PageHero>
 
-      {/* OPD timing strip */}
-      <section className="border-b border-sand-200 bg-white py-8">
+      {/* OPD days & timings */}
+      <section className="border-b border-sand-200 bg-white py-12 md:py-14">
         <div className="container-page">
-          <dl className="grid gap-6 sm:grid-cols-3">
-            {contact.hours.map((entry, index) => (
-              <Reveal key={entry.days} delay={index * 80}>
-                <div className="flex gap-4">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_2fr] lg:items-center lg:gap-14">
+            <Reveal>
+              <p className="eyebrow">OPD days &amp; timings</p>
+              <h2 className="mt-3 text-[clamp(1.5rem,1.2rem+1vw,2rem)] leading-tight">
+                Open every day of the week
+              </h2>
+            </Reveal>
+
+            <div>
+              <dl className="grid gap-px overflow-hidden rounded-card border border-sand-200 bg-sand-200 sm:grid-cols-3">
+                {contact.hours.map((entry, index) => (
+                  <Reveal key={entry.days} delay={index * 80}>
+                    <div className="h-full bg-sand-50 p-5 md:p-6">
+                      <dt className="flex items-center gap-2 text-[0.8125rem] font-semibold uppercase tracking-[0.1em] text-sand-700">
+                        <Icon.calendar className="h-4 w-4 text-turmeric-600" aria-hidden />
+                        {entry.days}
+                      </dt>
+                      <dd className="mt-3">
+                        <span className="block font-display text-[1.375rem] leading-tight text-jade-900">
+                          {entry.time}
+                        </span>
+                        <span className="mt-1 block text-[0.8125rem] text-ink-500">{entry.note}</span>
+                      </dd>
+                    </div>
+                  </Reveal>
+                ))}
+              </dl>
+
+              <Reveal delay={260}>
+                <p className="mt-5 flex items-start gap-3 rounded-xl border border-turmeric-200 bg-turmeric-50 px-5 py-4 text-[0.9375rem] leading-relaxed text-jade-900">
                   <Icon.clock className="mt-0.5 h-5 w-5 shrink-0 text-turmeric-600" aria-hidden />
-                  <div>
-                    <dt className="text-[0.9375rem] font-semibold text-jade-900">{entry.days}</dt>
-                    <dd className="mt-0.5 text-[0.875rem] text-ink-500">
-                      {entry.time} · {entry.note}
-                    </dd>
-                  </div>
-                </div>
+                  <span>
+                    Beyond their OPD days, our consultants are also available on prior appointment —{' '}
+                    <a href={contact.phones[0].href} className="font-semibold underline-offset-4 hover:underline">
+                      call {contact.phones[0].display}
+                    </a>{' '}
+                    to book.
+                  </span>
+                </p>
               </Reveal>
-            ))}
-          </dl>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -125,7 +152,7 @@ export default function OpdPage() {
               <SectionHeading
                 eyebrow="Planning your visit"
                 title="What to expect at the OPD"
-                intro="No appointment is needed for a general OPD visit. For a specialist consultation, we recommend calling ahead to confirm your consultant's duty day."
+                intro="No appointment is needed for a general OPD visit. For a specialist consultation, call ahead to confirm your consultant's OPD day — or book a time on prior appointment."
               />
 
               <div className="mt-10 space-y-5">

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 import { Testimonials } from '@/components/home/Testimonials';
+import { SignatureProcedures } from '@/components/shared/SignatureProcedures';
 import { CtaBand } from '@/components/shared/CtaBand';
 import { ButtonLink } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icons';
@@ -13,7 +14,7 @@ import { specialities } from '@/content/clinical';
 export const metadata: Metadata = {
   title: 'Speciality Clinics',
   description:
-    "Dedicated Ayurvedic clinics at JSS Ayurveda Hospital, Mysuru — Parkinson's, cancer support, migraine, liver, male and female infertility, piles & fistula, arthritis and Prakruthi wellness.",
+    "Dedicated Ayurvedic clinics at JSS Ayurveda Hospital, Mysuru — Parkinson's, cancer support, migraine, liver, male and female infertility, piles & fistula, arthritis, Prakruthi wellness, Swarnaprashana and Agnikarma.",
 };
 
 /** Clinics that have long-form detail copy get their own deep-dive section. */
@@ -108,6 +109,19 @@ export default function SpecialitiesPage() {
               );
             })}
           </div>
+        </div>
+      </Section>
+
+      {/* Swarnaprashana & Agnikarma */}
+      <Section tone="white" compact>
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Also at JSS"
+            title="Swarnaprashana & Agnikarma"
+            intro="Two classical procedures our patients often ask for — one for children's immunity, one for fast relief from localised pain."
+            align="center"
+          />
+          <SignatureProcedures className="mt-12" />
         </div>
       </Section>
 

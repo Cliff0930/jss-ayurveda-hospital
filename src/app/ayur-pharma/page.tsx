@@ -135,7 +135,7 @@ export default function AyurPharmaPage() {
         title="Medicines you can actually trace"
         intro="Every preparation used at JSS Ayurveda Hospital can be traced from the plant it came from to the patient it was prescribed for."
         primary={{ label: 'Enquire about products', href: '/contact' }}
-        secondary={{ label: 'Our treatments', href: '/treatments' }}
+        secondary={{ label: 'Our treatments', href: '/wellness-packages#treatments' }}
       />
     </>
   );

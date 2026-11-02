@@ -50,6 +50,7 @@ export function AiImage({
           fill
           sizes={sizes}
           priority={priority}
+          quality={90}
           className={cn('object-cover', imageClassName)}
         />
         {overlay ? <div aria-hidden className={cn('absolute inset-0', overlay)} /> : null}

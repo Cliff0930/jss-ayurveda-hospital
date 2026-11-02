@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import { Icon } from '@/components/ui/Icons';
 import type { DoctorRecord } from '@/lib/wp/parse';
+import { consultantOpdDays, priorAppointmentNote } from '@/content/clinical';
 import { cn, initials } from '@/lib/utils';
 
 export function DoctorCard({
@@ -62,11 +63,7 @@ export function DoctorCard({
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-[1.0625rem] leading-snug">{doctor.name}</h3>
-        {doctor.qualification ? (
-          <p className="mt-1 text-[0.8125rem] font-medium tracking-wide text-turmeric-700">
-            {doctor.qualification}
-          </p>
-        ) : null}
+        <OpdDays doctorId={doctor.id} />
         {doctor.designation ? (
           <p className="mt-2 line-clamp-2 text-[0.8125rem] leading-relaxed text-ink-500">
             {doctor.designation}
@@ -84,5 +81,19 @@ export function DoctorCard({
         ) : null}
       </div>
     </Wrapper>
+  );
+}
+
+/** OPD days when the hospital has supplied them, plus the prior-appointment line. */
+export function OpdDays({ doctorId, className }: { doctorId: string; className?: string }) {
+  const days = consultantOpdDays[doctorId];
+  return (
+    <p className={cn('mt-1.5 flex items-start gap-1.5 text-[0.8125rem] leading-snug', className)}>
+      <Icon.calendar className="mt-0.5 h-3.5 w-3.5 shrink-0 text-turmeric-600" aria-hidden />
+      <span>
+        {days ? <span className="block font-semibold text-jade-800">OPD: {days}</span> : null}
+        <span className="block text-turmeric-700">{priorAppointmentNote}</span>
+      </span>
+    </p>
   );
 }

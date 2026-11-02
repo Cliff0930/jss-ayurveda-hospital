@@ -8,6 +8,8 @@ import { Icon } from '@/components/ui/Icons';
 import { Reveal } from '@/components/ui/Reveal';
 import type { DoctorDepartment } from '@/lib/wp/queries';
 import type { DoctorRecord } from '@/lib/wp/parse';
+import { consultantOpdDays, priorAppointmentNote } from '@/content/clinical';
+import { OpdDays } from '@/components/doctors/DoctorCard';
 import { cn, initials } from '@/lib/utils';
 
 /**
@@ -34,7 +36,6 @@ export function DoctorsExplorer({
       if (!needle) return true;
       return (
         doctor.name.toLowerCase().includes(needle) ||
-        doctor.qualification.toLowerCase().includes(needle) ||
         doctor.designation.toLowerCase().includes(needle) ||
         doctor.department.toLowerCase().includes(needle)
       );
@@ -47,7 +48,7 @@ export function DoctorsExplorer({
       <div className="sticky top-[calc(var(--header-sticky)+0.5rem)] z-20 -mx-2 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
           <label className="relative flex-1">
-            <span className="sr-only">Search doctors by name, qualification or department</span>
+            <span className="sr-only">Search doctors by name or department</span>
             <Icon.search
               className="pointer-events-none absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-sand-500"
               aria-hidden
@@ -56,7 +57,7 @@ export function DoctorsExplorer({
               type="search"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search by name, qualification or department…"
+              placeholder="Search by name or department…"
               className="h-12 w-full rounded-full border border-sand-200 bg-white pl-12 pr-4 text-[0.9375rem] text-jade-900 outline-none transition placeholder:text-sand-500 focus:border-jade-300"
             />
           </label>
@@ -182,14 +183,10 @@ function DoctorTile({ doctor, onSelect }: { doctor: DoctorRecord; onSelect: () =
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-[1.0625rem] leading-snug">{doctor.name}</h3>
-        {doctor.qualification ? (
-          <p className="mt-1 text-[0.8125rem] font-medium tracking-wide text-turmeric-700">
-            {doctor.qualification}
-          </p>
-        ) : null}
         {doctor.designation ? (
-          <p className="mt-2 line-clamp-2 text-[0.8125rem] leading-relaxed text-ink-500">{doctor.designation}</p>
+          <p className="mt-1 line-clamp-2 text-[0.8125rem] leading-relaxed text-ink-500">{doctor.designation}</p>
         ) : null}
+        <OpdDays doctorId={doctor.id} />
 
         <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-[0.8125rem] font-semibold text-jade-700 transition-colors group-hover:text-turmeric-700">
           View profile
@@ -269,9 +266,11 @@ function DoctorDialog({ doctor, onClose }: { doctor: DoctorRecord | null; onClos
             </h2>
 
             <dl className="mt-6 space-y-4 border-t border-sand-200 pt-6">
-              {doctor.qualification ? (
-                <Detail icon="graduation" label="Qualification" value={doctor.qualification} />
-              ) : null}
+              <Detail
+                icon="calendar"
+                label="OPD days"
+                value={consultantOpdDays[doctor.id] ? `${consultantOpdDays[doctor.id]} · ${priorAppointmentNote}` : priorAppointmentNote}
+              />
               {doctor.designation ? (
                 <Detail icon="stethoscope" label="Designation" value={doctor.designation} />
               ) : null}
@@ -303,7 +302,7 @@ function Detail({
   label,
   value,
 }: {
-  icon: 'graduation' | 'stethoscope' | 'clock' | 'leaf';
+  icon: 'calendar' | 'stethoscope' | 'clock' | 'leaf';
   label: string;
   value: string;
 }) {

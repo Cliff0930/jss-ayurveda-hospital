@@ -8,6 +8,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { pricingNote, pricingTiers } from '@/content/programs';
+import { photo } from '@/lib/media';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="Transparent, all-inclusive healing"
         crumbs={[{ label: 'Pricing Plans' }]}
-        imageSlot="cta-band"
+        image={photo.heroShirodhara}
         intro="Complete care with no hidden costs. Every plan includes accommodation, all meals, daily doctor consultations, prescribed therapies and herbal medicines."
       />
 

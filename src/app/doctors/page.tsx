@@ -10,7 +10,7 @@ import { getDoctors } from '@/lib/wp/queries';
 export const metadata: Metadata = {
   title: 'Our Doctors',
   description:
-    'Meet the qualified Ayurvedic consultants of JSS Ayurveda Hospital, Mysuru — BAMS, MD and MS specialists across 12 departments including Kayachikitsa, Panchakarma, Shalyatantra and Kaumarabhritya.',
+    'Meet the Ayurvedic consultants of JSS Ayurveda Hospital, Mysuru — specialists across every department including Kayachikitsa, Panchakarma, Shalyatantra and Kaumarabhritya, with OPD days and appointments.',
 };
 
 export default async function DoctorsPage() {
@@ -27,8 +27,9 @@ export default async function DoctorsPage() {
         intro={
           <>
             {doctors.length} experienced consultants across {departments.length} departments. Every
-            therapy at JSS Ayurveda Hospital is prescribed and supervised by them personally — select
-            any profile to see qualifications, designation and experience.
+            therapy at JSS Ayurveda Hospital is prescribed and supervised by them personally. Select any
+            profile to see their designation, experience and OPD days — every consultant is also
+            available on prior appointment.
           </>
         }
       />

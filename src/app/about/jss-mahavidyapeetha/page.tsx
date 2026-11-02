@@ -15,7 +15,7 @@ import { media, photo } from '@/lib/media';
 export const metadata: Metadata = {
   title: 'About JSS Mahavidyapeetha',
   description:
-    'JSS Mahavidyapeetha — founded in 1954 by His Holiness Jagadguru Dr. Sri Shivarathri Rajendra Mahaswamiji, the parent organisation of JSS Ayurveda Hospital, with 300+ institutions across India and abroad.',
+    'JSS Mahavidyapeetha — started in 1954 by His Holiness Jagadguru Dr. Sri Shivarathri Rajendra Mahaswamiji, the parent organisation of JSS Ayurveda Hospital, with 300+ institutions across India and abroad.',
 };
 
 export default function MahavidyapeethaPage() {
@@ -26,7 +26,7 @@ export default function MahavidyapeethaPage() {
         title="A legacy of service since 1954"
         crumbs={[{ label: 'About', href: '/about' }, { label: 'JSS Mahavidyapeetha' }]}
         imageSlot="legacy-portrait"
-        intro="Founded by His Holiness Jagadguru Dr. Sri Shivarathri Rajendra Mahaswamiji — guiding generations from Mysuru to the world."
+        intro="Started by His Holiness Jagadguru Dr. Sri Shivarathri Rajendra Mahaswamiji — guiding generations from Mysuru to the world."
       />
 
       <Section tone="cream">

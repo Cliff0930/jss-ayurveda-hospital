@@ -9,7 +9,7 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: '/doctors', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/opd', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/specialities', priority: 0.9, changeFrequency: 'monthly' },
-  { path: '/treatments', priority: 0.9, changeFrequency: 'monthly' },
+  { path: '/yoga-naturopathy', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/facilities', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/wellness-packages', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/packages', priority: 0.7, changeFrequency: 'monthly' },

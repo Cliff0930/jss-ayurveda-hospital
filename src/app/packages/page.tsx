@@ -7,6 +7,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { departments } from '@/content/clinical';
+import { photo } from '@/lib/media';
 import { getPackagePosters } from '@/lib/wp/queries';
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default async function PackagesPage() {
         eyebrow="Department Packages"
         title="Specialised packages, designed by each department"
         crumbs={[{ label: 'Department-wise Packages' }]}
-        imageSlot="cta-band"
+        image={photo.panchakarmaBand}
         intro="Each department at JSS Ayurveda Hospital offers focused treatment packages. Click any poster to view it in full size — or contact us to know current tariffs and availability."
       >
         <ButtonLink href="/contact" variant="secondary" arrow>

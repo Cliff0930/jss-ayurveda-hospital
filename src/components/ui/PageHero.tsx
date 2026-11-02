@@ -41,7 +41,7 @@ export function PageHero({
       {/* Background layer */}
       <div aria-hidden className="absolute inset-0 -z-20">
         {image ? (
-          <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
+          <Image src={image} alt="" fill priority sizes="100vw" quality={90} className="object-cover" />
         ) : imageSlot ? (
           <AiImage slot={imageSlot} className="h-full w-full" showPrompt={false} priority />
         ) : null}

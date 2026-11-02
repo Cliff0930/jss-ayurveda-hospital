@@ -56,13 +56,12 @@ export type NavItem = {
 };
 
 /**
- * Main navigation.
+ * Main navigation, in the order the hospital set in the September 2026 review:
+ * About → OPD → Speciality Clinics → Yoga & Naturopathy → Physiotherapy →
+ * Packages → Contact. Treatments now live inside the Packages page.
  *
- * Transparency (staff / attendance / waste) and FAQs are deliberately absent —
- * they are reference material rather than things a prospective patient browses
- * for, so they live in the footer only. The slots they used to occupy now carry
- * Treatments and Speciality Clinics, which were previously buried one level
- * down inside the old "Care" dropdown.
+ * Hospital reference pages (staff, attendance, waste) stay in the footer's
+ * "Hospital Details" group rather than the main menu.
  */
 export const mainNav: NavItem[] = [
   { label: 'Home', href: '/' },
@@ -72,27 +71,36 @@ export const mainNav: NavItem[] = [
     children: [
       { label: 'About the Hospital', href: '/about', description: 'Our story, campus and philosophy' },
       { label: 'JSS Mahavidyapeetha', href: '/about/jss-mahavidyapeetha', description: 'The parent institution, since 1954' },
-      { label: 'Our Doctors', href: '/doctors', description: '44 consultants across 12 departments' },
+      { label: 'Our Doctors', href: '/doctors', description: 'Consultants across every department' },
       { label: 'Our Staff', href: '/staff', description: 'The full hospital team' },
-      { label: 'Facilities & Rooms', href: '/facilities', description: 'Wards, therapy rooms and campus' },
+      { label: 'Facilities & Rooms', href: '/facilities', description: 'Wards, laboratory, therapy rooms and campus' },
       { label: 'JSS Ayur Pharma', href: '/ayur-pharma', description: 'In-house Ayur-drug manufacturing' },
       { label: 'Gallery', href: '/gallery', description: 'Campus, gardens, events and outreach' },
     ],
   },
-  { label: 'OPD & Departments', href: '/opd' },
+  { label: 'OPD', href: '/opd' },
+  { label: 'Speciality Clinics', href: '/specialities' },
+  { label: 'Yoga & Naturopathy', href: '/yoga-naturopathy' },
   { label: 'Physiotherapy', href: '/physiotherapy' },
   {
     label: 'Packages',
     href: '/wellness-packages',
     children: [
       { label: 'Wellness Packages', href: '/wellness-packages', description: 'Panchakarma, Rasayana and more' },
+      { label: 'Treatments', href: '/wellness-packages#treatments', description: 'Every classical therapy we offer' },
+      { label: 'Department Packages', href: '/packages', description: 'Focused packages by department' },
       { label: 'Pricing Plans', href: '/pricing', description: 'Transparent, all-inclusive tariffs' },
     ],
   },
-  { label: 'Treatments', href: '/treatments' },
-  { label: 'Speciality Clinics', href: '/specialities' },
   { label: 'Contact', href: '/contact' },
 ];
+
+/** Targets for the header's three priority buttons. */
+export const priorityLinks = {
+  nabh: '/#nabh',
+  insurance: '/#insurance',
+  contact: '/contact',
+} as const;
 
 export const footerNav = [
   {
@@ -111,15 +119,16 @@ export const footerNav = [
     links: [
       { label: 'OPD & Departments', href: '/opd' },
       { label: 'Speciality Clinics', href: '/specialities' },
-      { label: 'Treatments', href: '/treatments' },
-      { label: 'Facilities & Rooms', href: '/facilities' },
+      { label: 'Yoga & Naturopathy', href: '/yoga-naturopathy' },
       { label: 'Physiotherapy', href: '/physiotherapy' },
+      { label: 'Facilities & Rooms', href: '/facilities' },
     ],
   },
   {
     title: 'Programs',
     links: [
       { label: 'Wellness Packages', href: '/wellness-packages' },
+      { label: 'Treatments', href: '/wellness-packages#treatments' },
       { label: 'Department Packages', href: '/packages' },
       { label: 'Pricing Plans', href: '/pricing' },
       { label: 'Our Products', href: '/products' },
@@ -127,15 +136,15 @@ export const footerNav = [
     ],
   },
   /*
-    Transparency and FAQs are reachable from here only — they were taken out of
-    the main menu, so this group is now their sole entry point in the chrome.
+    The attendance and waste pages are reachable from here only — this group is
+    their sole entry point in the chrome.
   */
   {
-    title: 'Transparency',
+    title: 'Hospital Details',
     links: [
-      { label: 'Staff Directory', href: '/staff' },
+      { label: 'Hospital Staff', href: '/staff' },
       { label: 'Attendance Analysis', href: '/attendance-analysis' },
-      { label: 'Bio-Medical Waste Data', href: '/waste-data' },
+      { label: 'Bio-Medical Waste Status', href: '/waste-data' },
       { label: 'FAQs', href: '/faqs' },
       { label: 'Privacy Policy', href: '/privacy-policy' },
       { label: 'Terms of Use', href: '/terms-of-use' },

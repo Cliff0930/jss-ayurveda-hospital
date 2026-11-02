@@ -111,7 +111,7 @@ export function ProgramCard({ program, index }: { program: WellnessProgram; inde
             <ButtonLink href="/contact" arrow>
               Enquire about this program
             </ButtonLink>
-            <ButtonLink href="/treatments" variant="ghost">
+            <ButtonLink href="/wellness-packages#treatments" variant="ghost">
               See the therapies
             </ButtonLink>
           </div>

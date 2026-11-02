@@ -5,6 +5,7 @@ import { ButtonLink } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icons';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
+import { SignatureProcedures } from '@/components/shared/SignatureProcedures';
 import { specialities } from '@/content/clinical';
 
 export function SpecialityShowcase() {
@@ -66,6 +67,8 @@ export function SpecialityShowcase() {
             );
           })}
         </div>
+
+        <SignatureProcedures className="mt-5" />
       </div>
     </Section>
   );

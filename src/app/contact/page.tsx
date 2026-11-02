@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 
 import { EnquiryForm } from '@/components/contact/EnquiryForm';
+import { ConsultOptions } from '@/components/shared/ConsultOptions';
 import { Icon, type IconName } from '@/components/ui/Icons';
 import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
+import { photo } from '@/lib/media';
 import { contact, social } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -20,8 +22,8 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="We are here for you"
         crumbs={[{ label: 'Contact Us' }]}
-        imageSlot="cta-band"
-        intro="Reach out and take the first step towards your healing. Our team answers calls during OPD hours, and duty doctors are available round the clock."
+        image={photo.heroHospitalFront}
+        intro="Consult us directly at the OPD, online from home, or by email. Our team answers calls during OPD hours, and duty doctors are available round the clock."
       />
 
       <Section tone="cream">
@@ -135,9 +137,11 @@ export default function ContactPage() {
         </div>
       </Section>
 
+      <ConsultOptions />
+
       {/* Map */}
       <section className="relative">
-        <div className="h-[24rem] w-full bg-sand-200 md:h-[30rem]">
+        <div className="h-[30rem] w-full bg-sand-200 md:h-[38rem] lg:h-[42rem]">
           <iframe
             src={contact.mapsEmbed}
             title="Map showing the location of JSS Ayurveda Hospital, Mysuru"

@@ -11,6 +11,7 @@ type Status = 'idle' | 'submitting' | 'sent' | 'error';
 const SUBJECTS = [
   'General enquiry',
   'Book an OPD consultation',
+  'Online consultation',
   'Wellness program / package',
   'In-patient admission & rooms',
   'International patient',

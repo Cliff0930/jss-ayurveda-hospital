@@ -29,6 +29,11 @@ const nextConfig: NextConfig = {
     qualities: [75, 90],
   },
   poweredByHeader: false,
+  async redirects() {
+    return [
+      { source: '/treatments', destination: '/wellness-packages#treatments', permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

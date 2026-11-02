@@ -220,7 +220,7 @@ export const imageSlots: ImageSlot[] = [
     width: 2400,
     height: 900,
     prompt: `Wide atmospheric banner: a long stone corridor of a South Indian hospital opening onto a green herbal garden, warm late-afternoon light streaming across the floor in long diagonals, a few potted medicinal plants along the wall, no people. Very dark and moody so white text overlays cleanly. ${SHARED_STYLE}`,
-    src: archive.lobby,
+    src: photo.heroCampus,
     source: 'jssamch.org — the main hospital atrium and ceremonial lamp',
   },
   {

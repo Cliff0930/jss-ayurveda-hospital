@@ -17,7 +17,7 @@ import { media, photo } from '@/lib/media';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'JSS Ayurveda Hospital, Mysuru — established 1992, NABH accredited, set on a 15-acre campus at the foothills of the Chamundi Hills with over 300 species of medicinal herbs and 26 therapy rooms.',
+    'JSS Ayurveda Hospital, Mysuru — started in 1992, 25 lakh+ patients treated, NABH accredited, set on a 15-acre campus at the foothills of the Chamundi Hills with over 300 species of medicinal herbs and 26 therapy rooms.',
 };
 
 export default function AboutPage() {
@@ -28,7 +28,7 @@ export default function AboutPage() {
         title="Rooted in ancient wisdom. Guided by genuine care."
         crumbs={[{ label: 'About Us' }]}
         image={photo.aboutBanner}
-        intro="Healing since 1992 — on a peaceful 15-acre campus at the foothills of the Chamundi Hills, Mysuru."
+        intro="Healing since 1992, with more than 25 lakh patients treated — on a peaceful 15-acre campus at the foothills of the Chamundi Hills, Mysuru."
       />
 
       {/* Story */}
@@ -141,7 +141,7 @@ export default function AboutPage() {
             {[
               { src: media.environment1, alt: 'The green environment of the hospital campus' },
               { src: media.campusWard, alt: 'A patient ward at JSS Ayurveda Hospital' },
-              { src: media.garden1, alt: 'Medicinal plants in the campus herbal garden' },
+              { src: media.campusGarden, alt: 'Gardens on the JSS Ayurveda Hospital campus' },
             ].map((image, index) => (
               <Reveal key={image.src} delay={index * 90}>
                 <div className="relative aspect-4/3 overflow-hidden rounded-card">

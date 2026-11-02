@@ -1,37 +1,41 @@
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 import { Process } from '@/components/home/Process';
 import { ProgramCard } from '@/components/programs/ProgramCard';
 import { CtaBand } from '@/components/shared/CtaBand';
+import { TreatmentsGrid } from '@/components/treatments/TreatmentsGrid';
 import { ButtonLink } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icons';
 import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
+import { treatments } from '@/content/clinical';
 import { additionalPrograms, wellnessPrograms } from '@/content/programs';
+import { media, photo } from '@/lib/media';
 
 export const metadata: Metadata = {
-  title: 'Wellness Packages',
+  title: 'Packages & Treatments',
   description:
-    'Ayurvedic wellness programs at JSS Ayurveda Hospital, Mysuru — Panchakarma detoxification, Rasayana rejuvenation, stress management, Vasantha Vamana and migraine relief, with ward-wise tariffs.',
+    'Ayurvedic wellness packages and over 30 classical treatments at JSS Ayurveda Hospital, Mysuru — Panchakarma, Rasayana, stress management, Shirodhara, Abhyanga, Nasya, Kizhi and more, with ward-wise tariffs.',
 };
 
 export default function WellnessPackagesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Wellness Packages"
+        eyebrow="Packages & Treatments"
         title="Your personalised healing program"
-        crumbs={[{ label: 'Wellness Packages' }]}
-        imageSlot="international-patient"
+        crumbs={[{ label: 'Packages & Treatments' }]}
+        image={photo.heroAbhyanga}
         intro="Each program at JSS Ayurveda Hospital is individually designed by our doctors based on your health condition, body constitution and goals. Every tariff includes accommodation, meals, therapies, medicines and daily doctor consultations."
       >
         <div className="flex flex-wrap gap-3">
           <ButtonLink href="/contact" variant="secondary" arrow>
             Plan my program
           </ButtonLink>
-          <ButtonLink href="/pricing" variant="outline-light">
-            Compare pricing plans
+          <ButtonLink href="#treatments" variant="outline-light">
+            Browse treatments
           </ButtonLink>
         </div>
       </PageHero>
@@ -75,6 +79,83 @@ export default function WellnessPackagesPage() {
                 </article>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Treatments — merged in from the former Treatments page */}
+      <Section tone="cream" id="treatments">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Our Treatments"
+            title={`${treatments.length} classical therapies, personally prescribed`}
+            intro="Every package is built from these therapies. Search by therapy name or by the condition you want help with — our doctors will design the right combination for you after a Prakruti assessment."
+            align="center"
+            className="mb-14"
+          />
+
+          <TreatmentsGrid />
+        </div>
+      </Section>
+
+      {/* Medicines */}
+      <Section tone="white">
+        <div className="container-page">
+          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+            <Reveal>
+              <div className="relative">
+                <div className="relative aspect-4/5 w-[78%] overflow-hidden rounded-[2rem] shadow-lift">
+                  <Image
+                    src={media.fenugreek}
+                    alt="Dried medicinal herbs used in JSS Ayurveda Hospital formulations"
+                    fill
+                    sizes="(min-width: 1024px) 26rem, 70vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute bottom-6 right-0 aspect-square w-[52%] overflow-hidden rounded-[1.5rem] border-[6px] border-white shadow-lift">
+                  <Image
+                    src={media.turmericRoot}
+                    alt="Turmeric root and powder, a staple of Ayurvedic formulation"
+                    fill
+                    sizes="(min-width: 1024px) 18rem, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </Reveal>
+
+            <div>
+              <SectionHeading
+                eyebrow="100% Authentic Ayurvedic Medicines"
+                title="Prepared on-site — from our garden to your treatment"
+                intro={
+                  <>
+                    <p>
+                      We do not purchase medicines from outside suppliers. Every Churna, Kashayam,
+                      Ghritam and Taila used in your treatment is prepared in our own in-house
+                      Ayur-Drug Manufacturing Unit — using herbs grown in our 15-acre on-campus herbal
+                      garden.
+                    </p>
+                    <p className="mt-4">
+                      When you receive any medicine or oil therapy at JSS, you can be certain of
+                      exactly what you are taking — its source, its ingredients and its purpose.
+                    </p>
+                  </>
+                }
+              />
+
+              <Reveal delay={200}>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <ButtonLink href="/products" arrow>
+                    Explore our products
+                  </ButtonLink>
+                  <ButtonLink href="/ayur-pharma" variant="ghost">
+                    JSS Ayur Pharma
+                  </ButtonLink>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </Section>
