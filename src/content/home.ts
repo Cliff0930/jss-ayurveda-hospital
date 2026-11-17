@@ -295,9 +295,11 @@ export const philosophy = {
  * NABH and insurance — placed directly under the hero at the hospital's request
  * so both are the first thing a patient reads.
  *
- * Insurance copy states only what the hospital has confirmed: reimbursement
- * support and the paperwork we provide. Name insurers or TPAs, or cashless
- * admission, here only once the hospital supplies them.
+ * Insurance lists come from the hospital's own insurer and TPA boards. Cashless
+ * is ICICI Lombard only; everything else is reimbursement. Insurers that have
+ * since merged are listed under their current name (Apollo Munich → HDFC ERGO,
+ * Bharti AXA → ICICI Lombard, Cigna TTK → ManipalCigna, Max Bupa → Niva Bupa,
+ * Religare → Care Health).
  */
 export const nabhHighlight = {
   title: 'NABH Accredited',
@@ -311,11 +313,41 @@ export const nabhHighlight = {
 
 export const insuranceInfo = {
   title: 'Health Insurance Support',
-  body: 'Ayurvedic in-patient treatment is covered under many health insurance policies. Our team prepares every document you need for your claim.',
+  body: 'Cashless admission is available with ICICI Lombard. With every other insurer and TPA below, your treatment is covered by reimbursement — our team prepares every document you need for your claim.',
+  cashless: 'ICICI Lombard',
+  approval: 'Approved by CGHS and the State Government',
   points: [
     'Discharge summary and treatment records',
     'Itemised bills and receipts',
     'Help with your insurer’s claim forms',
+  ],
+  lists: [
+    {
+      title: 'Insurance companies',
+      note: 'Reimbursement',
+      items: [
+        'Star Health', 'Future Generali', 'Bajaj Allianz', 'ManipalCigna', 'National Insurance',
+        'IFFCO Tokio', 'New India Assurance', 'Oriental Insurance', 'Reliance General',
+        'United India', 'Royal Sundaram', 'Tata AIG', 'Cholamandalam MS', 'HDFC ERGO',
+        'Universal Sompo', 'SBI General', 'Raheja QBE', 'Niva Bupa', 'Care Health',
+        'Liberty General', 'Shriram General', 'Magma HDI',
+      ],
+    },
+    {
+      title: 'TPAs',
+      note: 'Reimbursement',
+      items: [
+        'Medi Assist', 'United Healthcare Parekh', 'E Meditek', 'MDIndia', 'Family Health Plan',
+        'Focus Healthservices', 'Vidal Health', 'Heritage Health', 'Vipul MedCorp', 'Raksha',
+        'Rothshield Healthcare', 'Dedicated Healthcare Services', 'Spurthi Meditech', 'Ericson',
+        'Sri Gokulam Health Services', 'Safeway',
+      ],
+    },
+    {
+      title: 'Corporate tie-ups',
+      note: null,
+      items: ['Karnataka Power Transmission Corporation Ltd (KPTCL)', 'Rare Material Project (RMP)'],
+    },
   ],
   note: 'Please check your policy’s cover for Ayurvedic hospitalisation with your insurer before admission — our team will guide you.',
 } as const;
@@ -332,8 +364,8 @@ export const consultOptions = [
   {
     key: 'online',
     title: 'Online consultation',
-    body: 'Consult our doctors from home. Message or call us to schedule a time.',
-    detail: 'Book on WhatsApp or by phone',
+    body: 'Consult our doctors from home by audio call. Call us to book and we will allot a doctor and a time slot.',
+    detail: '₹550 · Call +91 91487 59349 or 0821-2548231',
     icon: 'phone' as IconName,
   },
   {

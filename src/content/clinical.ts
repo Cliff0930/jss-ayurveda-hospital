@@ -519,12 +519,23 @@ export const signatureProcedures = [
     name: 'Swarnaprashana',
     tagline: 'Immunity care for children',
     icon: 'child' as IconName,
-    body: 'Swarna (gold) with classical herbs — Vacha, Shankhapushpi, Brahmi and Ashwagandha in honey and cow’s ghee — given to children by mouth. Traditionally used to support immunity, digestion, memory and resistance to seasonal illness.',
+    body: 'Swarna (gold) with classical herbs — Vacha, Shankhapushpi, Brahmi and Ashwagandha in honey and cow’s ghee — given to children by mouth. It improves digestion and immunity, supports physical and mental growth, sharpens concentration and memory, and helps prevent frequent fever, cold, cough, asthma and allergies. It has no adverse effects, and your child can eat normally before and after the dose.',
     facts: [
-      { label: 'Who', value: 'Newborns to 16 years — most beneficial up to age 5' },
-      { label: 'When', value: 'On Pushya Nakshatra, every 27 days' },
+      { label: 'Who', value: 'Children from birth to 16 years of age' },
+      { label: 'When', value: 'Every month, on Pushya Nakshatra day' },
+      { label: 'Fee', value: '₹150 per dose at the hospital · ₹100 for a bottle to take home' },
       { label: 'Course', value: 'Six months' },
     ],
+    // From the hospital's Swarnaprashana Campaign 2026 leaflet. Replace each year.
+    calendar: {
+      title: 'Swarnaprashana dates 2026',
+      dates: [
+        'Mon, 5 January', 'Sun, 1 February', 'Sat, 28 February', 'Sat, 28 March',
+        'Fri, 24 April', 'Fri, 22 May', 'Thu, 18 June', 'Wed, 15 July',
+        'Tue, 11 August', 'Tue, 8 September', 'Mon, 5 October', 'Sun, 1 November',
+        'Sat, 28 November', 'Sat, 26 December',
+      ],
+    },
     department: 'Kaumarabhritya (Paediatrics)',
   },
   {

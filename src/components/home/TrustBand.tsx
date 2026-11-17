@@ -82,6 +82,17 @@ export function TrustBand() {
 
               <p className="mt-6 text-[0.9375rem] leading-relaxed text-ink-500">{insuranceInfo.body}</p>
 
+              <div className="mt-5 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-2 rounded-full bg-jade-800 px-4 py-2 text-[0.8125rem] font-semibold text-sand-50">
+                  <Icon.check className="h-4 w-4 shrink-0 text-turmeric-300" aria-hidden />
+                  Cashless: {insuranceInfo.cashless}
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-turmeric-200 bg-turmeric-50 px-4 py-2 text-[0.8125rem] font-semibold text-jade-900">
+                  <Icon.shield className="h-4 w-4 shrink-0 text-turmeric-700" aria-hidden />
+                  {insuranceInfo.approval}
+                </span>
+              </div>
+
               <ul className="mt-6 grid gap-2.5">
                 {insuranceInfo.points.map((point) => (
                   <li
@@ -93,6 +104,35 @@ export function TrustBand() {
                   </li>
                 ))}
               </ul>
+
+              <div className="mt-6 divide-y divide-sand-200 rounded-xl border border-sand-200">
+                {insuranceInfo.lists.map((list) => (
+                  <details key={list.title} className="group">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-[0.9375rem] font-semibold text-jade-900 transition-colors hover:bg-sand-50 [&::-webkit-details-marker]:hidden">
+                      <span>
+                        {list.title}{' '}
+                        <span className="font-normal text-ink-500">
+                          ({list.items.length}{list.note ? ` · ${list.note.toLowerCase()}` : ''})
+                        </span>
+                      </span>
+                      <Icon.chevronRight
+                        className="h-4 w-4 shrink-0 text-jade-700 transition-transform duration-300 group-open:rotate-90"
+                        aria-hidden
+                      />
+                    </summary>
+                    <ul className="flex flex-wrap gap-2 px-4 pb-4 pt-1">
+                      {list.items.map((item) => (
+                        <li
+                          key={item}
+                          className="rounded-full bg-sand-50 px-3 py-1.5 text-[0.8125rem] text-ink-700"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ))}
+              </div>
 
               <p className="mt-5 text-[0.8125rem] leading-relaxed text-sand-700">{insuranceInfo.note}</p>
 

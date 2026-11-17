@@ -6,7 +6,7 @@ import { contact } from '@/lib/site';
 
 const actions = {
   direct: { label: 'Get directions', href: contact.mapsUrl, external: true },
-  online: { label: 'Book on WhatsApp', href: contact.whatsapp, external: true },
+  online: { label: 'How to book', href: '/online-consultation', external: false },
   email: { label: 'Write to us', href: `mailto:${contact.email}`, external: false },
 } as const;
 

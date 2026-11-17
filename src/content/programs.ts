@@ -188,4 +188,4 @@ export const pricingTiers = [
 ] as const;
 
 export const pricingNote =
-  'All tariffs include accommodation, all meals, daily doctor consultations, prescribed therapies and herbal medicines. Health insurance reimbursement documentation is provided on request. Room types range from Standard Ward to Ultra Deluxe — all on our serene 15-acre campus.';
+  'All tariffs include accommodation, all meals, daily doctor consultations, prescribed therapies and herbal medicines. Cashless admission is available with ICICI Lombard, and reimbursement documentation for other insurers is provided on request. Room types range from Standard Ward to Ultra Deluxe — all on our serene 15-acre campus.';

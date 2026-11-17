@@ -34,7 +34,11 @@ export function SignatureProcedures({ className }: { className?: string }) {
 
                 <p className="mt-5 flex-1 text-[0.9375rem] leading-relaxed text-sand-200/85">{procedure.body}</p>
 
-                <dl className="mt-6 grid gap-3 border-t border-sand-50/10 pt-6 sm:grid-cols-3">
+                <dl
+                  className={`mt-6 grid gap-3 border-t border-sand-50/10 pt-6 ${
+                    procedure.facts.length === 4 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'
+                  }`}
+                >
                   {procedure.facts.map((fact) => (
                     <div key={fact.label}>
                       <dt className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-sand-400">
@@ -44,6 +48,26 @@ export function SignatureProcedures({ className }: { className?: string }) {
                     </div>
                   ))}
                 </dl>
+
+                {'calendar' in procedure ? (
+                  <details className="group mt-6 rounded-xl border border-sand-50/15">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-[0.875rem] font-semibold text-sand-50 [&::-webkit-details-marker]:hidden">
+                      <span className="flex items-center gap-2">
+                        <Icon.calendar className="h-4 w-4 text-turmeric-300" aria-hidden />
+                        {procedure.calendar.title}
+                      </span>
+                      <Icon.chevronRight
+                        className="h-4 w-4 shrink-0 text-turmeric-300 transition-transform duration-300 group-open:rotate-90"
+                        aria-hidden
+                      />
+                    </summary>
+                    <ol className="grid grid-cols-2 gap-x-4 gap-y-2 px-4 pb-4 pt-1 text-[0.8125rem] text-sand-200 sm:grid-cols-3">
+                      {procedure.calendar.dates.map((date) => (
+                        <li key={date}>{date}</li>
+                      ))}
+                    </ol>
+                  </details>
+                ) : null}
               </article>
             </Reveal>
           );

@@ -133,7 +133,7 @@ export default function PricingPage() {
           <Reveal delay={340}>
             <div className="mt-12 grid gap-5 rounded-card border border-sand-200 bg-white p-7 sm:grid-cols-3">
               {[
-                { icon: 'shield' as const, title: 'Insurance supported', body: 'Full documentation provided for Ayurvedic in-patient reimbursement claims.' },
+                { icon: 'shield' as const, title: 'Insurance supported', body: 'Cashless with ICICI Lombard; full documentation for reimbursement claims with other insurers.' },
                 { icon: 'bed' as const, title: 'Four ward types', body: 'Standard, Special, Deluxe and Ultra Deluxe — you choose what suits you.' },
                 { icon: 'leaf' as const, title: 'Nothing extra to buy', body: 'All medicines used in your treatment are prepared and included on campus.' },
               ].map((item) => {

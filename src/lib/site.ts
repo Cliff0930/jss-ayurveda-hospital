@@ -78,7 +78,14 @@ export const mainNav: NavItem[] = [
       { label: 'Gallery', href: '/gallery', description: 'Campus, gardens, events and outreach' },
     ],
   },
-  { label: 'OPD', href: '/opd' },
+  {
+    label: 'OPD',
+    href: '/opd',
+    children: [
+      { label: 'OPD & Departments', href: '/opd', description: 'Departments, timings and how to visit' },
+      { label: 'Online Consultation', href: '/online-consultation', description: 'Consult a doctor from home — ₹550' },
+    ],
+  },
   { label: 'Speciality Clinics', href: '/specialities' },
   { label: 'Yoga & Naturopathy', href: '/yoga-naturopathy' },
   { label: 'Physiotherapy', href: '/physiotherapy' },
@@ -118,6 +125,7 @@ export const footerNav = [
     title: 'Treatment',
     links: [
       { label: 'OPD & Departments', href: '/opd' },
+      { label: 'Online Consultation', href: '/online-consultation' },
       { label: 'Speciality Clinics', href: '/specialities' },
       { label: 'Yoga & Naturopathy', href: '/yoga-naturopathy' },
       { label: 'Physiotherapy', href: '/physiotherapy' },

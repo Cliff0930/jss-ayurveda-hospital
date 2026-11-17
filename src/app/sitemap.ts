@@ -21,6 +21,7 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: '/staff', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/attendance-analysis', priority: 0.4, changeFrequency: 'monthly' },
   { path: '/waste-data', priority: 0.4, changeFrequency: 'monthly' },
+  { path: '/online-consultation', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/faqs', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.9, changeFrequency: 'yearly' },
   { path: '/privacy-policy', priority: 0.2, changeFrequency: 'yearly' },

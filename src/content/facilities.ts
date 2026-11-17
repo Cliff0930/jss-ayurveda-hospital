@@ -71,7 +71,7 @@ export const additionalFacilities = [
   'Two Operation Theatres',
   'Sathwa — Ayurvedic satvik kitchen',
   'Wi-Fi across the campus',
-  'Health insurance reimbursement support',
+  'Health insurance — cashless with ICICI Lombard, reimbursement with others',
 ] as const;
 
 export const campusIntro = {
@@ -102,6 +102,20 @@ export const laboratory = {
         'Total & direct bilirubin', 'Total protein', 'Albumin', 'Globulin', 'A/G ratio',
         'ALT', 'AST', 'ALP', 'GGT', 'Total cholesterol', 'HDL', 'LDL', 'VLDL', 'Triglycerides',
       ],
+    },
+    {
+      title: 'Clinical Pathology',
+      tests: [
+        'Urine routine', 'Bile salt', 'Bile pigment', 'Urobilinogen', 'Albumin', 'Sugar', 'Microscopy',
+      ],
+    },
+    {
+      title: 'Serology',
+      tests: ['HIV (card)', 'HBsAg (card)', 'RA', 'CRP'],
+    },
+    {
+      title: 'Packages',
+      tests: ['LFT', 'Lipid profile', 'CBC'],
     },
   ],
 } as const;

@@ -69,7 +69,7 @@ export const faqs: AccordionItem[] = [
   {
     question: 'Do you accept health insurance?',
     answer:
-      'Yes. JSS Ayurveda Hospital supports reimbursement for Ayurvedic hospitalisation under several health insurance policies. Our team will provide all necessary documentation — discharge summary, treatment records, billing — for your insurance claim. We recommend checking with your insurer in advance about specific coverage for Ayurvedic in-patient treatment.',
+      'Yes. Cashless admission is available with ICICI Lombard. With over 20 other insurers — including Star Health, HDFC ERGO, Niva Bupa, Care Health and the public-sector insurers — and 16 TPAs such as Medi Assist, MDIndia and Vidal Health, treatment is covered by reimbursement. The hospital is also approved by CGHS and the State Government. Our team will provide all necessary documentation — discharge summary, treatment records, billing — for your claim. We recommend checking with your insurer in advance about cover for Ayurvedic in-patient treatment.',
   },
   {
     question: 'Is the food at the hospital vegetarian?',
@@ -93,12 +93,13 @@ export const aboutStory = {
   eyebrow: 'Who We Are',
   title: 'The Natural Way to Achieving Balance and Optimal Health',
   paragraphs: [
-    'JSS Ayurveda Hospital started in August 1992 on MG Road, Mysuru. Since then, more than 25 lakh patients from India and across the world have been treated here.',
+    'JSS Ayurveda Hospital started in August 1992 on MG Road, Mysuru, with all speciality treatments and one aim — quality Ayurvedic care for the public, especially the rural population. In its early years it served the poor and rural families of Mysuru, Chamarajanagara, Kodagu (Coorg) and Mandya districts. Today patients come from across India and the world, and more than 25 lakh have been treated here.',
     'Today we stand on a peaceful 15-acre campus at the foothills of the Chamundi Hills — home to over 300 species of medicinal herbs, 26 specialised therapy rooms, a NABH-accredited hospital and a team of doctors dedicated to authentic Ayurvedic healing with 100% authentic Ayurvedic medicines.',
+    'We are also a teaching hospital: our vaidyas are both teachers and practising doctors, which keeps them rooted in classical Ayurvedic principles while bringing a modern outlook to every patient they treat.',
     'We are proudly part of the JSS Mahavidyapeetha — a century-old institution started by Jagadguru Sri Shivarathreeshwara Mahaswamiji, built on the principle of selfless service to all.',
   ],
   milestones: [
-    { year: '1992', title: 'Started on MG Road', body: 'JSS Ayurveda Hospital opens in the heart of Mysuru in August 1992.' },
+    { year: '1992', title: 'Started on MG Road', body: 'JSS Ayurveda Hospital opens in the heart of Mysuru in August 1992, serving rural families across Mysuru, Chamarajanagara, Kodagu and Mandya.' },
     { year: '2000s', title: 'A campus of our own', body: 'The hospital moves to a 15-acre campus at the foothills of the Chamundi Hills.' },
     { year: 'Today', title: 'NABH accredited', body: '25 lakh+ patients treated, 26 therapy rooms, 300+ herb species and consultants across every department.' },
   ],
@@ -227,6 +228,50 @@ export const yogaNaturopathy = {
       title: 'Acupuncture & acupressure',
       body: 'Complementary therapies offered alongside Ayurvedic treatment for pain, stress and nervous conditions.',
       icon: 'pulse' as IconName,
+    },
+  ],
+} as const;
+
+/** Online consultation booking process and fee, as supplied by the hospital. */
+export const onlineConsultation = {
+  fee: 550,
+  includes: ['OPD card generation', 'Doctor allotment', 'Your doctor’s contact details'],
+  mode: 'Audio call',
+  steps: [
+    {
+      title: 'Call to book',
+      body: 'Call the hospital to book your online consultation.',
+      icon: 'phone' as IconName,
+    },
+    {
+      title: 'Initial enquiry',
+      body: 'Our office staff will ask about your health condition and take your basic details.',
+      icon: 'users' as IconName,
+    },
+    {
+      title: 'Payment',
+      body: 'Our staff will share a payment number or link on your WhatsApp. Pay ₹550 to confirm your booking.',
+      icon: 'whatsapp' as IconName,
+    },
+    {
+      title: 'Doctor allotment & time slot',
+      body: 'Based on your condition and the doctor’s availability, we allot a suitable doctor and fix a convenient time slot for you.',
+      icon: 'calendar' as IconName,
+    },
+    {
+      title: 'Consultation',
+      body: 'At the allotted time, call the doctor directly. The consultation is by audio call, and you can share your previous reports during it.',
+      icon: 'stethoscope' as IconName,
+    },
+    {
+      title: 'Prescription & treatment plan',
+      body: 'After the consultation, the doctor sends you the prescription and treatment schedule.',
+      icon: 'leaf' as IconName,
+    },
+    {
+      title: 'In-patient admission, if advised',
+      body: 'If in-patient treatment or Panchakarma is advised, you can plan your visit to the hospital. We give you an approximate estimate for treatment and stay in advance.',
+      icon: 'bed' as IconName,
     },
   ],
 } as const;
