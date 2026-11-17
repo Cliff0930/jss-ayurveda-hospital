@@ -14,7 +14,7 @@ import { specialities } from '@/content/clinical';
 export const metadata: Metadata = {
   title: 'Speciality Clinics',
   description:
-    "Dedicated Ayurvedic clinics at JSS Ayurveda Hospital, Mysuru — Parkinson's, cancer support, migraine, liver, male and female infertility, piles & fistula, arthritis, Prakruthi wellness, Swarnaprashana and Agnikarma.",
+    "Dedicated Ayurvedic clinics at JSS Ayurveda Hospital, Mysuru — Parkinson's, cancer support, migraine, liver, male and female infertility, piles & fistula, arthritis, Prakruthi wellness, Manasa Roga, neuro, maggot debridement therapy, Swarnaprashana and Agnikarma.",
 };
 
 /** Clinics that have long-form detail copy get their own deep-dive section. */
@@ -67,6 +67,12 @@ export default function SpecialitiesPage() {
 
                     <div className="flex flex-1 flex-col p-6">
                       <h3 className="text-[1.0625rem] leading-snug">{clinic.name}</h3>
+                      {clinic.department ? (
+                        <p className="mt-1 text-[0.8125rem] font-medium tracking-wide text-turmeric-700">
+                          {clinic.department}
+                        </p>
+                      ) : null}
+                      {/* Clinics still awaiting copy from the hospital keep the space empty. */}
                       <p className="mt-2.5 flex-1 text-[0.875rem] leading-relaxed text-ink-500">
                         {clinic.summary}
                       </p>

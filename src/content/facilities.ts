@@ -1,4 +1,5 @@
 import type { IconName } from '@/components/ui/Icons';
+import { photo } from '@/lib/media';
 
 /** Accommodation options, from the WordPress "Facilities & Rooms" page. */
 export const rooms = [
@@ -72,6 +73,17 @@ export const additionalFacilities = [
   'Sathwa — Ayurvedic satvik kitchen',
   'Wi-Fi across the campus',
   'Health insurance — cashless with ICICI Lombard, reimbursement with others',
+] as const;
+
+/**
+ * Clinical care units, shown as photographs with a caption. The hospital asked
+ * for photos only; add a `body` here if they later send details (services,
+ * hours, beds).
+ */
+export const careUnits = [
+  { title: 'ECG', image: photo.unitEcg, alt: 'The ECG machine and electrode leads on its trolley' },
+  { title: 'Casualty', image: photo.unitCasualty, alt: 'The casualty ward with electric beds and an emergency trolley' },
+  { title: 'Newborn care', image: photo.unitNewbornCare, alt: 'An infant warmer, newborn cot and baby weighing scale in the newborn care area' },
 ] as const;
 
 export const campusIntro = {

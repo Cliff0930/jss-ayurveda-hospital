@@ -56,8 +56,17 @@ export function SpecialityShowcase() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-5">
-                    <p className="text-[0.875rem] leading-relaxed text-ink-500">{clinic.summary}</p>
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold text-jade-700 transition-colors group-hover:text-turmeric-700">
+                    {clinic.department ? (
+                      <p className="text-[0.8125rem] font-medium tracking-wide text-turmeric-700">
+                        {clinic.department}
+                      </p>
+                    ) : null}
+                    {clinic.summary ? (
+                      <p className={`${clinic.department ? 'mt-2' : ''} text-[0.875rem] leading-relaxed text-ink-500`}>
+                        {clinic.summary}
+                      </p>
+                    ) : null}
+                    <span className="mt-auto inline-flex pt-4 items-center gap-1.5 text-[0.8125rem] font-semibold text-jade-700 transition-colors group-hover:text-turmeric-700">
                       Learn more
                       <Icon.arrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
                     </span>

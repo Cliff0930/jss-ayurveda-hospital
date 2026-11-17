@@ -99,7 +99,7 @@ export default function AboutPage() {
 
           <ol className="mt-14 grid gap-6 md:grid-cols-3">
             {aboutStory.milestones.map((milestone, index) => (
-              <Reveal as="li" key={milestone.year} delay={index * 110}>
+              <Reveal as="li" key={milestone.title} delay={index * 110}>
                 <div className="relative h-full rounded-card border border-sand-200 bg-sand-50 p-7">
                   <span
                     aria-hidden
@@ -107,7 +107,8 @@ export default function AboutPage() {
                   >
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <p className="font-mono text-[0.8125rem] font-semibold tracking-[0.14em] text-turmeric-700">
+                  {/* min-h keeps the titles aligned while a year is still to be confirmed */}
+                  <p className="min-h-[1.25rem] font-mono text-[0.8125rem] font-semibold tracking-[0.14em] text-turmeric-700">
                     {milestone.year}
                   </p>
                   <h3 className="mt-3 text-[1.125rem] leading-snug">{milestone.title}</h3>

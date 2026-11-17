@@ -118,7 +118,7 @@ export const departments = [
 
 export const opdInfo = {
   summary:
-    'The OPD functions from 9:00 AM to 4:30 PM on all working days, with consultants available across every speciality. Duty doctors are available for consultation round the clock — during non-working hours, in-house consultants attend to patients. Out-patient services are available in all specialities, attended by experienced and qualified Ayurvedacharya / B.A.M.S. / M.D. doctors.',
+    'The OPD functions from 8:00 AM to 4:30 PM on all working days, with consultants available across every speciality. Duty doctors are available for consultation round the clock — during non-working hours, in-house consultants attend to patients. Out-patient services are available in all specialities, attended by experienced and qualified Ayurvedacharya / B.A.M.S. / M.D. doctors.',
   visitors: [
     {
       title: 'New Patients',
@@ -134,7 +134,13 @@ export const opdInfo = {
 export type Speciality = {
   slug: string;
   name: string;
-  summary: string;
+  /**
+   * The department that runs the clinic, shown under its name. Left out where
+   * the hospital has not confirmed it yet, so nothing is shown rather than a guess.
+   */
+  department?: string;
+  /** Card copy. Left out for clinics whose description the hospital will supply. */
+  summary?: string;
   icon: IconName;
   image: string;
   /** Present only on clinics that get a long-form deep-dive section. */
@@ -163,6 +169,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'parkinsons',
     name: "Parkinson's Clinic",
+    department: 'Department of Panchakarma',
     summary:
       "Panchakarma and Rasayana-based approach to support neurological function, reduce tremors, improve mobility and enhance quality of life for Parkinson's patients.",
     icon: 'brain' as IconName,
@@ -177,6 +184,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'cancer-supportive',
     name: 'Cancer Supportive Clinic',
+    department: 'Department of Kayachikitsa',
     summary:
       'Holistic Ayurvedic support alongside conventional cancer treatment — improving immunity, minimising side effects of chemo/radiation and enhancing patient quality of life.',
     icon: 'shield' as IconName,
@@ -191,6 +199,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'headache-migraine',
     name: 'Headache & Migraine Clinic',
+    department: 'Department of Shalakyatantra',
     summary:
       'Targeted Shirodhara, Nasya and Talam therapies to identify and correct the root cause of chronic headaches and migraines — providing lasting relief rather than temporary suppression.',
     icon: 'head' as IconName,
@@ -208,6 +217,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'liver',
     name: 'Liver Clinic',
+    department: 'Department of Kayachikitsa',
     summary:
       'Classical Ayurvedic hepatology — Virechana and specialised herbal formulations to cleanse, restore and protect liver function for hepatitis, fatty liver, jaundice and cirrhosis support.',
     icon: 'liver' as IconName,
@@ -230,6 +240,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'female-infertility',
     name: 'Female Infertility Clinic',
+    department: 'Department of Prasoothi & Streeroga',
     summary:
       'A gentle, personalised path to natural conception — addressing hormonal imbalance, uterine health and reproductive wellness. We have helped many women conceive naturally after failed conventional treatments.',
     icon: 'baby' as IconName,
@@ -244,6 +255,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'prakruthi-wellness',
     name: 'Prakruthi for Wellness',
+    department: 'Department of Swasthavritta',
     summary:
       'Know your body type and prevent disease before it starts. Personalised wellness programs based on your unique Prakruti constitution — covering diet, daily routine, yoga and seasonal practices.',
     // Prakruti is the balance of the three doshas.
@@ -273,6 +285,31 @@ export const specialities: Speciality[] = [
       'Arthritis is not an inevitable part of ageing — and joint pain should not be something you simply learn to live with. At JSS Ayurveda Hospital, our doctors use a combination of Panchakarma therapies, targeted herbal formulations and personalised dietary guidance to address the inflammation at its root.',
       'For Osteoarthritis, we focus on nourishing the joint with Katibasti, Janubasti, Abhyanga and Navarakizhi. For Rheumatoid Arthritis, our treatment targets the immune response using Virechana, Basti and anti-inflammatory herbal medicine. Results are carefully monitored by our doctors throughout the treatment program.',
     ],
+  },
+  // The three clinics below are listed on jssamch.org. The hospital will
+  // supply each description (and any patient numbers) later; until then the
+  // card shows the clinic and its department only.
+  {
+    slug: 'manasa-roga',
+    name: 'Manasa Roga Clinic',
+    // OPD roster: "Kayachikitsa 2 (Skin & Manasa Roga)", room 6.
+    department: 'Department of Kayachikitsa',
+    icon: 'lotus' as IconName,
+    image: media.shirodhara,
+  },
+  {
+    slug: 'neuro',
+    name: 'Neuro Clinic',
+    // OPD roster: "Panchakarma 2 (Neuro)", room 7.
+    department: 'Department of Panchakarma',
+    icon: 'brain' as IconName,
+    image: media.backMassage,
+  },
+  {
+    slug: 'maggot-debridement',
+    name: 'Maggot Debridement Therapy Clinic',
+    icon: 'leaf' as IconName,
+    image: media.greenery,
   },
 ];
 
@@ -493,13 +530,175 @@ export const treatments: {
   },
 ];
 
+export const opdWeekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
+export type OpdWeekday = (typeof opdWeekdays)[number];
+
+export type OpdRoom = {
+  room: number;
+  name: string;
+  /** Doctor ids (WordPress name slugified, e.g. `dr-beena-m-d`) per weekday. */
+  days?: Partial<Record<OpdWeekday, string[]>>;
+  /** Shown across the whole row instead of names, e.g. for the casualty OPD. */
+  note?: string;
+};
+
 /**
- * Consultant OPD days, keyed by the doctor's id (their name slugified, e.g.
- * `dr-beena-m-d`). WordPress does not hold this yet, so it lives here until the
- * hospital supplies the schedule. A doctor with no entry shows the
+ * Consultant OPD roster, from the hospital's "Consultants and OPD Days" board
+ * (jssamch.org/wp-content/uploads/2026/08/consultant-opd-days.jpg).
+ *
+ * Doctors are referenced by id so names always match the Doctors page.
+ * Following the hospital's November 2026 replies:
+ *   - Drs. Greeshma Menon, Priyadarshini D J, Pooja P K, Visal S Kumar,
+ *     Ramachandar and Hemanth Kumar have left and are omitted; their slots
+ *     show as empty, and the casualty OPD shows duty doctors instead.
+ *   - "Dr. Rinchu R C" is Dr. Rinchu R S, "Dr. Sowmya M.N." is Dr. Sowmya M N,
+ *     and "Dr. Lakshmi" is Dr. Lakshmi K. Avaradi.
+ * Sundays run on rotation.
+ */
+export const opdRoster: OpdRoom[] = [
+  {
+    room: 1,
+    name: 'Kayachikitsa 1',
+    days: {
+      Mon: ['dr-deepa-c-patil'], Tue: ['dr-netra-b-hubballi'], Wed: ['dr-beena-m-d'],
+      Thu: ['dr-maitri-g-m'], Fri: ['dr-anu-krishna-p'], Sat: ['dr-deepa-c-patil'],
+    },
+  },
+  {
+    room: 2,
+    name: 'Panchakarma 1',
+    days: {
+      Mon: ['dr-veena-g-rao'], Tue: ['dr-jyoti'], Wed: ['dr-seetha-devi'],
+      Thu: ['dr-veena-g-rao'], Fri: ['dr-manasa-s-d'], Sat: ['dr-vineeth-c-p'],
+    },
+  },
+  {
+    room: 3,
+    name: 'Bala Roga (Paediatrics)',
+    days: {
+      Mon: ['dr-srihari-s'], Tue: ['dr-vaisakh-k'], Wed: ['dr-pooja-m-s'],
+      Thu: ['dr-jyoty-k-b'], Sat: ['dr-preeti-h-m'],
+    },
+  },
+  {
+    room: 4,
+    name: 'Shalakya Tantra (ENT)',
+    days: {
+      Mon: ['dr-gavimath-shivanand'], Tue: ['dr-sandhya-rani'],
+      Thu: ['dr-gavimath-shivanand'], Fri: ['dr-sandhya-rani'], Sat: ['dr-chaya-c'],
+    },
+  },
+  {
+    room: 5,
+    name: 'Shalakya Tantra (Eye)',
+    days: {
+      Mon: ['dr-sandhya-rani'], Tue: ['dr-sarbeswar-kar'], Wed: ['dr-chaya-c'],
+      Fri: ['dr-gavimath-shivanand'],
+    },
+  },
+  {
+    room: 6,
+    name: 'Kayachikitsa 2 (Skin & Manasa Roga)',
+    days: {
+      Mon: ['dr-beena-m-d'], Tue: ['dr-anu-krishna-p'], Wed: ['dr-netra-b-hubballi'],
+      Thu: ['dr-beena-m-d'], Fri: ['dr-maitri-g-m'], Sat: ['dr-harshitha-h-s'],
+    },
+  },
+  {
+    room: 7,
+    name: 'Panchakarma 2 (Neuro)',
+    days: {
+      Mon: ['dr-apoorva'], Tue: ['dr-manasa-s-d'], Wed: ['dr-jyoti'],
+      Thu: ['dr-vineeth-c-p'], Fri: ['dr-veena-g-rao'], Sat: ['dr-seetha-devi'],
+    },
+  },
+  {
+    room: 8,
+    name: 'Visha Chikitsa (Toxicology)',
+    days: {
+      Mon: ['dr-pallavi-y-c'], Tue: ['dr-shashi-bindu'], Wed: ['dr-rinchu-r-s'],
+      Thu: ['dr-rinchu-r-s'], Fri: ['dr-pallavi-y-c'], Sat: ['dr-shashi-bindu'],
+    },
+  },
+  {
+    room: 9,
+    name: 'Prasooti Tantra (Obstetrics)',
+    days: {
+      Mon: ['dr-usha-d-t'], Tue: ['dr-nanda-k-o'], Wed: ['dr-usha-d-t'],
+      Thu: ['dr-tejaswini-k-r'], Fri: ['dr-lakshmi-k-avaradi'], Sat: ['dr-tejaswini-k-r'],
+    },
+  },
+  {
+    room: 10,
+    name: 'Shalya Tantra (Surgery)',
+    days: {
+      Mon: ['dr-siddayya-aradhyamath'], Tue: ['dr-aiyanna'], Wed: ['dr-poornima-jalawadi'],
+      Fri: ['dr-poornima-p-k-m'], Sat: ['dr-adithya-j-v'],
+    },
+  },
+  {
+    room: 11,
+    name: 'Stree Roga (Gynaecology)',
+    days: {
+      Mon: ['dr-lakshmi-k-avaradi'], Tue: ['dr-tejaswini-k-r'], Wed: ['dr-nanda-k-o'],
+      Thu: ['dr-lakshmi-k-avaradi'], Fri: ['dr-nanda-k-o'], Sat: ['dr-usha-d-t'],
+    },
+  },
+  {
+    room: 12,
+    name: 'Swasthavritta / Yoga & Naturopathy',
+    days: {
+      Mon: ['dr-sudhakar-reddy', 'dr-nirmala-a-r'],
+      Tue: ['dr-vidyashree-m', 'dr-nirmala-a-r'],
+      Wed: ['dr-sowmya-m-n', 'dr-nirmala-a-r'],
+      Thu: ['dr-shalini-s', 'dr-nirmala-a-r'],
+      Fri: ['dr-anusha-s', 'dr-nirmala-a-r'],
+      Sat: ['dr-sudhakar-reddy', 'dr-nirmala-a-r'],
+    },
+  },
+  {
+    room: 13,
+    name: 'Atyayika / Casualty OPD',
+    note: 'Duty doctors on every day',
+  },
+  {
+    room: 14,
+    // "PTSR 2 (PG)" on the board.
+    name: 'Prasooti Tantra & Stree Roga 2 (PG)',
+    days: {
+      Mon: ['dr-tejaswini-k-r'], Tue: ['dr-lakshmi-k-avaradi'], Wed: ['dr-tejaswini-k-r'],
+      Thu: ['dr-usha-d-t'], Fri: ['dr-usha-d-t'], Sat: ['dr-nanda-k-o'],
+    },
+  },
+];
+
+/** Sunday has no fixed roster. */
+export const opdSundayNote = 'Sundays: consultants on rotation';
+
+/**
+ * Each consultant's OPD days, derived from `opdRoster` and keyed by doctor id,
+ * e.g. `{ 'dr-beena-m-d': 'Mon, Wed, Thu' }`. A doctor with no entry shows the
  * prior-appointment line only.
  */
-export const consultantOpdDays: Record<string, string> = {};
+export const consultantOpdDays: Record<string, string> = (() => {
+  const byDoctor = new Map<string, Set<OpdWeekday>>();
+  for (const room of opdRoster) {
+    for (const day of opdWeekdays) {
+      for (const id of room.days?.[day] ?? []) {
+        if (!byDoctor.has(id)) byDoctor.set(id, new Set());
+        byDoctor.get(id)!.add(day);
+      }
+    }
+  }
+  return Object.fromEntries(
+    [...byDoctor].map(([id, days]) => [
+      id,
+      days.size === opdWeekdays.length
+        ? 'Mon – Sat'
+        : opdWeekdays.filter((day) => days.has(day)).join(', '),
+    ]),
+  );
+})();
 
 export const priorAppointmentNote = 'Also available on prior appointment';
 
@@ -523,8 +722,7 @@ export const signatureProcedures = [
     facts: [
       { label: 'Who', value: 'Children from birth to 16 years of age' },
       { label: 'When', value: 'Every month, on Pushya Nakshatra day' },
-      { label: 'Fee', value: '₹150 per dose at the hospital · ₹100 for a bottle to take home' },
-      { label: 'Course', value: 'Six months' },
+      { label: 'Fee', value: '₹150 per dose at the hospital · ₹100 for a single-dose bottle to take home' },
     ],
     // From the hospital's Swarnaprashana Campaign 2026 leaflet. Replace each year.
     calendar: {
@@ -543,8 +741,9 @@ export const signatureProcedures = [
     name: 'Agnikarma',
     tagline: 'Classical para-surgical heat therapy',
     icon: 'flame' as IconName,
-    body: 'A precise, controlled application of therapeutic heat at specific points, described by Sushruta and performed by our Shalyatantra surgeons. A quick OPD procedure for localised pain and selected skin growths.',
+    body: 'A precise, controlled application of therapeutic heat at specific points, described by Sushruta and performed by our Shalyatantra surgeons. A quick OPD procedure for acute and chronic pain, musculoskeletal disorders and localised tissue growths.',
     facts: [
+      { label: 'Treats', value: 'Acute and chronic pain, musculoskeletal disorders and localised tissue growths' },
       { label: 'Performed by', value: 'Shalyatantra (Surgery) consultants' },
       { label: 'Setting', value: 'OPD procedure' },
     ],

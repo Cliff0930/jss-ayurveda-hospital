@@ -79,7 +79,7 @@ export const faqs: AccordionItem[] = [
   {
     question: 'Can I visit for a consultation without staying as an in-patient?',
     answer:
-      'Absolutely. Our OPD consultation is available Monday to Saturday from 9:00 AM to 4:30 PM, and on Sundays and Government holidays from 9:00 AM to 1:00 PM. Duty doctors are also available round the clock for urgent consultations. No appointment is needed for general OPD visits. For specialist consultations, we recommend calling ahead to confirm the consultant’s availability on that day.',
+      'Absolutely. Our OPD consultation is available Monday to Saturday from 8:00 AM to 4:30 PM, and on Sundays and Government holidays from 9:00 AM to 1:00 PM. Duty doctors are also available round the clock for urgent consultations. No appointment is needed for general OPD visits. For specialist consultations, we recommend calling ahead to confirm the consultant’s availability on that day.',
   },
   {
     question: 'Do you treat patients from other countries?',
@@ -100,7 +100,8 @@ export const aboutStory = {
   ],
   milestones: [
     { year: '1992', title: 'Started on MG Road', body: 'JSS Ayurveda Hospital opens in the heart of Mysuru in August 1992, serving rural families across Mysuru, Chamarajanagara, Kodagu and Mandya.' },
-    { year: '2000s', title: 'A campus of our own', body: 'The hospital moves to a 15-acre campus at the foothills of the Chamundi Hills.' },
+    // Year left blank until the hospital confirms when it moved to Alanahalli.
+    { year: '', title: 'A campus of our own', body: 'The hospital moves to its own 15-acre campus at Alanahalli, at the foothills of the Chamundi Hills.' },
     { year: 'Today', title: 'NABH accredited', body: '25 lakh+ patients treated, 26 therapy rooms, 300+ herb species and consultants across every department.' },
   ],
 } as const;

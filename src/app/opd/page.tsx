@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
+import { OpdTimetable } from '@/components/opd/OpdTimetable';
 import { CtaBand } from '@/components/shared/CtaBand';
 import { ButtonLink } from '@/components/ui/Button';
 import { Icon } from '@/components/ui/Icons';
@@ -10,14 +11,18 @@ import { Section, SectionHeading } from '@/components/ui/Section';
 import { departments, opdInfo } from '@/content/clinical';
 import { photo } from '@/lib/media';
 import { contact } from '@/lib/site';
+import { getDoctors } from '@/lib/wp/queries';
 
 export const metadata: Metadata = {
   title: 'OPD & Departments',
   description:
-    'Seven Ayurvedic departments at JSS Ayurveda Hospital, Mysuru — Kayachikitsa, Panchakarma, Shalakyatantra, Swasthavritta, Prasoothi & Streeroga, Shalyatantra and Kaumarabhritya. OPD 9:00 AM to 4:30 PM.',
+    'Seven Ayurvedic departments at JSS Ayurveda Hospital, Mysuru — Kayachikitsa, Panchakarma, Shalakyatantra, Swasthavritta, Prasoothi & Streeroga, Shalyatantra and Kaumarabhritya. OPD 8:00 AM to 4:30 PM.',
 };
 
-export default function OpdPage() {
+export default async function OpdPage() {
+  const { doctors } = await getDoctors();
+  const doctorNames = new Map(doctors.map((doctor) => [doctor.id, doctor.name]));
+
   return (
     <>
       <PageHero
@@ -84,6 +89,20 @@ export default function OpdPage() {
           </div>
         </div>
       </section>
+
+      {/* Consultant roster */}
+      <Section tone="white" compact id="opd-roster">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Consultants & OPD days"
+            title="Who is in the OPD, and when"
+            intro="The room-wise consultant roster for Monday to Saturday. Each consultant's days are also shown on their profile on the Doctors page."
+          />
+          <Reveal delay={120}>
+            <OpdTimetable names={doctorNames} className="mt-10" />
+          </Reveal>
+        </div>
+      </Section>
 
       {/* Departments */}
       <Section tone="cream">

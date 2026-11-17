@@ -9,7 +9,7 @@ import { Icon } from '@/components/ui/Icons';
 import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
-import { additionalFacilities, campusFacilities, campusIntro, laboratory, rooms } from '@/content/facilities';
+import { additionalFacilities, campusFacilities, campusIntro, careUnits, laboratory, rooms } from '@/content/facilities';
 import { imageSlotsById } from '@/lib/image-prompts';
 import { media, photo } from '@/lib/media';
 
@@ -239,8 +239,39 @@ export default function FacilitiesPage() {
         </div>
       </Section>
 
+      {/* Clinical care units */}
+      <Section tone="white" id="care-units">
+        <div className="container-page">
+          <SectionHeading
+            eyebrow="Clinical care units"
+            title="Equipped for urgent and specialised care"
+            align="center"
+          />
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {careUnits.map((unit, index) => (
+              <Reveal key={unit.title} delay={index * 90}>
+                <figure className="overflow-hidden rounded-card border border-sand-200 bg-sand-50">
+                  <div className="relative aspect-4/3">
+                    <Image
+                      src={unit.image}
+                      alt={unit.alt}
+                      fill
+                      sizes="(min-width: 1024px) 24rem, (min-width: 640px) 45vw, 90vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="px-5 py-4 font-display text-[1.125rem] text-jade-900">
+                    {unit.title}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
       {/* Laboratory */}
-      <Section tone="white" id="laboratory">
+      <Section tone="cream" id="laboratory">
         <div className="container-page">
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
             <div>
@@ -267,7 +298,7 @@ export default function FacilitiesPage() {
             <div className="grid gap-5">
               {laboratory.groups.map((group, index) => (
                 <Reveal key={group.title} delay={index * 120}>
-                  <article className="rounded-card border border-sand-200 bg-sand-50 p-6 md:p-7">
+                  <article className="rounded-card border border-sand-200 bg-white p-6 md:p-7">
                     <div className="flex items-baseline justify-between gap-4">
                       <h3 className="text-[1.125rem]">{group.title}</h3>
                       <span className="font-mono text-[0.75rem] tracking-widest text-sand-600">

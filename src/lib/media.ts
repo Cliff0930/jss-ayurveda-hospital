@@ -123,6 +123,10 @@ export const photo = {
   physiotherapyBanner: photoFile('a-14-physiotherapy-banner.webp'),
   physiotherapyBand: photoFile('a-15-physiotherapy-band.webp'),
 
+  /** Facilities — clinical care units, supplied by the hospital Nov 2026 (WhatsApp, 1280×960). */
+  unitEcg: photoFile('f-10-ecg.webp'),
+  unitCasualty: photoFile('f-11-casualty.webp'),
+  unitNewbornCare: photoFile('f-12-newborn-care.webp'),
   /** O-01 / O-02 — OPD & Departments. */
   opdBanner: photoFile('o-01-opd-banner.webp'),
   opdPortrait: photoFile('o-02-consultation-portrait.webp'),

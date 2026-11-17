@@ -37,7 +37,7 @@ export const contact = {
   mapsEmbed:
     'https://www.google.com/maps?q=JSS%20Ayurveda%20Medical%20College%20and%20Hospital%2C%20Lalithadripura%20Road%2C%20Alanahalli%2C%20Mysuru%20570028&output=embed',
   hours: [
-    { days: 'Monday – Saturday', time: '9:00 AM – 4:30 PM', note: 'OPD consultation' },
+    { days: 'Monday – Saturday', time: '8:00 AM – 4:30 PM', note: 'OPD consultation' },
     { days: 'Sunday & Govt. holidays', time: '9:00 AM – 1:00 PM', note: 'OPD consultation' },
     { days: 'All days', time: '24 × 7', note: 'Duty doctors & in-patient care' },
   ],

@@ -358,7 +358,7 @@ export const consultOptions = [
     key: 'direct',
     title: 'Direct consultation',
     body: 'Walk in to the OPD — no appointment needed for a general consultation.',
-    detail: 'Mon – Sat 9:00 AM – 4:30 PM · Sun & holidays 9:00 AM – 1:00 PM',
+    detail: 'Mon – Sat 8:00 AM – 4:30 PM · Sun & holidays 9:00 AM – 1:00 PM',
     icon: 'stethoscope' as IconName,
   },
   {

@@ -34,13 +34,10 @@ export function SignatureProcedures({ className }: { className?: string }) {
 
                 <p className="mt-5 flex-1 text-[0.9375rem] leading-relaxed text-sand-200/85">{procedure.body}</p>
 
-                <dl
-                  className={`mt-6 grid gap-3 border-t border-sand-50/10 pt-6 ${
-                    procedure.facts.length === 4 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'
-                  }`}
-                >
+                <dl className="mt-6 grid gap-3 border-t border-sand-50/10 pt-6 sm:grid-cols-2">
                   {procedure.facts.map((fact) => (
-                    <div key={fact.label}>
+                    // Long values (a fee line, a list of conditions) take the full row.
+                    <div key={fact.label} className={fact.value.length > 40 ? 'sm:col-span-2' : undefined}>
                       <dt className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-sand-400">
                         {fact.label}
                       </dt>

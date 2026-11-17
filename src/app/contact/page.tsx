@@ -12,7 +12,7 @@ import { contact, social } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Contact JSS Ayurveda Hospital, Mysuru — No. 41/E, Lalithadripura Road, Alanahalli, Mysuru 570028. Phone 0821-2548231, email contact@jssamch.org. OPD 9:00 AM to 4:30 PM.',
+    'Contact JSS Ayurveda Hospital, Mysuru — No. 41/E, Lalithadripura Road, Alanahalli, Mysuru 570028. Phone 0821-2548231, email contact@jssamch.org. OPD 8:00 AM to 4:30 PM.',
 };
 
 export default function ContactPage() {
