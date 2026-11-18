@@ -20,7 +20,7 @@ export const products = [
   },
   {
     name: 'JSS Ayur-Drug Manufacturing Unit',
-    body: 'All medicines used at JSS Ayurveda Hospital are prepared in our own GACP-compliant Ayur-Drug Manufacturing Unit using herbs from our herbal garden and following exact classical Ayurvedic formulations. This unit ensures purity, authenticity and complete traceability — from plant to preparation to patient.',
+    body: 'All medicines used at JSS Ayurveda Hospital are prepared in our own GMP-certified Ayur-Drug Manufacturing Unit using hand-picked, high-quality herbs from our herbal garden and following exact classical Ayurvedic formulations. This unit ensures purity, authenticity and complete traceability — from plant to preparation to patient.',
     icon: 'mortar' as IconName,
   },
 ] as const;
@@ -174,10 +174,10 @@ export const physiotherapy = {
 /** JSS Ayur Pharma — the source page is a stub; this expands it responsibly. */
 export const ayurPharma = {
   intro:
-    'JSS Ayur Pharma is the hospital’s own Ayur-Drug manufacturing unit. Every medicine used in our treatments — and every product we sell — is prepared here from herbs grown in our 15-acre garden, following the exact formulations of the classical Ayurvedic texts.',
+    'JSS Ayur Pharma is the hospital’s own GMP-certified Ayur-Drug manufacturing unit. Every medicine used in our treatments — and every product we sell — is prepared here from hand-picked, high-quality herbs grown in our 15-acre garden, following the exact formulations of the classical Ayurvedic texts.',
   pillars: [
     { title: 'Grown here', body: 'Over 300 medicinal species cultivated on campus and irrigated with treated water.', icon: 'leaf' as IconName },
-    { title: 'Prepared here', body: 'Churnas, Kashayams, Ghritams, Tailas and Avalehas made in our GACP-compliant unit.', icon: 'mortar' as IconName },
+    { title: 'Prepared here', body: 'Churnas, Kashayams, Ghritams, Tailas and Avalehas made in our GMP-certified unit.', icon: 'mortar' as IconName },
     { title: 'Prescribed here', body: 'Dispensed only on the prescription of our BAMS / MD consultants after assessment.', icon: 'stethoscope' as IconName },
     { title: 'Traceable end to end', body: 'From plant to preparation to patient — full traceability at every stage.', icon: 'shield' as IconName },
   ],

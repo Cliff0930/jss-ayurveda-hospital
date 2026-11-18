@@ -77,7 +77,7 @@ export const trustPoints = [
   },
   {
     title: 'In-House Medicine Preparation',
-    body: 'Authentic formulations made in our own Ayur-Drug Manufacturing Unit.',
+    body: 'Authentic formulations made from hand-picked, high-quality herbs in our own GMP-certified pharmacy.',
     icon: 'mortar' as IconName,
   },
   {
@@ -131,7 +131,7 @@ export const services = [
     icon: 'scale' as IconName,
   },
   {
-    title: 'Balancing Metabolism',
+    title: 'Metabolic Balance',
     body: 'Rekindle healthy Agni — your digestive fire — through personalised diet, herbal formulations and lifestyle correction for steady weight, energy and hormonal balance.',
     icon: 'flame' as IconName,
   },
@@ -140,7 +140,7 @@ export const services = [
 export const whyUs = [
   {
     title: '100% Authentic Ayurvedic Medicines',
-    body: 'All Churnas, Kashayams, Ghritams and Tailas are prepared in our in-house Ayur-Drug Manufacturing Unit, using herbs from our 15-acre herbal garden. Organic, authentic and quality-controlled.',
+    body: 'All Churnas, Kashayams, Ghritams and Tailas are prepared in our in-house GMP-certified Ayur-Drug Manufacturing Unit, from hand-picked, high-quality herbs grown in our 15-acre herbal garden. Organic, authentic and quality-controlled.',
   },
   {
     title: 'Qualified Ayurvedic Doctors and Therapists',

@@ -15,7 +15,7 @@ import { media } from '@/lib/media';
 export const metadata: Metadata = {
   title: 'Our Products',
   description:
-    'Authentic Ayurvedic products from JSS Ayurveda Hospital, Mysuru — Immune Booster Kit, Hitayu Kit for post-Covid recovery and Immuno Kidz, prepared in our own GACP-compliant Ayur-Drug Manufacturing Unit.',
+    'Authentic Ayurvedic products from JSS Ayurveda Hospital, Mysuru — Immune Booster Kit, Hitayu Kit for post-Covid recovery and Immuno Kidz, prepared in our own GMP-certified Ayur-Drug Manufacturing Unit.',
 };
 
 export default function ProductsPage() {
@@ -119,7 +119,7 @@ export default function ProductsPage() {
         <div className="container-page">
           <SectionHeading
             eyebrow="Where it is made"
-            title="Our own GACP-compliant manufacturing unit"
+            title="Our own GMP-certified manufacturing unit"
             intro="Nothing is outsourced. Every Churna, Kashayam, Ghritam, Taila and Avaleha is prepared on our campus, from herbs grown on our campus."
             align="center"
           />

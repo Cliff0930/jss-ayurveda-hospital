@@ -14,7 +14,7 @@ import { photo } from '@/lib/media';
 export const metadata: Metadata = {
   title: 'JSS Ayur Pharma',
   description:
-    'JSS Ayur Pharma — the in-house GACP-compliant Ayur-Drug manufacturing unit of JSS Ayurveda Hospital, Mysuru. Churnas, Kashayams, Ghritams, Tailas and Avalehas prepared from our own 15-acre herbal garden.',
+    'JSS Ayur Pharma — the in-house GMP-certified Ayur-Drug manufacturing unit of JSS Ayurveda Hospital, Mysuru. Churnas, Kashayams, Ghritams, Tailas and Avalehas prepared from our own 15-acre herbal garden.',
 };
 
 export default function AyurPharmaPage() {
