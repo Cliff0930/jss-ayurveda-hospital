@@ -5,7 +5,7 @@ import { FloatingActions } from '@/components/layout/FloatingActions';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { media } from '@/lib/media';
-import { contact, site } from '@/lib/site';
+import { contact, isIndexable, site } from '@/lib/site';
 
 import './globals.css';
 
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     images: [media.campusFront],
   },
   icons: { icon: media.favicon, apple: media.favicon },
-  robots: { index: true, follow: true },
+  robots: isIndexable ? { index: true, follow: true } : { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

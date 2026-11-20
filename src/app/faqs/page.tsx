@@ -61,7 +61,7 @@ export default function FaqsPage() {
                   </a>
                   <a
                     href={`mailto:${contact.email}`}
-                    className="mt-1 block text-[0.875rem] text-ink-500 transition hover:text-jade-800"
+                    className="block py-1 text-[0.875rem] text-ink-500 transition hover:text-jade-800"
                   >
                     {contact.email}
                   </a>

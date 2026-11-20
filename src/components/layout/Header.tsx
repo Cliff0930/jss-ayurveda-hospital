@@ -340,6 +340,7 @@ function MobileNav({
         open ? 'pointer-events-auto' : 'pointer-events-none',
       )}
       aria-hidden={!open}
+      inert={!open}
     >
       <div
         className={cn(

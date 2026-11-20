@@ -2,7 +2,6 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 import { CtaBand } from '@/components/shared/CtaBand';
-import { AiImage } from '@/components/ui/AiImage';
 import { ButtonLink } from '@/components/ui/Button';
 import { Counter } from '@/components/ui/Counter';
 import { Icon } from '@/components/ui/Icons';
@@ -68,7 +67,6 @@ export default function MahavidyapeethaPage() {
 
       {/* Stats */}
       <section className="relative isolate overflow-hidden bg-jade-900 py-16 text-sand-100 md:py-20">
-        <div aria-hidden className="grain absolute inset-0" />
         <div className="container-page relative">
           <p className="eyebrow eyebrow-center mx-auto text-turmeric-300">The Mahavidyapeetha at a glance</p>
           <dl className="mt-10 grid gap-10 sm:grid-cols-3">

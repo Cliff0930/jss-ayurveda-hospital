@@ -81,7 +81,7 @@ export default async function AttendanceAnalysisPage({
                 days present, additional working days, weekly offs, approved leave
                 (CL&nbsp;/&nbsp;EL&nbsp;/&nbsp;C.Off&nbsp;/&nbsp;HO&nbsp;/&nbsp;GH&nbsp;/&nbsp;ML&nbsp;/&nbsp;OOD)
                 and loss of pay. Select a month below, then search or filter by designation.
-                {updated ? <span className="mt-1 block text-sand-600">Last updated {updated}.</span> : null}
+                {updated ? <span className="mt-1 block text-sand-700">Last updated {updated}.</span> : null}
               </p>
             </div>
           </Reveal>

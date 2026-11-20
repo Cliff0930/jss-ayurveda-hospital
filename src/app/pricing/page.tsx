@@ -50,7 +50,6 @@ export default function PricingPage() {
                 >
                   {tier.featured ? (
                     <>
-                      <div aria-hidden className="grain absolute inset-0" />
                       <span className="absolute right-6 top-6 rounded-full bg-turmeric-400 px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-jade-950">
                         Most chosen
                       </span>

@@ -202,17 +202,6 @@
 
   .eyebrow-center::before { display: none; }
 
-  /* Subtle paper grain over dark sections */
-  .grain::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.4;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  }
-
   .prose-jss {
     color: var(--color-ink-700);
     line-height: 1.75;
@@ -262,9 +251,10 @@
   }
 
   /* Slow drift on the active hero slide so a still photograph still feels alive. */
+  /* Kept to a small range: every step of zoom enlarges the photo's pixels and softens it. */
   @keyframes jss-kenburns {
-    from { transform: scale(1.04); }
-    to { transform: scale(1.13); }
+    from { transform: scale(1); }
+    to { transform: scale(1.04); }
   }
 
   .animate-kenburns {

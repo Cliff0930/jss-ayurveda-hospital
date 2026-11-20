@@ -69,7 +69,7 @@ export function Testimonials() {
                   <span className="block font-semibold text-jade-900">{active.name}</span>
                   <span className="block text-[0.875rem] text-ink-500">{active.location}</span>
                 </span>
-                <span className="ml-auto flex gap-0.5 text-turmeric-400" aria-label="5 out of 5">
+                <span className="ml-auto flex gap-0.5 text-turmeric-400" role="img" aria-label="5 out of 5">
                   {Array.from({ length: 5 }, (_, star) => (
                     <Icon.star key={star} className="h-4 w-4" aria-hidden />
                   ))}
@@ -88,7 +88,7 @@ export function Testimonials() {
               <Icon.chevronRight className="h-4.5 w-4.5 rotate-180" aria-hidden />
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center">
               {testimonials.map((item, dot) => (
                 <button
                   key={item.name}
@@ -96,12 +96,17 @@ export function Testimonials() {
                   onClick={() => go(dot)}
                   aria-label={`Show testimonial from ${item.name}`}
                   aria-current={dot === index}
-                  className={
-                    dot === index
-                      ? 'h-2 w-7 rounded-full bg-turmeric-500 transition-all duration-300'
-                      : 'h-2 w-2 rounded-full bg-sand-300 transition-all duration-300 hover:bg-sand-400'
-                  }
-                />
+                  className="group grid h-6 min-w-6 place-items-center px-0.5"
+                >
+                  <span
+                    aria-hidden
+                    className={
+                      dot === index
+                        ? 'h-2 w-7 rounded-full bg-turmeric-500 transition-all duration-300'
+                        : 'h-2 w-2 rounded-full bg-sand-300 transition-all duration-300 group-hover:bg-sand-400'
+                    }
+                  />
+                </button>
               ))}
             </div>
 

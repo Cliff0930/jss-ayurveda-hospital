@@ -45,7 +45,7 @@ export function StaffDirectory({ data }: { data: StaffData }) {
   return (
     <>
       {/* Toolbar */}
-      <div className="sticky top-[calc(var(--header-sticky)+0.5rem)] z-20 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
+      <div className="relative z-20 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
           <label className="relative flex-1">
             <span className="sr-only">Search staff by name, qualification or designation</span>
@@ -114,6 +114,7 @@ export function StaffDirectory({ data }: { data: StaffData }) {
         </div>
       ) : view === 'cards' ? (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <h2 className="sr-only">Staff members</h2>
           {filtered.map((member, index) => (
             <Reveal key={`${member.serial}-${member.name}`} delay={Math.min(index, 10) * 40}>
               <article className="group flex h-full gap-4 rounded-card border border-sand-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-jade-200 hover:shadow-soft">
@@ -163,7 +164,7 @@ export function StaffDirectory({ data }: { data: StaffData }) {
                     key={`${member.serial}-${member.name}`}
                     className="border-b border-sand-100 transition-colors last:border-0 hover:bg-sand-50"
                   >
-                    <td className="px-5 py-3 font-mono text-[0.8125rem] text-sand-600 tabular-nums md:px-7">
+                    <td className="px-5 py-3 font-mono text-[0.8125rem] text-sand-700 tabular-nums md:px-7">
                       {member.serial}
                     </td>
                     <th scope="row" className="px-5 py-3 text-[0.875rem] font-medium text-jade-900">

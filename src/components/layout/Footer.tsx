@@ -11,7 +11,6 @@ export function Footer() {
 
   return (
     <footer className="relative isolate overflow-hidden bg-jade-950 text-sand-300">
-      <div aria-hidden className="grain absolute inset-0" />
       <div
         aria-hidden
         className="pointer-events-none absolute -top-40 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-jade-700/25 blur-3xl"
@@ -83,12 +82,12 @@ export function Footer() {
                 <h3 className="font-display text-[0.9375rem] tracking-wide text-turmeric-300">
                   {group.title}
                 </h3>
-                <ul className="mt-4 space-y-2.5">
+                <ul className="mt-3">
                   {group.links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="text-[0.875rem] text-sand-300/80 transition hover:text-sand-50"
+                        className="inline-block py-[0.3125rem] text-[0.875rem] text-sand-300/80 transition hover:text-sand-50"
                       >
                         {link.label}
                       </Link>
@@ -124,9 +123,9 @@ export function Footer() {
               <p className="text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-sand-400/70">
                 Call us
               </p>
-              <div className="mt-2 space-y-1 text-[0.9375rem] text-sand-200">
+              <div className="mt-1.5 text-[0.9375rem] text-sand-200">
                 {[...contact.phones, ...contact.mobiles].map((phone) => (
-                  <a key={phone.href + phone.display} href={phone.href} className="block transition hover:text-turmeric-300">
+                  <a key={phone.href + phone.display} href={phone.href} className="block py-0.5 transition hover:text-turmeric-300">
                     {phone.display}
                     <span className="ml-2 text-[0.75rem] text-sand-400/70">{phone.label}</span>
                   </a>
@@ -151,7 +150,7 @@ export function Footer() {
               </ul>
               <a
                 href={`mailto:${contact.email}`}
-                className="mt-3 inline-flex items-center gap-2 text-[0.875rem] text-turmeric-300 transition hover:text-turmeric-200"
+                className="mt-2 inline-flex items-center gap-2 py-1 text-[0.875rem] text-turmeric-300 transition hover:text-turmeric-200"
               >
                 <Icon.mail className="h-4 w-4" aria-hidden />
                 {contact.email}
@@ -169,13 +168,13 @@ export function Footer() {
             Website by Brand Fables
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <Link href="/privacy-policy" className="transition hover:text-sand-100">
+            <Link href="/privacy-policy" className="inline-block py-1 transition hover:text-sand-100">
               Privacy Policy
             </Link>
-            <Link href="/terms-of-use" className="transition hover:text-sand-100">
+            <Link href="/terms-of-use" className="inline-block py-1 transition hover:text-sand-100">
               Terms of Use
             </Link>
-            <Link href="/sitemap.xml" className="transition hover:text-sand-100">
+            <Link href="/sitemap.xml" className="inline-block py-1 transition hover:text-sand-100">
               Sitemap
             </Link>
           </div>

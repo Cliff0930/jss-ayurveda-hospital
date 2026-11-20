@@ -71,7 +71,7 @@ export function OpdTimetable({ names, className }: { names: Map<string, string>;
                               </span>
                             ))
                           ) : (
-                            <span aria-label="No consultant listed" className="text-sand-400">
+                            <span aria-label="No consultant listed" className="text-sand-700">
                               —
                             </span>
                           )}

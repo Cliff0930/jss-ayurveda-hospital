@@ -87,7 +87,7 @@ export default function OnlineConsultationPage() {
                           <Glyph className="h-6 w-6" aria-hidden />
                         </span>
                         <div>
-                          <p className="font-mono text-[0.75rem] tracking-widest text-sand-600">
+                          <p className="font-mono text-[0.75rem] tracking-widest text-sand-700">
                             STEP {index + 1}
                           </p>
                           <h3 className="mt-1 text-[1.125rem] leading-snug">{step.title}</h3>

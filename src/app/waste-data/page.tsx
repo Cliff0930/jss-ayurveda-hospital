@@ -34,7 +34,7 @@ export default async function WasteDataPage() {
           <WasteDashboard data={data} />
 
           {updated ? (
-            <p className="mt-10 text-center text-[0.8125rem] text-sand-600">
+            <p className="mt-10 text-center text-[0.8125rem] text-sand-700">
               Figures maintained in the hospital records system · last updated {updated}
             </p>
           ) : null}

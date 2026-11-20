@@ -50,7 +50,6 @@ export function WhyUs() {
                 aria-hidden
                 className="absolute inset-0 bg-[linear-gradient(180deg,rgb(10_31_24/0.25)_30%,rgb(10_31_24/0.92)_100%)]"
               />
-              <div aria-hidden className="grain absolute inset-0" />
 
               <figure className="absolute inset-x-0 bottom-0 p-8 md:p-10">
                 <Icon.quote className="h-9 w-9 text-turmeric-400" aria-hidden />

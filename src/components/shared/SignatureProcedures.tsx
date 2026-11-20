@@ -14,7 +14,6 @@ export function SignatureProcedures({ className }: { className?: string }) {
                 id={procedure.slug}
                 className="relative isolate flex h-full flex-col overflow-hidden rounded-card bg-jade-900 p-7 text-sand-100 shadow-lift md:p-9"
               >
-                <div aria-hidden className="grain absolute inset-0 -z-10" />
                 <div
                   aria-hidden
                   className="absolute -bottom-20 -right-16 -z-10 h-64 w-64 rounded-full bg-turmeric-400/15 blur-3xl"

@@ -10,9 +10,9 @@ import { NextResponse } from 'next/server';
  *                         a WordPress REST route, …). The full payload is
  *                         POSTed as JSON.
  *
- * With no webhook configured the submission is logged server-side and the user
- * still gets a success response, so the form is usable in development without
- * external services.
+ * With no webhook configured, development logs the submission and reports
+ * success; production returns an error so a visitor is never told an enquiry
+ * was sent when it went nowhere.
  */
 
 const MAX_LENGTHS = { name: 120, phone: 32, email: 160, subject: 160, message: 4000 } as const;
@@ -85,6 +85,16 @@ export async function POST(request: Request) {
         { status: 502 },
       );
     }
+  } else if (process.env.NODE_ENV === 'production') {
+    // Never tell a patient "sent" when the enquiry has nowhere to go.
+    console.error('[enquiry] ENQUIRY_WEBHOOK_URL is not set — enquiry not delivered:', enquiry);
+    return NextResponse.json(
+      {
+        ok: false,
+        error: 'We could not send your message right now. Please call us on 0821-2548231.',
+      },
+      { status: 503 },
+    );
   } else {
     console.info('[enquiry] no ENQUIRY_WEBHOOK_URL configured — logging only:', enquiry);
   }

@@ -91,7 +91,7 @@ export default function SpecialitiesPage() {
                             {clinic.treated.label}
                           </span>
                           {clinic.treated.breakdown ? (
-                            <span className="mt-1.5 block text-[0.75rem] leading-relaxed text-sand-600">
+                            <span className="mt-1.5 block text-[0.75rem] leading-relaxed text-sand-700">
                               {clinic.treated.breakdown
                                 .map((item) => `${item.label} ${item.value}`)
                                 .join(' · ')}
@@ -103,7 +103,7 @@ export default function SpecialitiesPage() {
                       {hasDetail ? (
                         <a
                           href={`#${clinic.slug}`}
-                          className="mt-4 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold text-jade-700 transition-colors hover:text-turmeric-700"
+                          className="mt-3 inline-flex items-center gap-1.5 py-1 text-[0.8125rem] font-semibold text-jade-700 transition-colors hover:text-turmeric-700"
                         >
                           Read the full approach
                           <Icon.arrowRight className="h-3.5 w-3.5" aria-hidden />

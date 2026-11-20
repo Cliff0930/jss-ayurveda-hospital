@@ -39,7 +39,7 @@ export default async function DoctorsPage() {
           <DoctorsExplorer doctors={doctors} departments={departments} />
 
           {updated ? (
-            <p className="mt-10 text-center text-[0.8125rem] text-sand-600">
+            <p className="mt-10 text-center text-[0.8125rem] text-sand-700">
               Doctor records maintained in the hospital CMS · last updated {updated}
             </p>
           ) : null}

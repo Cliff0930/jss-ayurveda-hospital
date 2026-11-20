@@ -301,7 +301,7 @@ export default function FacilitiesPage() {
                   <article className="rounded-card border border-sand-200 bg-white p-6 md:p-7">
                     <div className="flex items-baseline justify-between gap-4">
                       <h3 className="text-[1.125rem]">{group.title}</h3>
-                      <span className="font-mono text-[0.75rem] tracking-widest text-sand-600">
+                      <span className="font-mono text-[0.75rem] tracking-widest text-sand-700">
                         {group.tests.length} TESTS
                       </span>
                     </div>

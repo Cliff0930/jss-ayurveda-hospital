@@ -34,7 +34,7 @@ export function FloatingActions() {
         href={contact.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-2.5 rounded-full bg-[#25D366] py-3 pl-3.5 pr-3.5 text-white shadow-lift transition-all hover:pr-5 hover:shadow-glow"
+        className="group flex items-center gap-2.5 rounded-full bg-[#25D366] py-3 pl-3.5 pr-3.5 text-jade-950 shadow-lift transition-all hover:pr-5 hover:shadow-glow"
         aria-label="Chat with us on WhatsApp"
       >
         <Icon.whatsapp className="h-5 w-5 shrink-0" aria-hidden />

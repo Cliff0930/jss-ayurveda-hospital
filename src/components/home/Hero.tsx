@@ -19,6 +19,19 @@ export function Hero() {
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  // Off-screen slides wait for the page to finish loading, so they don't compete
+  // with the first slide and the logo on a slow mobile connection.
+  const [restReady, setRestReady] = useState(false);
+
+  useEffect(() => {
+    const ready = () => setRestReady(true);
+    if (document.readyState === 'complete') {
+      const frame = requestAnimationFrame(ready);
+      return () => cancelAnimationFrame(frame);
+    }
+    window.addEventListener('load', ready, { once: true });
+    return () => window.removeEventListener('load', ready);
+  }, []);
 
   useEffect(() => {
     const query = matchMedia('(prefers-reduced-motion: reduce)');
@@ -73,18 +86,20 @@ export function Hero() {
               slideIndex === index ? 'opacity-100' : 'opacity-0',
             )}
           >
-            <Image
-              src={slide.image}
-              alt=""
-              fill
-              sizes="100vw"
-              priority={slideIndex === 0}
-              quality={90}
-              className={cn(
-                'object-cover',
-                slideIndex === index && !reducedMotion && 'animate-kenburns',
-              )}
-            />
+            {slideIndex === 0 || slideIndex === index || restReady ? (
+              <Image
+                src={slide.image}
+                alt=""
+                fill
+                sizes="100vw"
+                priority={slideIndex === 0}
+                quality={90}
+                className={cn(
+                  'object-cover',
+                  slideIndex === index && !reducedMotion && 'animate-kenburns',
+                )}
+              />
+            ) : null}
           </div>
         ))}
       </div>

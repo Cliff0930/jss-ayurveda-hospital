@@ -45,7 +45,7 @@ export function DoctorsExplorer({
   return (
     <>
       {/* Toolbar */}
-      <div className="sticky top-[calc(var(--header-sticky)+0.5rem)] z-20 -mx-2 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
+      <div className="relative z-20 -mx-2 mb-10 rounded-2xl border border-sand-200 bg-sand-50/92 p-3 shadow-soft backdrop-blur-xl md:p-4">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
           <label className="relative flex-1">
             <span className="sr-only">Search doctors by name or department</span>
@@ -87,6 +87,7 @@ export function DoctorsExplorer({
         </div>
       </div>
 
+      <h2 className="sr-only">Consultants</h2>
       {/* Grid */}
       {filtered.length === 0 ? (
         <div className="rounded-card border border-dashed border-sand-300 bg-white/60 px-6 py-20 text-center">
@@ -313,7 +314,7 @@ function Detail({
         <Glyph className="h-4.5 w-4.5" aria-hidden />
       </span>
       <div>
-        <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-sand-600">{label}</dt>
+        <dt className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-sand-700">{label}</dt>
         <dd className="mt-0.5 text-[0.9375rem] leading-relaxed text-jade-900">{value}</dd>
       </div>
     </div>

@@ -21,7 +21,6 @@ export function TrustBand() {
               id="nabh"
               className="relative isolate h-full overflow-hidden rounded-[2rem] bg-jade-900 p-8 text-sand-100 shadow-lift md:p-10"
             >
-              <div aria-hidden className="grain absolute inset-0 -z-10" />
               <div
                 aria-hidden
                 className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-turmeric-400/15 blur-3xl"

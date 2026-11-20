@@ -58,7 +58,6 @@ export function PageHero({
         aria-hidden
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(10_31_24/0.86)_0%,rgb(10_31_24/0.66)_55%,rgb(10_31_24/0.82)_100%)] md:bg-[linear-gradient(105deg,rgb(10_31_24/0.9)_0%,rgb(10_31_24/0.68)_38%,rgb(10_31_24/0.32)_68%,rgb(10_31_24/0.12)_100%)]"
       />
-      <div aria-hidden className="grain absolute inset-0 -z-10 opacity-60" />
       <Orb className="-top-28 right-[-6rem] h-96 w-96" color="turmeric" />
 
       <div className="container-page relative">
@@ -73,7 +72,7 @@ export function PageHero({
                   )}
                 >
                   <li>
-                    <Link href="/" className="transition hover:text-turmeric-300">
+                    <Link href="/" className="inline-block py-1 transition hover:text-turmeric-300">
                       Home
                     </Link>
                   </li>
@@ -81,7 +80,7 @@ export function PageHero({
                     <li key={crumb.label} className="flex items-center gap-2">
                       <Icon.chevronRight className="h-3.5 w-3.5 text-sand-400/60" aria-hidden />
                       {crumb.href ? (
-                        <Link href={crumb.href} className="transition hover:text-turmeric-300">
+                        <Link href={crumb.href} className="inline-block py-1 transition hover:text-turmeric-300">
                           {crumb.label}
                         </Link>
                       ) : (

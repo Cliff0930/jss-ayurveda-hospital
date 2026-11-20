@@ -25,7 +25,6 @@ export function CtaBand({
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(120%_140%_at_50%_0%,rgb(10_31_24/0.72)_0%,var(--color-jade-950)_75%)]"
       />
-      <div aria-hidden className="grain absolute inset-0 -z-10" />
 
       <div className="container-page relative text-center">
         <Reveal>

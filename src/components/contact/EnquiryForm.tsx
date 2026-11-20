@@ -106,7 +106,7 @@ export function EnquiryForm() {
 
       <label className="block">
         <span className="mb-1.5 block text-[0.8125rem] font-semibold text-jade-900">
-          Message <span className="font-normal text-sand-600">(optional)</span>
+          Message <span className="font-normal text-sand-700">(optional)</span>
         </span>
         <textarea
           name="message"

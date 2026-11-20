@@ -44,7 +44,7 @@ export default async function StaffPage() {
                 <p className="text-[0.875rem] leading-relaxed text-ink-500">
                   This directory is read directly from the hospital&apos;s records system. When the
                   register is updated internally, this page reflects it automatically.
-                  {updated ? <span className="mt-1 block text-sand-600">Last updated {updated}.</span> : null}
+                  {updated ? <span className="mt-1 block text-sand-700">Last updated {updated}.</span> : null}
                 </p>
               </div>
             </div>

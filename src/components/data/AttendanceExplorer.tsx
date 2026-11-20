@@ -216,7 +216,7 @@ export function AttendanceExplorer({
                     key={`${entry.serial}-${entry.name}-${index}`}
                     className="border-b border-sand-100 transition-colors last:border-0 hover:bg-sand-50"
                   >
-                    <td className="px-5 py-3 font-mono text-[0.8125rem] text-sand-600 tabular-nums md:px-7">
+                    <td className="px-5 py-3 font-mono text-[0.8125rem] text-sand-700 tabular-nums md:px-7">
                       {entry.serial}
                     </td>
                     <th scope="row" className="px-4 py-3 text-[0.875rem] font-medium text-jade-900">
@@ -315,7 +315,7 @@ function HeadcountTrend({ months, activeId }: { months: MonthSummary[]; activeId
         })}
       </div>
 
-      <div className="mt-3 flex justify-between text-[0.7rem] text-sand-600">
+      <div className="mt-3 flex justify-between text-[0.7rem] text-sand-700">
         <span>{ordered[0]?.label}</span>
         <span>{ordered[ordered.length - 1]?.label}</span>
       </div>
@@ -343,7 +343,7 @@ function NumericCell({ value, emphasis = false }: { value: number; emphasis?: bo
         emphasis ? 'font-semibold text-jade-900' : 'text-ink-500',
       )}
     >
-      {value === 0 ? <span className="text-sand-400">0</span> : formatNumber(value, value % 1 === 0 ? 0 : 1)}
+      {value === 0 ? <span className="text-sand-700">0</span> : formatNumber(value, value % 1 === 0 ? 0 : 1)}
     </td>
   );
 }

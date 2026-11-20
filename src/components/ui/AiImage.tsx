@@ -76,7 +76,6 @@ export function AiImage({
         aria-hidden
         className="absolute inset-0 opacity-[0.16] [background-image:repeating-linear-gradient(135deg,transparent_0_14px,var(--color-turmeric-300)_14px_15px)]"
       />
-      <div aria-hidden className="grain absolute inset-0" />
 
       <div className="relative flex h-full w-full flex-col justify-between gap-4 p-5 md:p-7">
         <div className="flex flex-wrap items-center gap-2">

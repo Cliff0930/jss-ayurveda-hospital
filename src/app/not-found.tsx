@@ -7,7 +7,6 @@ import { mainNav } from '@/lib/site';
 export default function NotFound() {
   return (
     <section className="relative isolate flex min-h-[70svh] items-center overflow-hidden bg-jade-950 pt-[calc(var(--header-height)+4rem)] pb-24 text-sand-100">
-      <div aria-hidden className="grain absolute inset-0" />
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-96 w-[46rem] -translate-x-1/2 rounded-full bg-jade-700/30 blur-3xl"

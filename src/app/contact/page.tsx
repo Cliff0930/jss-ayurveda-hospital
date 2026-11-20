@@ -45,7 +45,7 @@ export default function ContactPage() {
                     href={contact.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-jade-700 transition hover:text-turmeric-700"
+                    className="mt-2 inline-flex items-center gap-1.5 py-1 text-[0.875rem] font-semibold text-jade-700 transition hover:text-turmeric-700"
                   >
                     Open in Google Maps
                     <Icon.arrowRight className="h-3.5 w-3.5" aria-hidden />
@@ -55,10 +55,10 @@ export default function ContactPage() {
 
               <Reveal delay={80}>
                 <ContactCard icon="phone" title="Phone numbers">
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-0.5">
                     {[...contact.phones, ...contact.mobiles].map((phone) => (
                       <li key={phone.href + phone.display}>
-                        <a href={phone.href} className="transition hover:text-jade-800">
+                        <a href={phone.href} className="inline-block py-1 transition hover:text-jade-800">
                           <span className="font-medium text-jade-900">{phone.display}</span>
                           <span className="ml-2 text-[0.8125rem] text-sand-700">{phone.label}</span>
                         </a>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <ContactCard icon="mail" title="Email">
                   <a
                     href={`mailto:${contact.email}`}
-                    className="font-medium text-jade-900 transition hover:text-turmeric-700"
+                    className="inline-block py-1 font-medium text-jade-900 transition hover:text-turmeric-700"
                   >
                     {contact.email}
                   </a>

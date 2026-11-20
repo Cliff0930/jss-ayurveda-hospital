@@ -10,6 +10,13 @@
  * Options page and swap this object for `getSiteSettings()` in lib/wp/queries.
  */
 
+/**
+ * Search engines are kept out unless SITE_INDEXABLE is "true". Review builds
+ * stay invisible by default; set it on the live deployment at launch, or the
+ * real site ships hidden from Google.
+ */
+export const isIndexable = process.env.SITE_INDEXABLE === 'true';
+
 export const site = {
   name: 'JSS Ayurveda Hospital',
   legalName: 'JSS Ayurveda Medical College & Hospital',

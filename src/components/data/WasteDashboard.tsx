@@ -51,7 +51,7 @@ export function WasteDashboard({ data }: { data: WasteData }) {
   const [hovered, setHovered] = useState<{ month: string; category: string } | null>(null);
 
   // Defensive against cache-shape skew across a deploy — see getWasteData.
-  const categories = data.categories ?? [];
+  const categories = useMemo(() => data.categories ?? [], [data.categories]);
   const allYears = data.years ?? [];
   const year = allYears[yearIndex];
 
@@ -86,6 +86,7 @@ export function WasteDashboard({ data }: { data: WasteData }) {
 
   return (
     <div className="space-y-10">
+      <h2 className="sr-only">Waste disposal figures</h2>
       {/* Reporting year — only shown once more than one year exists */}
       {allYears.length > 1 ? (
         <Reveal>
