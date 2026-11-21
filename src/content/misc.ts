@@ -79,7 +79,7 @@ export const faqs: AccordionItem[] = [
   {
     question: 'Can I visit for a consultation without staying as an in-patient?',
     answer:
-      'Absolutely. Our OPD consultation is available Monday to Saturday from 8:00 AM to 4:30 PM, and on Sundays and Government holidays from 9:00 AM to 1:00 PM. Duty doctors are also available round the clock for urgent consultations. No appointment is needed for general OPD visits. For specialist consultations, we recommend calling ahead to confirm the consultant’s availability on that day.',
+      'Absolutely. Our OPD consultation is available Monday to Saturday from 8:00 AM to 4:30 PM, and on Sundays and Government holidays from 9:00 AM to 1:00 PM. No appointment is needed for general OPD visits. For specialist consultations, we recommend calling ahead to confirm the consultant’s availability on that day.',
   },
   {
     question: 'Do you treat patients from other countries?',

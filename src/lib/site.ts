@@ -46,7 +46,6 @@ export const contact = {
   hours: [
     { days: 'Monday – Saturday', time: '8:00 AM – 4:30 PM', note: 'OPD consultation' },
     { days: 'Sunday & Govt. holidays', time: '9:00 AM – 1:00 PM', note: 'OPD consultation' },
-    { days: 'All days', time: '24 × 7', note: 'Duty doctors & in-patient care' },
   ],
 } as const;
 

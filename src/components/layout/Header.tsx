@@ -227,7 +227,8 @@ export function Header() {
           )}
         >
           <nav aria-label="Main" className="container-page flex h-12 items-center gap-0.5">
-            {mainNav.map((item) => {
+            {/* Contact is the "Contact & Call" button above, so the bar doesn't repeat it. */}
+            {mainNav.filter((item) => item.href !== '/contact').map((item) => {
               const active = isBranchActive(item);
               const hasChildren = Boolean(item.children?.length);
 

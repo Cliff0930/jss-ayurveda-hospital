@@ -55,7 +55,7 @@ export default async function OpdPage() {
             </Reveal>
 
             <div>
-              <dl className="grid gap-px overflow-hidden rounded-card border border-sand-200 bg-sand-200 sm:grid-cols-3">
+              <dl className="grid gap-px overflow-hidden rounded-card border border-sand-200 bg-sand-200 sm:grid-cols-2">
                 {contact.hours.map((entry, index) => (
                   <Reveal key={entry.days} delay={index * 80}>
                     <div className="h-full bg-sand-50 p-5 md:p-6">

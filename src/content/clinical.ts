@@ -118,7 +118,7 @@ export const departments = [
 
 export const opdInfo = {
   summary:
-    'The OPD functions from 8:00 AM to 4:30 PM on all working days, with consultants available across every speciality. Duty doctors are available for consultation round the clock — during non-working hours, in-house consultants attend to patients. Out-patient services are available in all specialities, attended by experienced and qualified Ayurvedacharya / B.A.M.S. / M.D. doctors.',
+    'The OPD functions from 8:00 AM to 4:30 PM on all working days, with consultants available across every speciality. Out-patient services are available in all specialities, attended by experienced and qualified Ayurvedacharya / B.A.M.S. / M.D. doctors.',
   visitors: [
     {
       title: 'New Patients',

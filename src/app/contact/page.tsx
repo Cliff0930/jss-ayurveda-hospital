@@ -23,7 +23,7 @@ export default function ContactPage() {
         title="We are here for you"
         crumbs={[{ label: 'Contact Us' }]}
         image={photo.heroHospitalFront}
-        intro="Consult us directly at the OPD, online from home, or by email. Our team answers calls during OPD hours, and duty doctors are available round the clock."
+        intro="Consult us directly at the OPD, online from home, or by email. Our team answers calls during OPD hours."
       />
 
       <Section tone="cream">
