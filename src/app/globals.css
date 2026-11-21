@@ -258,7 +258,7 @@
   }
 
   .animate-kenburns {
-    animation: jss-kenburns 9s ease-out forwards;
+    animation: jss-kenburns 6s ease-out forwards;
   }
 
   @keyframes jss-shimmer {
@@ -306,6 +306,11 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* background-clip only paints inside the box: give italic overhangs and descenders room, without moving the layout. */
+    padding: 0 0.12em 0.18em 0;
+    margin-right: -0.12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   .mask-fade-r {

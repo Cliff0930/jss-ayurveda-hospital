@@ -20,7 +20,8 @@ export const hero = {
 } as const;
 
 /**
- * Hero slider — spec ref H-01, seven slides.
+ * Hero slider — spec ref H-01. Four of the seven delivered slides; the campus,
+ * ward-round and eye-clinic photos were dropped at the client's request.
  *
  * The photographs are the client-supplied set in `public/photos/`, kept in the
  * order they were delivered. Each caption describes the photograph above it, so
@@ -33,29 +34,14 @@ export const heroSlides = [
     caption: '15 green acres at the foothills of the Chamundi Hills',
   },
   {
-    image: photo.heroCampus,
-    title: 'Room to breathe',
-    caption: 'Gardens, open ground and clean air across the campus',
-  },
-  {
     image: photo.heroCollegeBlock,
     title: 'Built for healing',
     caption: 'NABH-accredited infrastructure across the hospital',
   },
   {
-    image: photo.heroWardRound,
-    title: 'Never treated by one pair of hands alone',
-    caption: 'Consultants and postgraduates on the daily in-patient round',
-  },
-  {
     image: photo.heroAbhyanga,
     title: 'Abhyanga, performed the classical way',
     caption: 'Trained therapists working on a traditional wooden Droni',
-  },
-  {
-    image: photo.heroEyeClinic,
-    title: 'Specialist clinics under one roof',
-    caption: 'Netra Roga and 11 more departments, all on campus',
   },
   {
     image: photo.heroShirodhara,

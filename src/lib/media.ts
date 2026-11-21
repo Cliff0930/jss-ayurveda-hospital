@@ -94,7 +94,8 @@ export const photo = {
   heroCampus: photoFile('h-01-2-campus.webp'),
   heroCollegeBlock: photoFile('h-01-3-college-block.webp'),
   heroWardRound: photoFile('h-01-4-ward-round.webp'),
-  heroAbhyanga: photoFile('h-01-5-abhyanga.webp'),
+  // Mirrored (Nov 2026) so the therapist and patient sit on the right, clear of banner text.
+  heroAbhyanga: photoFile('h-01-5-abhyanga-mirrored.webp'),
   heroEyeClinic: photoFile('h-01-6-eye-clinic.webp'),
   heroShirodhara: photoFile('h-01-7-shirodhara.webp'),
 

@@ -12,7 +12,7 @@ import { media } from '@/lib/media';
 import { contact } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
-const AUTOPLAY_MS = 6000;
+const AUTOPLAY_MS = 4000;
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -82,7 +82,7 @@ export function Hero() {
           <div
             key={slide.image}
             className={cn(
-              'absolute inset-0 transition-opacity duration-1000 ease-out',
+              'absolute inset-0 transition-opacity duration-700 ease-out',
               slideIndex === index ? 'opacity-100' : 'opacity-0',
             )}
           >
@@ -148,7 +148,7 @@ export function Hero() {
                     viewBox="0 0 300 12"
                     preserveAspectRatio="none"
                     aria-hidden
-                    className="absolute -bottom-1 left-0 h-2.5 w-full text-turmeric-400/60"
+                    className="absolute -bottom-[0.34em] left-0 h-2.5 w-full text-turmeric-400/60"
                   >
                     <path
                       d="M2 8C60 3 120 2 180 5c40 2 80 4 118 2"
@@ -250,14 +250,15 @@ export function Hero() {
                         'relative block aspect-4/3 w-full overflow-hidden rounded-lg border transition-all duration-300',
                         slideIndex === index
                           ? 'border-turmeric-400 opacity-100'
-                          : 'border-sand-50/20 opacity-55 hover:opacity-90',
+                          : 'border-sand-50/20 opacity-75 hover:opacity-100',
                       )}
                     >
                       <Image
                         src={slide.image}
                         alt=""
                         fill
-                        sizes="80px"
+                        sizes="(min-width: 768px) 11rem, 25vw"
+                        quality={85}
                         className="object-cover"
                       />
                     </button>
