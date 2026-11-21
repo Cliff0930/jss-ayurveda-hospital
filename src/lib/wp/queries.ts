@@ -1,4 +1,5 @@
 import { hiddenDoctorIds } from '@/content/clinical';
+import { hideStaffQualificationsFrom } from '@/content/misc';
 import { timeSince } from '@/lib/utils';
 import { unstable_cache } from 'next/cache';
 
@@ -161,6 +162,12 @@ export const getStaff = cachedPageQuery(WP_SLUGS.staff, 'staff', (page): StaffDa
       designation: cells[3] ?? '',
     }))
     .filter((member) => member.name.length > 0);
+
+  // The hospital asked for qualifications to be shown only above this person in the list.
+  const cutoff = members.findIndex((member) => member.name === hideStaffQualificationsFrom);
+  if (cutoff >= 0) {
+    for (const member of members.slice(cutoff)) member.qualification = '';
+  }
 
   const counts = new Map<string, number>();
   for (const member of members) {

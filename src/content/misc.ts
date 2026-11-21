@@ -308,3 +308,9 @@ export const hiddenGalleryImages = [
   '103-Jayanthi-Celebration-14.webp',
   '103-Jayanthi-Celebration-15.webp',
 ];
+
+/**
+ * On /staff, qualifications are hidden for this person and everyone listed after
+ * them (the non-clinical staff), at the hospital's request.
+ */
+export const hideStaffQualificationsFrom = 'Chikkanna Nayaka';
