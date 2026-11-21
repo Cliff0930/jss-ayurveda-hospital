@@ -591,7 +591,7 @@ export const opdRoster: OpdRoom[] = [
     name: 'Bala Roga (Paediatrics)',
     days: {
       Mon: ['dr-srihari-s'], Tue: ['dr-vaisakh-k'], Wed: ['dr-puja-m-s'],
-      Thu: ['dr-jyothy-k-b'], Sat: ['dr-preethi-h-m'],
+      Thu: ['dr-jyothy-k-b'],
     },
   },
   {
