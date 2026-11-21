@@ -170,7 +170,7 @@ export const imageSlots: ImageSlot[] = [
     width: 1200,
     height: 900,
     prompt: `An ultra-deluxe hospital suite: bedroom and small sitting area, teak furniture, cream upholstery, brass accent lamp, fresh flowers in a vase, private balcony doors opening onto a garden, soft evening light, no people. Premium yet serene and understated. ${SHARED_STYLE}`,
-    src: archive.roomUltraDeluxe,
+    src: photo.roomUltraDeluxe,
     source: 'jssamch.org — the actual ultra deluxe suite, bedroom plus seating area',
   },
   {

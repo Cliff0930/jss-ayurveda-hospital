@@ -32,7 +32,7 @@ export default function ContactPage() {
             {/* Details */}
             <div className="space-y-5">
               <Reveal>
-                <ContactCard icon="pin" title="Office location">
+                <ContactCard icon="pin" title="Hospital Location">
                   <p className="font-semibold text-jade-900">JSS Ayurveda Medical College &amp; Hospital</p>
                   <address className="mt-1.5 not-italic leading-relaxed">
                     {contact.addressLines.map((line) => (

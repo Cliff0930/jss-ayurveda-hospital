@@ -13,8 +13,8 @@ export const rooms = [
   {
     slug: 'semi-special-ward',
     name: 'Semi-Special Ward',
-    body: '2+2 bed rooms with attached toilet, natural light, bedside locker and space for one attendant.',
-    features: ['Attached toilet', 'Natural light', 'Bedside locker', 'Space for one attendant'],
+    body: '2+2 bed rooms with attached washroom, natural light, bedside locker and space for one attendant.',
+    features: ['Attached Washroom', 'Natural light', 'Bedside locker', 'Space for one attendant'],
     imageSlot: 'room-semi-special',
   },
   {
@@ -25,16 +25,9 @@ export const rooms = [
     imageSlot: 'room-special',
   },
   {
-    slug: 'deluxe-ward',
-    name: 'Deluxe Ward',
-    body: 'Wide single-occupancy room with TV, AC, natural light and a view of the Chamundi Hills. Adjacent to the treatment area.',
-    features: ['Air conditioned', 'Television', 'Chamundi Hills view', 'Adjacent to therapy wing'],
-    imageSlot: 'room-deluxe',
-  },
-  {
     slug: 'ultra-deluxe',
     name: 'Ultra Deluxe',
-    body: 'Our finest accommodation — maximum privacy, comfort and a premium healing environment.',
+    body: 'Wide single-occupancy room with TV, AC, natural light and a view of the Chamundi Hills. Adjacent to the treatment area.',
     features: ['Maximum privacy', 'Premium furnishing', 'Sitting area', 'Garden outlook'],
     imageSlot: 'room-ultra-deluxe',
   },

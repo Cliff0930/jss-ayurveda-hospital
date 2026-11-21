@@ -67,24 +67,14 @@ export default function ProductsPage() {
         <div className="container-page">
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
             <Reveal>
-              <div className="relative">
-                <div className="relative aspect-4/5 w-[78%] overflow-hidden rounded-[2rem] shadow-lift">
-                  <Image
-                    src={media.chyawanprash}
-                    alt="Classical Ayurvedic preparation made in the hospital's own unit"
-                    fill
-                    sizes="(min-width: 1024px) 26rem, 70vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="absolute bottom-6 right-0 aspect-square w-[52%] overflow-hidden rounded-[1.5rem] border-[6px] border-white shadow-lift">
-                  <AiImage
-                    slot="herbal-garden-macro"
-                    className="h-full w-full"
-                    sizes="18rem"
-                    showPrompt={false}
-                  />
-                </div>
+              <div className="relative aspect-4/5 w-full overflow-hidden rounded-[2rem] shadow-lift">
+                <Image
+                  src={media.chyawanprash}
+                  alt="Classical Ayurvedic preparation made in the hospital's own unit"
+                  fill
+                  sizes="(min-width: 1024px) 36rem, 92vw"
+                  className="object-cover"
+                />
               </div>
             </Reveal>
 

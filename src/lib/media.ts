@@ -118,7 +118,7 @@ export const photo = {
 
   /** A-10 / A-11 / A-12 — JSS Ayur Pharma. */
   ayurPharmaBanner: photoFile('a-10-ayur-pharma-banner.webp'),
-  pharmacyUnit: photoFile('a-11-pharmacy-unit.webp'),
+  pharmacyUnit: photoFile('a-11-pharmacy-unit-no-sign.webp'),
   ingredients1: photoFile('a-12-ingredients-1.webp'),
   ingredients2: photoFile('a-12-ingredients-2.webp'),
   ingredients3: photoFile('a-12-ingredients-3.webp'),
@@ -147,6 +147,8 @@ export const photo = {
 
   /** Y-01 — Gallery banner. */
   galleryBanner: photoFile('y-01-gallery-banner.jpg'),
+  /** jssamch.org's Ultra Deluxe photo, upscaled ×4 with Real-ESRGAN. */
+  roomUltraDeluxe: photoFile('f-01-ultra-deluxe-hd.webp'),
 
   /** X-01 — Transparency banner, shared by Staff, Attendance and Waste data. */
   transparencyBanner: photoFile('x-01-transparency-banner.webp'),

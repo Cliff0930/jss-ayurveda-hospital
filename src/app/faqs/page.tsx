@@ -49,8 +49,7 @@ export default function FaqsPage() {
                   <Icon.phone className="h-6 w-6 text-turmeric-600" aria-hidden />
                   <h3 className="mt-4 text-[1.0625rem] leading-snug">Still have a question?</h3>
                   <p className="mt-2 text-[0.875rem] leading-relaxed text-ink-500">
-                    Our team answers calls during OPD hours, and duty doctors are available round the
-                    clock for urgent consultations.
+                    Our team answers calls during OPD hours.
                   </p>
 
                   <a

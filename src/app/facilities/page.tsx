@@ -16,13 +16,13 @@ import { media, photo } from '@/lib/media';
 export const metadata: Metadata = {
   title: 'Facilities & Rooms',
   description:
-    'Accommodation and facilities at JSS Ayurveda Hospital, Mysuru — general, semi-special, special, deluxe and ultra deluxe wards, 26 therapy rooms, yoga hall, 15-acre herbal garden, pharmacy, in-house clinical laboratory, ECG and two operation theatres.',
+    'Accommodation and facilities at JSS Ayurveda Hospital, Mysuru — general, semi-special and special wards and Ultra Deluxe rooms, 26 therapy rooms, yoga hall, 15-acre herbal garden, pharmacy, in-house clinical laboratory, ECG and two operation theatres.',
 };
 
 /**
- * Only three of the five room categories have been photographed. Splitting on
- * the slot's `src` rather than on a hard-coded list means the page corrects
- * itself the moment a missing photograph is supplied.
+ * Not every room category has been photographed. Splitting on the slot's `src`
+ * rather than on a hard-coded list means the page corrects itself the moment a
+ * missing photograph is supplied.
  */
 const hasPhotograph = (slot: string) => Boolean(imageSlotsById[slot]?.src);
 const photographed = rooms.filter((room) => hasPhotograph(room.imageSlot));
@@ -53,86 +53,89 @@ export default function FacilitiesPage() {
             align="center"
           />
 
-          {/* Photographed rooms lead, at full card size. */}
-          {photographed.length > 0 ? (
-            <div className="mt-14 grid gap-6 lg:grid-cols-2">
-              {photographed.map((room, index) => (
-                <Reveal key={room.slug} delay={index * 90}>
-                  <article className="group flex h-full flex-col overflow-hidden rounded-card border border-sand-200 bg-white transition-all duration-400 hover:-translate-y-1.5 hover:shadow-lift">
-                    <AiImage
-                      slot={room.imageSlot}
-                      className="aspect-16/10 w-full"
-                      sizes="(min-width: 1024px) 34rem, 90vw"
-                      showPrompt={false}
-                    />
+          <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
+            {/* Photographed rooms lead as full-bleed photo cards. */}
+            {photographed.length > 0 ? (
+              <div className="grid gap-6">
+                {photographed.map((room) => (
+                  <Reveal key={room.slug} className="h-full">
+                    <article className="group flex h-full flex-col overflow-hidden rounded-card bg-jade-950 text-sand-50 shadow-lift">
+                      <div className="overflow-hidden">
+                        <AiImage
+                          slot={room.imageSlot}
+                          className="aspect-3/2 w-full transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                          sizes="(min-width: 1280px) 42rem, (min-width: 1024px) 54vw, 92vw"
+                          showPrompt={false}
+                        />
+                      </div>
 
-                    <div className="flex flex-1 flex-col p-7 md:p-8">
-                      <h3 className="text-[1.25rem] leading-snug">{room.name}</h3>
-                      <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-ink-500">
-                        {room.body}
-                      </p>
+                      <div className="flex flex-1 flex-col justify-center p-7 md:p-9">
+                        <p className="eyebrow text-turmeric-300">Single occupancy · Air conditioned</p>
+                        <h3 className="mt-3 text-[clamp(1.75rem,1.4rem+1.2vw,2.25rem)] leading-tight text-sand-50">
+                          {room.name}
+                        </h3>
+                        <p className="mt-3 max-w-lg text-[0.9375rem] leading-relaxed text-sand-200">{room.body}</p>
 
-                      <ul className="mt-6 flex flex-wrap gap-2">
-                        {room.features.map((feature) => (
-                          <li
-                            key={feature}
-                            className="rounded-full bg-sand-100 px-3 py-1 text-[0.75rem] text-ink-700"
-                          >
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          ) : null}
+                        <ul className="mt-6 flex flex-wrap gap-2">
+                          {room.features.map((feature) => (
+                            <li
+                              key={feature}
+                              className="rounded-full border border-sand-50/20 bg-sand-50/10 px-3 py-1 text-[0.75rem] text-sand-100"
+                            >
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </article>
+                  </Reveal>
+                ))}
+              </div>
+            ) : null}
 
-          {/*
-            Rooms we have no photograph of carry no image frame at all — an empty
-            placeholder reads as a broken page, and a stand-in photograph of the
-            wrong room would be worse. They keep every word of their description
-            and simply sit in a tighter, text-led row.
-
-            The split is read from the image slots, not hard-coded: supply a
-            photograph for one of these rooms and it moves up into the row above
-            on its own.
-          */}
-          {listed.length > 0 ? (
-            <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {listed.map((room, index) => (
-                <Reveal key={room.slug} delay={(index % 3) * 80}>
-                  <article className="flex h-full flex-col rounded-card border border-sand-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1 hover:border-jade-200 hover:shadow-soft">
-                    <h3 className="text-[1.0625rem] leading-snug">{room.name}</h3>
-                    <p className="mt-2.5 flex-1 text-[0.875rem] leading-relaxed text-ink-500">
-                      {room.body}
-                    </p>
-
-                    <ul className="mt-5 flex flex-wrap gap-2">
-                      {room.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="rounded-full bg-sand-100 px-3 py-1 text-[0.75rem] text-ink-700"
-                        >
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
-          ) : null}
+            {/*
+              Rooms without a photograph get no image frame (an empty placeholder
+              reads as broken). They stack as numbered rows, most affordable first.
+              The split is read from the image slots: supply a photograph and the
+              room moves into the photo column on its own.
+            */}
+            {listed.length > 0 ? (
+              <ol className="grid gap-4">
+                {listed.map((room, index) => (
+                  <Reveal key={room.slug} as="li" delay={index * 90} className="h-full">
+                    <article className="flex h-full gap-5 rounded-card border border-sand-200 bg-white p-6 transition-all duration-400 hover:-translate-y-1 hover:border-jade-200 hover:shadow-soft md:p-7">
+                      <span
+                        aria-hidden
+                        className="w-11 shrink-0 font-display text-[2rem] leading-none text-turmeric-500 tabular-nums"
+                      >
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <h3 className="text-[1.125rem] leading-snug">{room.name}</h3>
+                        <p className="mt-2 text-[0.875rem] leading-relaxed text-ink-500">{room.body}</p>
+                        <ul className="mt-4 flex flex-wrap gap-1.5">
+                          {room.features.map((feature) => (
+                            <li
+                              key={feature}
+                              className="rounded-full bg-sand-100 px-2.5 py-0.5 text-[0.75rem] text-ink-700"
+                            >
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </article>
+                  </Reveal>
+                ))}
+              </ol>
+            ) : null}
+          </div>
 
           <Reveal delay={280}>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4 rounded-card border border-jade-100 bg-jade-50 p-7 text-center">
               <p className="text-[0.9375rem] text-ink-500">
                 All tariffs include accommodation, meals, therapies, medicines and daily consultations.
               </p>
-              <ButtonLink href="/pricing" size="sm" arrow>
-                View pricing plans
-              </ButtonLink>
             </div>
           </Reveal>
         </div>
