@@ -9,6 +9,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import type { DoctorDepartment } from '@/lib/wp/queries';
 import type { DoctorRecord } from '@/lib/wp/parse';
 import { consultantOpdDays, priorAppointmentNote } from '@/content/clinical';
+import { departmentHref } from '@/content/departments';
 import { OpdDays } from '@/components/doctors/DoctorCard';
 import { cn, initials } from '@/lib/utils';
 
@@ -221,6 +222,8 @@ function DoctorDialog({ doctor, onClose }: { doctor: DoctorRecord | null; onClos
 
   if (!doctor) return null;
 
+  const departmentLink = departmentHref(doctor.departmentSlug);
+
   return (
     <div
       role="dialog"
@@ -287,9 +290,11 @@ function DoctorDialog({ doctor, onClose }: { doctor: DoctorRecord | null; onClos
               <ButtonLink href="/contact" arrow>
                 Book a consultation
               </ButtonLink>
-              <ButtonLink href="/opd" variant="ghost">
-                View department
-              </ButtonLink>
+              {departmentLink ? (
+                <ButtonLink href={departmentLink} variant="ghost">
+                  View department
+                </ButtonLink>
+              ) : null}
             </div>
           </div>
         </div>

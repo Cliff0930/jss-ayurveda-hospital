@@ -576,3 +576,25 @@ export const departmentDetails: Record<string, DepartmentDetail> = {
     },
   },
 };
+
+/** WordPress doctor-department slugs that differ from the OPD department slugs. */
+const doctorDepartmentAliases: Record<string, string> = {
+  'shalakya-tantra': 'shalakyatantra',
+  'shalya-tantra': 'shalyatantra',
+  swasthavritha: 'swasthavritta',
+};
+
+const opdCardSlugs = ['swasthavritta'];
+
+/**
+ * Where a doctor's "View department" link goes: the department page, its card
+ * on /opd when it has no page yet, the Yoga & Naturopathy page, or nowhere for non-OPD departments
+ * (Agada Tantra, Dravyaguna, Roganidana, Hospital Administration).
+ */
+export function departmentHref(doctorDepartmentSlug: string): string | null {
+  const slug = doctorDepartmentAliases[doctorDepartmentSlug] ?? doctorDepartmentSlug;
+  if (slug in departmentDetails) return `/opd/${slug}`;
+  if (opdCardSlugs.includes(slug)) return `/opd#${slug}`;
+  if (slug === 'yoga') return '/yoga-naturopathy';
+  return null;
+}
