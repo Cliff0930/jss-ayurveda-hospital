@@ -138,6 +138,8 @@ export type DoctorRecord = {
   experience: string;
   department: string;
   departmentSlug: string;
+  /** Every department the doctor belongs to, primary first. */
+  departments: { slug: string; name: string }[];
   specialities: string[];
   image: string;
 };
@@ -148,6 +150,7 @@ type RawDoctorPayload = {
   desig?: string;
   exp?: string;
   dept?: string;
+  depts?: { slug?: string; name?: string }[];
   specs?: string[];
   img?: string;
 };
@@ -200,7 +203,11 @@ export function parseDoctors(html: string): DoctorRecord[] {
     if (!name) continue;
 
     const department = decodeEntities(payload.dept ?? '').trim();
+    const departmentSlug = deptSlugMatch?.[1]?.trim() || slugify(department);
     const id = slugify(name);
+    const departments = (payload.depts ?? [])
+      .map((d) => ({ slug: (d.slug ?? '').trim(), name: decodeEntities(d.name ?? '').trim() }))
+      .filter((d) => d.slug && d.name);
 
     doctors.push({
       id,
@@ -209,7 +216,8 @@ export function parseDoctors(html: string): DoctorRecord[] {
       designation: decodeEntities(payload.desig ?? '').trim(),
       experience: (payload.exp ?? '').trim(),
       department,
-      departmentSlug: deptSlugMatch?.[1]?.trim() || slugify(department),
+      departmentSlug,
+      departments: departments.length > 0 ? departments : [{ slug: departmentSlug, name: department }],
       specialities: (payload.specs ?? []).map((s) => decodeEntities(String(s)).trim()).filter(Boolean),
       image: usableImage((payload.img ?? '').trim()),
     });

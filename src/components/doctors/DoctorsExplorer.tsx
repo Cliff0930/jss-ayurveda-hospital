@@ -33,12 +33,12 @@ export function DoctorsExplorer({
   const filtered = useMemo(() => {
     const needle = query.trim().toLowerCase();
     return doctors.filter((doctor) => {
-      if (department !== 'all' && doctor.departmentSlug !== department) return false;
+      if (department !== 'all' && !doctor.departments.some((d) => d.slug === department)) return false;
       if (!needle) return true;
       return (
         doctor.name.toLowerCase().includes(needle) ||
         doctor.designation.toLowerCase().includes(needle) ||
-        doctor.department.toLowerCase().includes(needle)
+        doctor.departments.some((d) => d.name.toLowerCase().includes(needle))
       );
     });
   }, [doctors, department, query]);
@@ -111,7 +111,11 @@ export function DoctorsExplorer({
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((doctor, index) => (
             <Reveal key={doctor.id + doctor.name} delay={Math.min(index, 8) * 50}>
-              <DoctorTile doctor={doctor} onSelect={() => setSelected(doctor)} />
+              <DoctorTile
+                doctor={doctor}
+                activeDepartment={department}
+                onSelect={() => setSelected(doctor)}
+              />
             </Reveal>
           ))}
         </div>
@@ -148,7 +152,16 @@ function FilterPill({
   );
 }
 
-function DoctorTile({ doctor, onSelect }: { doctor: DoctorRecord; onSelect: () => void }) {
+function DoctorTile({
+  doctor,
+  activeDepartment,
+  onSelect,
+}: {
+  doctor: DoctorRecord;
+  activeDepartment: string;
+  onSelect: () => void;
+}) {
+  const chip = doctor.departments.find((d) => d.slug === activeDepartment)?.name ?? doctor.department;
   return (
     <button
       type="button"
@@ -174,7 +187,7 @@ function DoctorTile({ doctor, onSelect }: { doctor: DoctorRecord; onSelect: () =
         )}
 
         <span className="absolute left-3 top-3 rounded-full bg-sand-50/92 px-2.5 py-1 text-[0.6875rem] font-semibold text-jade-800 backdrop-blur">
-          {doctor.department}
+          {chip}
         </span>
         {doctor.experience ? (
           <span className="absolute right-3 top-3 rounded-full bg-turmeric-400/95 px-2.5 py-1 text-[0.6875rem] font-bold text-jade-950">
@@ -222,7 +235,7 @@ function DoctorDialog({ doctor, onClose }: { doctor: DoctorRecord | null; onClos
 
   if (!doctor) return null;
 
-  const departmentLink = departmentHref(doctor.departmentSlug);
+  const departmentLink = doctor.departments.map((d) => departmentHref(d.slug)).find(Boolean) ?? null;
 
   return (
     <div
@@ -264,7 +277,7 @@ function DoctorDialog({ doctor, onClose }: { doctor: DoctorRecord | null; onClos
           </div>
 
           <div className="p-7 md:p-9">
-            <p className="eyebrow">{doctor.department}</p>
+            <p className="eyebrow">{doctor.departments.map((d) => d.name).join(' · ')}</p>
             <h2 id="doctor-dialog-title" className="mt-3 text-[1.75rem] leading-tight">
               {doctor.name}
             </h2>

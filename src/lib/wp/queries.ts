@@ -108,12 +108,12 @@ export const getDoctors = cachedPageQuery(WP_SLUGS.doctors, 'doctors', (page): D
   const order = new Map(declared.map((d, index) => [d.slug, index]));
   const counts = new Map<string, number>();
   for (const doctor of doctors) {
-    counts.set(doctor.departmentSlug, (counts.get(doctor.departmentSlug) ?? 0) + 1);
+    for (const dept of doctor.departments) counts.set(dept.slug, (counts.get(dept.slug) ?? 0) + 1);
   }
 
   const names = new Map(declared.map((d) => [d.slug, d.name]));
   for (const doctor of doctors) {
-    if (!names.has(doctor.departmentSlug)) names.set(doctor.departmentSlug, doctor.department);
+    for (const dept of doctor.departments) if (!names.has(dept.slug)) names.set(dept.slug, dept.name);
   }
 
   const departments: DoctorDepartment[] = [...names.entries()]

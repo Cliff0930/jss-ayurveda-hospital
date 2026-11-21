@@ -575,14 +575,14 @@ export const opdRoster: OpdRoom[] = [
     name: 'Kayachikitsa 1',
     days: {
       Mon: ['dr-deepa-c-patil'], Tue: ['dr-netra-b-hubballi'], Wed: ['dr-beena-m-d'],
-      Thu: ['dr-maitri-g-m'], Fri: ['dr-anu-krishna-p'], Sat: ['dr-deepa-c-patil'],
+      Thu: ['dr-maithri-g-m'], Fri: ['dr-anu-krishna-p'], Sat: ['dr-deepa-c-patil'],
     },
   },
   {
     room: 2,
     name: 'Panchakarma 1',
     days: {
-      Mon: ['dr-veena-g-rao'], Tue: ['dr-jyoti'], Wed: ['dr-seetha-devi'],
+      Mon: ['dr-veena-g-rao'], Tue: ['dr-jyoti'], Wed: ['dr-seethadevi-p'],
       Thu: ['dr-veena-g-rao'], Fri: ['dr-manasa-s-d'], Sat: ['dr-vineeth-c-p'],
     },
   },
@@ -590,23 +590,23 @@ export const opdRoster: OpdRoom[] = [
     room: 3,
     name: 'Bala Roga (Paediatrics)',
     days: {
-      Mon: ['dr-srihari-s'], Tue: ['dr-vaisakh-k'], Wed: ['dr-pooja-m-s'],
-      Thu: ['dr-jyoty-k-b'], Sat: ['dr-preeti-h-m'],
+      Mon: ['dr-srihari-s'], Tue: ['dr-vaisakh-k'], Wed: ['dr-puja-m-s'],
+      Thu: ['dr-jyothy-k-b'], Sat: ['dr-preethi-h-m'],
     },
   },
   {
     room: 4,
     name: 'Shalakya Tantra (ENT)',
     days: {
-      Mon: ['dr-gavimath-shivanand'], Tue: ['dr-sandhya-rani'],
-      Thu: ['dr-gavimath-shivanand'], Fri: ['dr-sandhya-rani'], Sat: ['dr-chaya-c'],
+      Mon: ['dr-gavimath-shivanand'], Tue: ['dr-sandhya-rani-d'],
+      Thu: ['dr-gavimath-shivanand'], Fri: ['dr-sandhya-rani-d'], Sat: ['dr-chaya-c'],
     },
   },
   {
     room: 5,
     name: 'Shalakya Tantra (Eye)',
     days: {
-      Mon: ['dr-sandhya-rani'], Tue: ['dr-sarbeswar-kar'], Wed: ['dr-chaya-c'],
+      Mon: ['dr-sandhya-rani-d'], Tue: ['dr-sarbeswar-kar'], Wed: ['dr-chaya-c'],
       Fri: ['dr-gavimath-shivanand'],
     },
   },
@@ -615,15 +615,15 @@ export const opdRoster: OpdRoom[] = [
     name: 'Kayachikitsa 2 (Skin & Manasa Roga)',
     days: {
       Mon: ['dr-beena-m-d'], Tue: ['dr-anu-krishna-p'], Wed: ['dr-netra-b-hubballi'],
-      Thu: ['dr-beena-m-d'], Fri: ['dr-maitri-g-m'], Sat: ['dr-harshitha-h-s'],
+      Thu: ['dr-beena-m-d'], Fri: ['dr-maithri-g-m'], Sat: ['dr-harshitha-h-s'],
     },
   },
   {
     room: 7,
     name: 'Panchakarma 2 (Neuro)',
     days: {
-      Mon: ['dr-apoorva'], Tue: ['dr-manasa-s-d'], Wed: ['dr-jyoti'],
-      Thu: ['dr-vineeth-c-p'], Fri: ['dr-veena-g-rao'], Sat: ['dr-seetha-devi'],
+      Mon: ['dr-apoorva-m-s'], Tue: ['dr-manasa-s-d'], Wed: ['dr-jyoti'],
+      Thu: ['dr-vineeth-c-p'], Fri: ['dr-veena-g-rao'], Sat: ['dr-seethadevi-p'],
     },
   },
   {
@@ -646,7 +646,7 @@ export const opdRoster: OpdRoom[] = [
     room: 10,
     name: 'Shalya Tantra (Surgery)',
     days: {
-      Mon: ['dr-siddayya-aradhyamath'], Tue: ['dr-aiyanna'], Wed: ['dr-poornima-jalawadi'],
+      Mon: ['dr-siddayya-aradhyamath'], Tue: ['dr-ayyanna-p-p'], Wed: ['dr-poornima-jalawadi'],
       Fri: ['dr-poornima-p-k-m'], Sat: ['dr-adithya-j-v'],
     },
   },
@@ -662,12 +662,12 @@ export const opdRoster: OpdRoom[] = [
     room: 12,
     name: 'Swasthavritta / Yoga & Naturopathy',
     days: {
-      Mon: ['dr-sudhakar-reddy', 'dr-nirmala-a-r'],
+      Mon: ['dr-sudhakar-reddy-p', 'dr-nirmala-a-r'],
       Tue: ['dr-vidyashree-m', 'dr-nirmala-a-r'],
       Wed: ['dr-sowmya-m-n', 'dr-nirmala-a-r'],
       Thu: ['dr-shalini-s', 'dr-nirmala-a-r'],
       Fri: ['dr-anusha-s', 'dr-nirmala-a-r'],
-      Sat: ['dr-sudhakar-reddy', 'dr-nirmala-a-r'],
+      Sat: ['dr-sudhakar-reddy-p', 'dr-nirmala-a-r'],
     },
   },
   {
@@ -720,7 +720,7 @@ export const priorAppointmentNote = 'Also available on prior appointment';
  * Doctors kept off the site at the hospital's request, matched by id. Removing
  * them in WordPress as well is cleaner; this keeps them hidden either way.
  */
-export const hiddenDoctorIds = ['dr-nischitha-m-s'];
+export const hiddenDoctorIds: string[] = [];
 
 /**
  * Swarnaprashana and Agnikarma — shown as their own row under the speciality

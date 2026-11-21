@@ -25,7 +25,7 @@ export async function DoctorsPreview() {
     department is ever renamed in WordPress — better a slightly different set
     than an empty section.
   */
-  const administration = doctors.filter((doctor) => doctor.departmentSlug === FEATURED_DEPARTMENT);
+  const administration = doctors.filter((doctor) => doctor.departments.some((d) => d.slug === FEATURED_DEPARTMENT));
   const featured = (administration.length > 0 ? administration : doctors).slice(0, 3);
 
   return (

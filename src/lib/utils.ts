@@ -34,7 +34,7 @@ export function toSlug(value: string): string {
 /** "Dr. Veena G. Rao" → "VR" — for avatar fallbacks. */
 export function initials(name: string): string {
   return name
-    .replace(/^(Dr|Prof|Mr|Mrs|Ms)\.?\s+/i, '')
+    .replace(/^(Dr|Prof|Mr|Mrs|Ms|Smt|Shri)\.?\s+/i, '')
     .split(/\s+/)
     .filter(Boolean)
     .slice(0, 2)

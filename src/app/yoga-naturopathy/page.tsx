@@ -22,7 +22,7 @@ const YOGA_DEPARTMENT = 'yoga';
 
 export default async function YogaNaturopathyPage() {
   const { doctors } = await getDoctors();
-  const team = doctors.filter((doctor) => doctor.departmentSlug === YOGA_DEPARTMENT);
+  const team = doctors.filter((doctor) => doctor.departments.some((d) => d.slug === YOGA_DEPARTMENT));
 
   return (
     <>
