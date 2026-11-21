@@ -5,7 +5,7 @@ import { Icon } from '@/components/ui/Icons';
 import { Reveal } from '@/components/ui/Reveal';
 import { Orb, Section, SectionHeading } from '@/components/ui/Section';
 import { philosophy, trustPoints } from '@/content/home';
-import { media } from '@/lib/media';
+import { media, photo } from '@/lib/media';
 
 export function Philosophy() {
   return (
@@ -20,7 +20,7 @@ export function Philosophy() {
             <Reveal>
               <div className="relative aspect-4/5 w-[78%] overflow-hidden rounded-[2rem] shadow-lift">
                 <Image
-                  src={media.faceMassage}
+                  src={photo.faceMassage}
                   alt="An Ayurvedic face massage in progress at JSS Ayurveda Hospital"
                   fill
                   sizes="(min-width: 1024px) 26rem, 70vw"

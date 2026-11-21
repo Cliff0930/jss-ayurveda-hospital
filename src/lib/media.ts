@@ -99,6 +99,9 @@ export const photo = {
   heroEyeClinic: photoFile('h-01-6-eye-clinic.webp'),
   heroShirodhara: photoFile('h-01-7-shirodhara.webp'),
 
+  /** Face massage — the WordPress photo with the therapist's necklaces and shirt buttons removed (Nov 2026). */
+  faceMassage: photoFile('h-02-face-massage.webp'),
+
   /** H-08 — "Why Choose Us" panel, right column. */
   whyChooseUs: photoFile('h-08-why-choose-us.webp'),
   /** H-11 — consultation, used by the homepage process steps and the FAQs banner. */

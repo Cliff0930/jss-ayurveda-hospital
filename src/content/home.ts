@@ -298,14 +298,9 @@ export const nabhHighlight = {
 
 export const insuranceInfo = {
   title: 'Health Insurance Support',
-  body: 'Cashless admission is available with ICICI Lombard. With every other insurer and TPA below, your treatment is covered by reimbursement — our team prepares every document you need for your claim.',
+  body: 'Cashless admission is available with ICICI Lombard. With every other insurer and TPA below, your treatment is covered by reimbursement. Our team provides guidance for your claim.',
   cashless: 'ICICI Lombard',
-  approval: 'Approved by CGHS and the State Government',
-  points: [
-    'Discharge summary and treatment records',
-    'Itemised bills and receipts',
-    'Help with your insurer’s claim forms',
-  ],
+  approval: 'Approved by CGHS',
   lists: [
     {
       title: 'Insurance companies',

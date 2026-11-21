@@ -1,5 +1,5 @@
 import type { IconName } from '@/components/ui/Icons';
-import { media } from '@/lib/media';
+import { media, photo } from '@/lib/media';
 
 /** OPD departments, transcribed from the WordPress OPD page. */
 export const departments = [
@@ -244,7 +244,7 @@ export const specialities: Speciality[] = [
     summary:
       'A gentle, personalised path to natural conception — addressing hormonal imbalance, uterine health and reproductive wellness. We have helped many women conceive naturally after failed conventional treatments.',
     icon: 'baby' as IconName,
-    image: media.faceMassage,
+    image: photo.faceMassage,
     treated: { count: '1 Lakh+', label: 'patients recovered' },
     heading: 'A Natural, Compassionate Path to Conception',
     detail: [

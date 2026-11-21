@@ -92,38 +92,29 @@ export function TrustBand() {
                 </span>
               </div>
 
-              <ul className="mt-6 grid gap-2.5">
-                {insuranceInfo.points.map((point) => (
-                  <li
-                    key={point}
-                    className="flex items-center gap-3 rounded-xl bg-sand-50 px-4 py-3 text-[0.9375rem] text-ink-700"
-                  >
-                    <Icon.check className="h-4.5 w-4.5 shrink-0 text-jade-700" aria-hidden />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-6 divide-y divide-sand-200 rounded-xl border border-sand-200">
+              <div className="mt-6 grid gap-2.5">
                 {insuranceInfo.lists.map((list) => (
-                  <details key={list.title} className="group">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-[0.9375rem] font-semibold text-jade-900 transition-colors hover:bg-sand-50 [&::-webkit-details-marker]:hidden">
-                      <span>
-                        {list.title}{' '}
-                        <span className="font-normal text-ink-500">
-                          ({list.items.length}{list.note ? ` · ${list.note.toLowerCase()}` : ''})
+                  <details key={list.title} className="group overflow-hidden rounded-[1.25rem] bg-jade-800">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-3 text-[0.875rem] font-semibold text-sand-50 transition-colors hover:bg-jade-700 [&::-webkit-details-marker]:hidden">
+                      <span className="flex items-center gap-2">
+                        <Icon.check className="h-4 w-4 shrink-0 text-turmeric-300" aria-hidden />
+                        <span>
+                          {list.title}{' '}
+                          <span className="font-normal text-sand-300">
+                            ({list.items.length}{list.note ? ` · ${list.note.toLowerCase()}` : ''})
+                          </span>
                         </span>
                       </span>
                       <Icon.chevronRight
-                        className="h-4 w-4 shrink-0 text-jade-700 transition-transform duration-300 group-open:rotate-90"
+                        className="h-4 w-4 shrink-0 text-turmeric-300 transition-transform duration-300 group-open:rotate-90"
                         aria-hidden
                       />
                     </summary>
-                    <ul className="flex flex-wrap gap-2 px-4 pb-4 pt-1">
+                    <ul className="flex flex-wrap gap-2 px-5 pb-4 pt-1">
                       {list.items.map((item) => (
                         <li
                           key={item}
-                          className="rounded-full bg-sand-50 px-3 py-1.5 text-[0.8125rem] text-ink-700"
+                          className="rounded-full border border-sand-50/15 bg-jade-900/60 px-3 py-1.5 text-[0.8125rem] text-sand-100"
                         >
                           {item}
                         </li>

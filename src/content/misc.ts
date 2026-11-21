@@ -69,7 +69,7 @@ export const faqs: AccordionItem[] = [
   {
     question: 'Do you accept health insurance?',
     answer:
-      'Yes. Cashless admission is available with ICICI Lombard. With over 20 other insurers — including Star Health, HDFC ERGO, Niva Bupa, Care Health and the public-sector insurers — and 16 TPAs such as Medi Assist, MDIndia and Vidal Health, treatment is covered by reimbursement. The hospital is also approved by CGHS and the State Government. Our team will provide all necessary documentation — discharge summary, treatment records, billing — for your claim. We recommend checking with your insurer in advance about cover for Ayurvedic in-patient treatment.',
+      'Yes. Cashless admission is available with ICICI Lombard. With over 20 other insurers — including Star Health, HDFC ERGO, Niva Bupa, Care Health and the public-sector insurers — and 16 TPAs such as Medi Assist, MDIndia and Vidal Health, treatment is covered by reimbursement. The hospital is also approved by CGHS. Our team will provide all necessary documentation — discharge summary, treatment records, billing — for your claim. We recommend checking with your insurer in advance about cover for Ayurvedic in-patient treatment.',
   },
   {
     question: 'Is the food at the hospital vegetarian?',
