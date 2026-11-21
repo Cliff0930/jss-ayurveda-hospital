@@ -186,14 +186,16 @@ function DoctorTile({
           </span>
         )}
 
-        <span className="absolute left-3 top-3 rounded-full bg-sand-50/92 px-2.5 py-1 text-[0.6875rem] font-semibold text-jade-800 backdrop-blur">
-          {chip}
-        </span>
-        {doctor.experience ? (
-          <span className="absolute right-3 top-3 rounded-full bg-turmeric-400/95 px-2.5 py-1 text-[0.6875rem] font-bold text-jade-950">
-            {doctor.experience}
+        <div className="absolute inset-x-3 top-3 flex items-start justify-between gap-2">
+          <span className="min-w-0 truncate rounded-full bg-sand-50/92 px-2.5 py-1 text-[0.6875rem] font-semibold text-jade-800 backdrop-blur">
+            {chip}
           </span>
-        ) : null}
+          {doctor.experience ? (
+            <span className="shrink-0 rounded-full bg-turmeric-400/95 px-2.5 py-1 text-[0.6875rem] font-bold text-jade-950">
+              {doctor.experience}
+            </span>
+          ) : null}
+        </div>
       </div>
 
       <div className="flex flex-1 flex-col p-5">

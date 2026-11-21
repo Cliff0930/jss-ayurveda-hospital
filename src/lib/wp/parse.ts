@@ -136,6 +136,8 @@ export type DoctorRecord = {
   qualification: string;
   designation: string;
   experience: string;
+  /** Joining date from the CMS (`YYYY-MM-DD` or ACF's `YYYYMMDD`), '' when not set. */
+  joinedOn: string;
   department: string;
   departmentSlug: string;
   /** Every department the doctor belongs to, primary first. */
@@ -149,6 +151,7 @@ type RawDoctorPayload = {
   qual?: string;
   desig?: string;
   exp?: string;
+  joined?: string;
   dept?: string;
   depts?: { slug?: string; name?: string }[];
   specs?: string[];
@@ -215,6 +218,7 @@ export function parseDoctors(html: string): DoctorRecord[] {
       qualification: (payload.qual ?? '').trim(),
       designation: decodeEntities(payload.desig ?? '').trim(),
       experience: (payload.exp ?? '').trim(),
+      joinedOn: (payload.joined ?? '').trim(),
       department,
       departmentSlug,
       departments: departments.length > 0 ? departments : [{ slug: departmentSlug, name: department }],

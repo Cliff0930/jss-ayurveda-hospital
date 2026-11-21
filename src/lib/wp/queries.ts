@@ -1,4 +1,5 @@
 import { hiddenDoctorIds } from '@/content/clinical';
+import { timeSince } from '@/lib/utils';
 import { unstable_cache } from 'next/cache';
 
 import {
@@ -100,7 +101,12 @@ export const getDoctors = cachedPageQuery(WP_SLUGS.doctors, 'doctors', (page): D
   // Qualifications are kept off the site at the hospital's request.
   const doctors = parseDoctors(page.content.rendered)
     .filter((doctor) => !hidden.has(doctor.id))
-    .map((doctor) => ({ ...doctor, qualification: '' }));
+    .map((doctor) => ({
+      ...doctor,
+      qualification: '',
+      // A joining date, once entered in the CMS, replaces the typed experience text.
+      experience: timeSince(doctor.joinedOn) ?? doctor.experience,
+    }));
   const declared = parseDoctorDepartments(page.content.rendered);
 
   // Prefer the editor-defined pill order; append any department that only shows
