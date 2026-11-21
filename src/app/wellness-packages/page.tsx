@@ -127,7 +127,7 @@ export default function WellnessPackagesPage() {
 
             <div>
               <SectionHeading
-                eyebrow="100% Authentic Ayurvedic Medicines"
+                eyebrow="Authentic Ayurvedic Medicines"
                 title="Prepared on-site — from our garden to your treatment"
                 intro={
                   <>

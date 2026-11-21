@@ -11,7 +11,7 @@ export function Achievements() {
       />
 
       <div className="container-page relative">
-        <dl className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="grid gap-10 sm:grid-cols-3">
           {achievements.map((item, index) => (
             <Reveal
               key={item.label}

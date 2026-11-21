@@ -94,7 +94,7 @@ export const aboutStory = {
   title: 'The Natural Way to Achieving Balance and Optimal Health',
   paragraphs: [
     'JSS Ayurveda Hospital started in August 1992 on MG Road, Mysuru, with all speciality treatments and one aim — quality Ayurvedic care for the public, especially the rural population. In its early years it served the poor and rural families of Mysuru, Chamarajanagara, Kodagu (Coorg) and Mandya districts. Today patients come from across India and the world, and more than 25 lakh have been treated here.',
-    'Today we stand on a peaceful 15-acre campus at the foothills of the Chamundi Hills — home to over 300 species of medicinal herbs, 26 specialised therapy rooms, a NABH-accredited hospital and a team of doctors dedicated to authentic Ayurvedic healing with 100% authentic Ayurvedic medicines.',
+    'Today we stand on a peaceful 15-acre campus at the foothills of the Chamundi Hills — home to over 300 species of medicinal herbs, 26 specialised therapy rooms, a NABH-accredited hospital and a team of doctors dedicated to authentic Ayurvedic healing and medicines.',
     'We are also a teaching hospital: our vaidyas are both teachers and practising doctors, which keeps them rooted in classical Ayurvedic principles while bringing a modern outlook to every patient they treat.',
     'We are proudly part of the JSS Mahavidyapeetha — a century-old institution started by Jagadguru Sri Shivarathreeshwara Mahaswamiji, built on the principle of selfless service to all.',
   ],

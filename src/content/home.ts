@@ -14,7 +14,7 @@ export const hero = {
   eyebrow: `Trusted since 1992 · NABH Accredited`,
   title: 'An Ancient Key For Total Wellbeing',
   intro:
-    'Trusted since 1992 by more than 25 lakh patients from India and across the world — JSS Ayurveda Hospital, Mysuru, where 5,000 years of Ayurvedic wisdom meets compassionate, personalised healing with 100% authentic Ayurvedic medicines.',
+    'Trusted since 1992 by more than 25 lakh patients from India and across the world — JSS Ayurveda Hospital, Mysuru, where 5,000 years of Ayurvedic wisdom meets compassionate, personalised healing with authentic Ayurvedic medicines.',
   primary: { label: 'Book a Consultation', href: '/contact' },
   secondary: { label: 'Insurance', href: '/#insurance' },
 } as const;
@@ -52,7 +52,7 @@ export const heroSlides = [
 
 export const trustPoints = [
   {
-    title: '100% Authentic Ayurvedic Medicines',
+    title: 'Authentic Ayurvedic Medicines',
     body: 'Classical formulations prepared from herbs grown in our own on-campus garden.',
     icon: 'leaf' as IconName,
   },
@@ -74,7 +74,6 @@ export const trustPoints = [
 ] as const;
 
 export const achievements = [
-  { value: 100, suffix: '%', label: 'Authentic Ayurvedic Medicines', detail: 'Prepared in our own unit' },
   { value: 25, suffix: ' Lakhs+', label: 'Happy Patients', detail: 'Treated since 1992' },
   { value: 33, suffix: '+', label: 'Years of Experience', detail: 'Started in August 1992' },
   { value: 44, suffix: '', label: 'Qualified Doctors', detail: 'BAMS, MD & MS consultants' },
@@ -125,7 +124,7 @@ export const services = [
 
 export const whyUs = [
   {
-    title: '100% Authentic Ayurvedic Medicines',
+    title: 'Authentic Ayurvedic Medicines',
     body: 'All Churnas, Kashayams, Ghritams and Tailas are prepared in our in-house GMP-certified Ayur-Drug Manufacturing Unit, from hand-picked, high-quality herbs grown in our 15-acre herbal garden. Organic, authentic and quality-controlled.',
   },
   {
