@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 
+import { departmentDetails } from '@/content/departments';
 import { site } from '@/lib/site';
 
 const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
@@ -8,6 +9,11 @@ const routes: { path: string; priority: number; changeFrequency: MetadataRoute.S
   { path: '/about/jss-mahavidyapeetha', priority: 0.6, changeFrequency: 'yearly' },
   { path: '/doctors', priority: 0.9, changeFrequency: 'weekly' },
   { path: '/opd', priority: 0.9, changeFrequency: 'monthly' },
+  ...Object.keys(departmentDetails).map((slug) => ({
+    path: `/opd/${slug}`,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+  })),
   { path: '/specialities', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/yoga-naturopathy', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/facilities', priority: 0.8, changeFrequency: 'monthly' },

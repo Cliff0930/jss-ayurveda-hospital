@@ -7,6 +7,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { departments } from '@/content/clinical';
+import { departmentDetails } from '@/content/departments';
 import { photo } from '@/lib/media';
 import { getPackagePosters } from '@/lib/wp/queries';
 
@@ -52,7 +53,7 @@ export default async function PackagesPage() {
             {departments.map((department, index) => (
               <Reveal key={department.slug} delay={index * 60}>
                 <a
-                  href={`/opd#${department.slug}`}
+                  href={department.slug in departmentDetails ? `/opd/${department.slug}` : `/opd#${department.slug}`}
                   className="inline-flex flex-col rounded-card border border-sand-200 bg-sand-50 px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-jade-200 hover:bg-white hover:shadow-soft"
                 >
                   <span className="text-[0.9375rem] font-semibold text-jade-900">{department.name}</span>

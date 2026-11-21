@@ -9,6 +9,7 @@ import { PageHero } from '@/components/ui/PageHero';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section, SectionHeading } from '@/components/ui/Section';
 import { departments, opdInfo } from '@/content/clinical';
+import { departmentDetails } from '@/content/departments';
 import { photo } from '@/lib/media';
 import { contact } from '@/lib/site';
 import { getDoctors } from '@/lib/wp/queries';
@@ -137,6 +138,12 @@ export default async function OpdPage() {
                       </div>
 
                       <p className="mt-5 text-[0.9375rem] leading-relaxed text-ink-500">{department.body}</p>
+
+                      {department.slug in departmentDetails ? (
+                        <ButtonLink href={`/opd/${department.slug}`} variant="ghost" size="sm" arrow className="-ml-4 mt-5">
+                          Explore {department.name}
+                        </ButtonLink>
+                      ) : null}
                     </div>
 
                     <div className="rounded-2xl bg-sand-50 p-6">

@@ -131,6 +131,9 @@ export const photo = {
   opdBanner: photoFile('o-01-opd-banner.webp'),
   opdPortrait: photoFile('o-02-consultation-portrait.webp'),
 
+  /** D-01 — Shalyatantra operation theatre, from the hospital's About document (Nov 2026, 940×627). */
+  shalyaTheatre: photoFile('d-01-shalya-theatre.webp'),
+
   /** S-01 — Speciality Clinics (also the Our Doctors banner). */
   specialitiesBanner: photoFile('s-01-specialities-banner.webp'),
 

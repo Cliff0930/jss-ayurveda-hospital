@@ -8,15 +8,15 @@ export const departments = [
     name: 'Kayachikitsa',
     english: 'General Medicine',
     icon: 'stethoscope' as IconName,
-    body: 'The foundational branch of Ayurveda, Kayachikitsa corrects the digestive fire (Agni) and restores balance of Vata, Pitta and Kapha to address chronic conditions at their root.',
+    body: 'The foremost branch of Ashtanga Ayurveda and its counterpart of internal medicine. Kayachikitsa restores Agni (the digestive fire) and the balance of Vata, Pitta and Kapha to manage acute and chronic illness of body and mind.',
     listTitle: 'Conditions treated',
     list: [
-      'Skin diseases — Psoriasis, Eczema, Urticaria, Atopic Dermatitis',
-      'Gastritis and Irritable Bowel Syndrome',
-      'Arthritis — Osteoarthritis, Rheumatoid Arthritis',
-      'Respiratory diseases (Kasa, Swasa)',
-      'Jaundice (Kaamale)',
-      'Neurovascular disorders',
+      'Arthritis, spine and joint disorders',
+      'Skin and hair — Psoriasis, Eczema, Urticaria, Acne',
+      'Gastritis, acid-peptic disorders and IBS',
+      'Liver — Jaundice (Kamala), Hepatitis, Fatty liver',
+      'Diabetes, Hypertension, Thyroid and lifestyle disorders',
+      'Stroke, Parkinson’s and other neurological conditions',
     ],
   },
   {
@@ -24,7 +24,7 @@ export const departments = [
     name: 'Panchakarma',
     english: 'Purification Therapies',
     icon: 'drop' as IconName,
-    body: "JSS Ayurveda Hospital's dedicated Panchakarma department offers the complete spectrum of classical purification therapies — each individually prescribed and performed under direct medical supervision.",
+    body: "Classical detoxification and restorative therapies, each chosen for the patient's constitution, strength, age, digestion and condition — and given under direct medical supervision. The department also runs a Neuro Speciality Clinic.",
     listTitle: 'Key procedures',
     list: [
       'Abhyanga, Avagaha, Udwarthana, Upanaha',
@@ -40,15 +40,15 @@ export const departments = [
     name: 'Shalakyatantra',
     english: 'ENT & Ophthalmology',
     icon: 'eye' as IconName,
-    body: 'Shalakyatantra is the branch of Ayurveda that deals with all diseases of the body above the neck — the eyes, ears, nose, throat, teeth, oral cavity, skull and brain.',
+    body: 'Preventive, promotive and curative Ayurvedic care for the eyes, ears, nose, throat, mouth and related structures of the head and neck — with modern clinical examination for accurate assessment.',
     listTitle: 'Conditions treated',
     list: [
-      'Netra Rogas — eye disorders',
-      'Karna Rogas — ear conditions',
-      'Nasa Rogas — nasal and sinus conditions',
-      'Mukha Rogas — oral and dental health',
-      'Shiro Rogas — head and skull disorders',
-      'CNS and brain conditions',
+      'Netra Roga — dry eye, digital eye strain, eyelid and corneal disorders',
+      'Karna Roga — earache, tinnitus, hearing complaints',
+      'Nasa Roga — allergic rhinitis, sinusitis, congestion',
+      'Mukha–Kantha Roga — sore throat, hoarseness, tonsils',
+      'Mukha & Danta Roga — mouth ulcers, gum disorders',
+      'Netra Kriyakalpa, Nasya, Karna Purana, Gandusha',
     ],
   },
   {
@@ -72,15 +72,15 @@ export const departments = [
     name: 'Prasoothi & Streeroga',
     english: 'Obstetrics & Gynaecology',
     icon: 'baby' as IconName,
-    body: 'Comprehensive Ayurvedic care for women across all life stages — from puberty and menstrual health to fertility, pregnancy and post-natal recovery.',
+    body: 'Ayurvedic and evidence-based care for women at every stage of life — adolescence, the reproductive years, pregnancy, childbirth and menopause.',
     listTitle: 'Services',
     list: [
-      'Pre-conceptional care and Garbhasanskara',
-      'Month-wise pregnancy regimen and yoga in pregnancy',
-      'Menstrual disorder management — PCOS, thyroid, obesity-related',
-      'Post-natal care',
-      'Infertility management (male and female)',
-      'Non-surgical management of pregnancy complaints',
+      'Preconception, antenatal and postnatal care',
+      'Month-wise pregnancy diet and yoga',
+      'Menstrual health clinic and PCOS / PCOD',
+      'Infertility OPD, including after failed IVF',
+      'Fibroids, leucorrhoea and menopausal care',
+      'Uttara Basti, Yoni Pichu and other local procedures',
     ],
   },
   {
@@ -88,14 +88,14 @@ export const departments = [
     name: 'Shalyatantra',
     english: 'Surgery',
     icon: 'scalpel' as IconName,
-    body: 'Rooted in the surgical science of Sushruta, this department offers both classical Ayurvedic surgery and proven para-surgical techniques for conditions that require precision intervention.',
+    body: 'Ayurvedic surgery integrated with contemporary surgical principles, with a fully equipped Major Operation Theatre, a Maggot Debridement Therapy Clinic and an exclusive Anushastra OPD for para-surgical procedures.',
     listTitle: 'Conditions treated',
     list: [
-      'Piles, Fissure, Fistula-in-Ano, Recurrent Abscess',
-      'Gall Stones, Hernias, Varicose Veins',
-      'Cysts, Warts, Corns, Osteomyelitis, UTI',
-      'Traumatic and deformity conditions',
-      'Para-surgical: Agnikarma, Ksharakarma, Kshara Sutra, Jalukavacharana',
+      'Piles, fissure and fistula — Ksharasutra therapy',
+      'Hernia repair, haemorrhoidectomy and excisions',
+      'Chronic and non-healing wounds, diabetic foot ulcers',
+      'Cysts, lipomas, warts and corns',
+      'Para-surgical: Agnikarma, Ksharakarma, Jalaukavacharana, Siravyadha',
     ],
   },
   {
@@ -103,15 +103,15 @@ export const departments = [
     name: 'Kaumarabhritya',
     english: 'Paediatrics',
     icon: 'child' as IconName,
-    body: "Safe, gentle and evidence-informed Ayurvedic care for children — from newborns to teenagers. Our Kaumarabhritya department uses natural treatments tailored to each stage of a child's growth and development.",
+    body: 'Preventive, promotive and curative Ayurvedic care for infants, children and adolescents — with emphasis on nutrition, immunity, growth, development and neurodevelopmental conditions.',
     listTitle: 'Conditions treated',
     list: [
-      'Cerebral Palsy, Muscular Dystrophy',
-      'Autism Spectrum Disorder, ADHD, Developmental Delays',
-      'Neonatal care and infant feeding guidance',
-      'Gastrointestinal diseases',
-      'Kasa — respiratory conditions',
-      'General child health and immunity',
+      'Autism, ADHD, cerebral palsy and developmental delay',
+      'Speech delay — AYURVANI satellite OPD',
+      'Recurrent infections, asthma and allergies',
+      'Growth, nutrition and feeding guidance',
+      'Monthly Swarnaprashana',
+      'Neonatal care',
     ],
   },
 ] as const;
@@ -169,7 +169,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'parkinsons',
     name: "Parkinson's Clinic",
-    department: 'Department of Panchakarma',
+    department: 'Department of Kayachikitsa',
     summary:
       "Panchakarma and Rasayana-based approach to support neurological function, reduce tremors, improve mobility and enhance quality of life for Parkinson's patients.",
     icon: 'brain' as IconName,
@@ -266,6 +266,7 @@ export const specialities: Speciality[] = [
   {
     slug: 'piles-fistula',
     name: 'Piles & Fistula-in-Ano Clinic',
+    department: 'Department of Shalyatantra',
     summary:
       'Minimally invasive Ayurvedic para-surgical procedures for piles, fissure and fistula — including the classical Kshara Sutra technique, proven safe and effective with a fast recovery time.',
     icon: 'scalpel' as IconName,
@@ -286,9 +287,7 @@ export const specialities: Speciality[] = [
       'For Osteoarthritis, we focus on nourishing the joint with Katibasti, Janubasti, Abhyanga and Navarakizhi. For Rheumatoid Arthritis, our treatment targets the immune response using Virechana, Basti and anti-inflammatory herbal medicine. Results are carefully monitored by our doctors throughout the treatment program.',
     ],
   },
-  // The three clinics below are listed on jssamch.org. The hospital will
-  // supply each description (and any patient numbers) later; until then the
-  // card shows the clinic and its department only.
+  // Still awaiting the hospital's description: the card shows the clinic and its department only.
   {
     slug: 'manasa-roga',
     name: 'Manasa Roga Clinic',
@@ -299,17 +298,32 @@ export const specialities: Speciality[] = [
   },
   {
     slug: 'neuro',
-    name: 'Neuro Clinic',
+    name: 'Neuro Speciality Clinic',
     // OPD roster: "Panchakarma 2 (Neuro)", room 7.
     department: 'Department of Panchakarma',
+    summary:
+      'Integrated Ayurvedic management and rehabilitation for stroke, paraparesis, IVDP with radiculopathy, motor neuron disease, multiple sclerosis, GBS and other neurological conditions.',
     icon: 'brain' as IconName,
     image: media.backMassage,
+    heading: 'Integrated Rehabilitation for Neurological Conditions',
+    detail: [
+      "The Department of Panchakarma's Neuro Speciality Clinic provides comprehensive, integrated Ayurvedic management for a wide range of neurological conditions — stroke, quadriparesis, paraparesis, post-laminectomy cases with neurological deficits, cervical and lumbar IVDP with radiculopathy, sensory neuropathy, motor neuron disease (MND), Parkinson's disease, hypoxic encephalopathy, multiple sclerosis, Guillain–Barré syndrome (GBS) and more.",
+      'Rehabilitation is coordinated across Ayurvedic therapies, physiotherapy, and speech and hearing services, with the aim of improving functional recovery, mobility, communication, quality of life and overall well-being.',
+    ],
   },
   {
     slug: 'maggot-debridement',
     name: 'Maggot Debridement Therapy Clinic',
+    department: 'Department of Shalyatantra',
+    summary:
+      'A safe, natural way to clean chronic and non-healing wounds — diabetic foot ulcers, pressure sores and other wounds where routine wound care has not been enough.',
     icon: 'leaf' as IconName,
     image: media.greenery,
+    heading: 'Helping Non-Healing Wounds Heal',
+    detail: [
+      'Maggot Debridement Therapy (MDT) is a safe and natural method for cleaning difficult or non-healing wounds. Specially grown, medically sterilised maggots are placed on the wound, where they remove dead or infected tissue while leaving healthy tissue largely untouched.',
+      'This helps reduce infection, cleans the wound and creates a healthy environment for healing. The Department of Shalyatantra has made MDT part of routine clinical practice, and runs this dedicated clinic for diabetic foot ulcers, pressure sores and other chronic wounds.',
+    ],
   },
 ];
 
