@@ -292,8 +292,8 @@ export const departmentDetails: Record<string, DepartmentDetail> = {
   'prasooti-streeroga': {
     formalName: 'Department of PG Studies in Prasuti Tantra & Stree Roga',
     headline: "Women's health at every stage of life",
-    image: photo.consultation,
-    imageAlt: 'A consultant speaking with a patient during an OPD consultation',
+    image: photo.specialitiesBanner,
+    imageAlt: 'Consultants reviewing a patient at JSS Ayurveda Hospital',
     intro: [
       'Prasuti Tantra is the Ayurvedic science of pregnancy, childbirth and maternal care; Stree Roga covers diseases of the female reproductive system.',
       "The department offers comprehensive Ayurvedic and evidence-based care for women from adolescence through the reproductive years, pregnancy, childbirth and menopause — integrating classical principles with modern diagnostics and treatment to support reproductive health, well-being and quality of life.",
