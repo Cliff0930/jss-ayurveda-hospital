@@ -276,3 +276,35 @@ export const onlineConsultation = {
     },
   ],
 } as const;
+
+/**
+ * Gallery photos kept off the /gallery page at the hospital's request (anything
+ * showing people, plus a few the client picked), matched by WordPress file name.
+ * The files stay in WordPress.
+ */
+export const hiddenGalleryImages = [
+  'JSSAMCH_Infrastrure_2.webp',
+  'JSSAMCH_Infrastrure_3.webp',
+  'JSSAMCH-Enchanting-Environment-img5.webp',
+  'JSSAMCH-Enchanting-Environment-img6.webp',
+  'Garden-image1.webp',
+  'Garden-image8.webp',
+  'JSS_NAHB.webp',
+  'jss-hospital-NABH-5.webp',
+  'jss-hospital-NABH-6.webp',
+  'jss-hospital-NABH-7.webp',
+  'jss-hospital-NABH-8.webp',
+  'jss-hospital-NABH-9.webp',
+  'Free-Medical-Camp-at-JSS-public-school-2018-img1.webp',
+  'Free-Medical-Camp-at-JSS-public-school-2018-img2.webp',
+  'Free-Medical-Camp-at-JSS-public-school-2018-img3.webp',
+  'Free-Medical-Camp-at-JSS-public-school-2018-img4.webp',
+  'Free-Medical-Camp-at-JSS-public-school-2018-img5.webp',
+  'Free-Medical-Camp-at-JSS-public-school-2018-img6.webp',
+  '103-Jayanthi-Celebration-10.webp',
+  '103-Jayanthi-Celebration-11.webp',
+  '103-Jayanthi-Celebration-12.webp',
+  '103-Jayanthi-Celebration-13.webp',
+  '103-Jayanthi-Celebration-14.webp',
+  '103-Jayanthi-Celebration-15.webp',
+];

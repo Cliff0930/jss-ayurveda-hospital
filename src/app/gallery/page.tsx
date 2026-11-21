@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { GalleryGrid } from '@/components/gallery/GalleryGrid';
 import { CtaBand } from '@/components/shared/CtaBand';
 import { PageHero } from '@/components/ui/PageHero';
+import { hiddenGalleryImages } from '@/content/misc';
 import { Section } from '@/components/ui/Section';
 import { photo } from '@/lib/media';
 import { getGallery } from '@/lib/wp/queries';
@@ -10,11 +11,17 @@ import { getGallery } from '@/lib/wp/queries';
 export const metadata: Metadata = {
   title: 'Gallery',
   description:
-    'Life at JSS Ayurveda Hospital, Mysuru — our campus and infrastructure, herbal garden, NABH accreditation, free medical camps and events.',
+    'Life at JSS Ayurveda Hospital, Mysuru — our campus and infrastructure, green surroundings and herbal garden.',
 };
 
 export default async function GalleryPage() {
-  const groups = await getGallery();
+  const hidden = new Set(hiddenGalleryImages);
+  const groups = (await getGallery())
+    .map((group) => ({
+      ...group,
+      images: group.images.filter((image) => !hidden.has(image.src.split('/').pop() ?? '')),
+    }))
+    .filter((group) => group.images.length > 0);
   const total = groups.reduce((sum, group) => sum + group.images.length, 0);
 
   return (
@@ -24,7 +31,7 @@ export default async function GalleryPage() {
         title="Life at JSS Ayurveda Hospital"
         crumbs={[{ label: 'Gallery' }]}
         image={photo.galleryBanner}
-        intro={`Our campus, gardens, events and community outreach — ${total} photographs from the hospital.`}
+        intro={`Our campus, wards and gardens — ${total} photographs from the hospital.`}
       />
 
       <Section tone="cream">
